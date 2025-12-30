@@ -1,0 +1,313 @@
+classes:
+  - name: Ausruestungsgegenstand
+    properties:
+      - name: order
+        value: name
+    attributes:
+      - name: id
+        properties:
+          - name: nullable
+            value: false
+          - name: id
+            value: true
+        type:
+          name: UUID
+          properties:
+            - name: import
+              value: java.util.UUID
+      - name: name
+        properties:
+          - name: nullable
+            value: false
+        type:
+          name: String
+  - name: AusruestungsgegenstandPunk
+    attributes:
+      - name: id
+        properties:
+          - name: nullable
+            value: false
+          - name: id
+            value: true
+        type:
+          name: UUID
+          properties:
+            - name: import
+              value: java.util.UUID
+      - name: ausruestungsgegenstand
+        properties:
+          - name: nullable
+            value: false
+        reference: true
+        type:
+          name: Ausruestungsgegenstand
+      - name: punk
+        properties:
+          - name: nullable
+            value: false
+        reference: true
+        type:
+          name: Punk
+  - name: Eigenschaft
+    properties:
+      - name: order
+        value: name
+    attributes:
+      - name: id
+        properties:
+          - name: nullable
+            value: false
+          - name: id
+            value: true
+        type:
+          name: UUID
+          properties:
+            - name: import
+              value: java.util.UUID
+      - name: name
+        properties:
+          - name: nullable
+            value: false
+        type:
+          name: String
+  - name: EigenschaftPunk
+    attributes:
+      - name: id
+        properties:
+          - name: nullable
+            value: false
+          - name: id
+            value: true
+        type:
+          name: UUID
+          properties:
+            - name: import
+              value: java.util.UUID
+      - name: eigenschaft
+        properties:
+          - name: nullable
+            value: false
+        reference: true
+        type:
+          name: Eigenschaft
+      - name: punk
+        properties:
+          - name: nullable
+            value: false
+        reference: true
+        type:
+          name: Punk
+  - name: Fertigkeit
+    properties:
+      - name: order
+        value: name
+    attributes:
+      - name: id
+        properties:
+          - name: nullable
+            value: false
+          - name: id
+            value: true
+        type:
+          name: UUID
+          properties:
+            - name: import
+              value: java.util.UUID
+      - name: eigenschaft
+        properties:
+          - name: nullable
+            value: false
+        reference: true
+        type:
+          name: Eigenschaft
+      - name: name
+        properties:
+          - name: nullable
+            value: false
+        type:
+          name: String
+  - name: FertigkeitPunk
+    attributes:
+      - name: id
+        properties:
+          - name: nullable
+            value: false
+          - name: id
+            value: true
+        type:
+          name: UUID
+          properties:
+            - name: import
+              value: java.util.UUID
+      - name: fertigkeit
+        properties:
+          - name: nullable
+            value: false
+        reference: true
+        type:
+          name: Fertigkeit
+      - name: punk
+        properties:
+          - name: nullable
+            value: false
+        reference: true
+        type:
+          name: Punk
+      - name: wert
+        properties:
+          - name: nullable
+            value: false
+        type:
+          name: int
+  - name: Punk
+    properties:
+      - name: order
+        value: name
+    attributes:
+      - name: id
+        properties:
+          - name: nullable
+            value: false
+          - name: id
+            value: true
+        type:
+          name: UUID
+          properties:
+            - name: import
+              value: java.util.UUID
+      - name: name
+        properties:
+          - name: nullable
+            value: false
+        type:
+          name: String
+      - name: panzerungKoerper
+        reference: true
+        type:
+          name: Panzerung
+      - name: panzerungKopf
+        reference: true
+        type:
+          name: Panzerung
+      - name: rolle
+        reference: true
+        type:
+          name: Rolle
+  - name: Panzerung
+    properties:
+      - name: order
+        value: name
+    attributes:
+      - name: id
+        properties:
+          - name: nullable
+            value: false
+          - name: id
+            value: true
+        type:
+          name: UUID
+          properties:
+            - name: import
+              value: java.util.UUID
+      - name: koerperpanzerung
+        properties:
+          - name: nullable
+            value: false
+        type:
+          name: boolean
+      - name: name
+        properties:
+          - name: nullable
+            value: false
+        type:
+          name: String
+      - name: sw
+        properties:
+          - name: nullable
+            value: false
+        type:
+          name: int
+  - name: Rolle
+    properties:
+      - name: order
+        value: name
+    attributes:
+      - name: id
+        properties:
+          - name: nullable
+            value: false
+          - name: id
+            value: true
+        type:
+          name: UUID
+          properties:
+            - name: import
+              value: java.util.UUID
+      - name: name
+        properties:
+          - name: nullable
+            value: false
+        type:
+          name: String
+  - name: Waffe
+    properties:
+      - name: order
+        value: name
+    attributes:
+      - name: id
+        properties:
+          - name: nullable
+            value: false
+          - name: id
+            value: true
+        type:
+          name: UUID
+          properties:
+            - name: import
+              value: java.util.UUID
+      - name: fertigkeit
+        properties:
+          - name: nullable
+            value: false
+        reference: true
+        type:
+          name: Fertigkeit
+      - name: name
+        properties:
+          - name: nullable
+            value: false
+        type:
+          name: String
+      - name: schaden
+        properties:
+          - name: nullable
+            value: false
+        type:
+          name: int
+  - name: WaffePunk
+    attributes:
+      - name: id
+        properties:
+          - name: nullable
+            value: false
+          - name: id
+            value: true
+        type:
+          name: UUID
+          properties:
+            - name: import
+              value: java.util.UUID
+      - name: punk
+        properties:
+          - name: nullable
+            value: false
+        reference: true
+        type:
+          name: Punk
+      - name: waffe
+        properties:
+          - name: nullable
+            value: false
+        reference: true
+        type:
+          name: Waffe

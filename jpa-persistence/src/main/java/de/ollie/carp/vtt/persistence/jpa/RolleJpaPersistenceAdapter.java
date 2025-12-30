@@ -1,0 +1,55 @@
+package de.ollie.carp.vtt.persistence.jpa;
+
+import de.ollie.carp.vtt.core.service.model.Rolle;
+import de.ollie.carp.vtt.core.service.port.persistence.RollePersistencePort;
+import de.ollie.carp.vtt.persistence.jpa.mapper.RolleDboMapper;
+import de.ollie.carp.vtt.persistence.jpa.repository.RolleDboRepository;
+import jakarta.inject.Named;
+import java.util.List;
+import java.util.Optional;
+import lombok.Generated;
+import lombok.RequiredArgsConstructor;
+
+import java.util.UUID;
+
+/**
+ * GENERATED CODE - DO NOT TOUCH
+ *
+ * Remove this comment to suspend class from generation process.
+ */
+@Generated
+@Named
+@RequiredArgsConstructor
+public class RolleJpaPersistenceAdapter implements RollePersistencePort {
+
+	private final RolleDboMapper mapper;
+	private final RolleDboRepository repository;
+
+	@Override
+	public Rolle create(String name, byte[] image) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteById(UUID id) {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public Optional<Rolle> findById(UUID id) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
+	}
+
+	@Override
+	public List<Rolle> list() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Rolle update(Rolle toSave) {
+		return mapper.toModel(repository.save(mapper.toDbo(toSave)));
+	}
+}
