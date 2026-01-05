@@ -3,6 +3,8 @@ classes:
     properties:
       - name: order
         value: name
+      - name: gui
+        value: true
     attributes:
       - name: id
         properties:
@@ -19,9 +21,14 @@ classes:
         properties:
           - name: nullable
             value: false
+          - name: editor-position
+            value: 1
         type:
           name: String
   - name: AusruestungsgegenstandPunk
+    properties:
+      - name: gui
+        value: true
     attributes:
       - name: id
         properties:
@@ -38,6 +45,8 @@ classes:
         properties:
           - name: nullable
             value: false
+          - name: editor-position
+            value: 2
         reference: true
         type:
           name: Ausruestungsgegenstand
@@ -45,6 +54,8 @@ classes:
         properties:
           - name: nullable
             value: false
+          - name: editor-position
+            value: 2
         reference: true
         type:
           name: Punk
@@ -52,6 +63,8 @@ classes:
     properties:
       - name: order
         value: name
+      - name: gui
+        value: true
     attributes:
       - name: id
         properties:
@@ -68,9 +81,14 @@ classes:
         properties:
           - name: nullable
             value: false
+          - name: editor-position
+            value: 1
         type:
           name: String
   - name: EigenschaftPunk
+    properties:
+      - name: gui
+        value: true
     attributes:
       - name: id
         properties:
@@ -87,6 +105,8 @@ classes:
         properties:
           - name: nullable
             value: false
+          - name: editor-position
+            value: 2
         reference: true
         type:
           name: Eigenschaft
@@ -94,13 +114,25 @@ classes:
         properties:
           - name: nullable
             value: false
+          - name: editor-position
+            value: 1
         reference: true
         type:
           name: Punk
+      - name: wert
+        properties:
+          - name: nullable
+            value: false
+          - name: editor-position
+            value: 3
+        type:
+          name: int
   - name: Fertigkeit
     properties:
       - name: order
         value: name
+      - name: gui
+        value: true
     attributes:
       - name: id
         properties:
@@ -117,6 +149,8 @@ classes:
         properties:
           - name: nullable
             value: false
+          - name: editor-position
+            value: 2
         reference: true
         type:
           name: Eigenschaft
@@ -124,9 +158,22 @@ classes:
         properties:
           - name: nullable
             value: false
+          - name: editor-position
+            value: 1
         type:
           name: String
+      - name: rollenfertigkeit
+        properties:
+          - name: nullable
+            value: false
+          - name: editor-position
+            value: 3
+        type:
+          name: boolean
   - name: FertigkeitPunk
+    properties:
+      - name: gui
+        value: true
     attributes:
       - name: id
         properties:
@@ -143,6 +190,8 @@ classes:
         properties:
           - name: nullable
             value: false
+          - name: editor-position
+            value: 2
         reference: true
         type:
           name: Fertigkeit
@@ -150,6 +199,8 @@ classes:
         properties:
           - name: nullable
             value: false
+          - name: editor-position
+            value: 1
         reference: true
         type:
           name: Punk
@@ -157,12 +208,16 @@ classes:
         properties:
           - name: nullable
             value: false
+          - name: editor-position
+            value: 3
         type:
           name: int
   - name: Punk
     properties:
       - name: order
         value: name
+      - name: gui
+        value: true
     attributes:
       - name: id
         properties:
@@ -179,17 +234,30 @@ classes:
         properties:
           - name: nullable
             value: false
+          - name: editor-position
+            value: 1
         type:
           name: String
       - name: panzerungKoerper
+        properties:
+          - name: editor-position
+            value: 4
         reference: true
         type:
           name: Panzerung
       - name: panzerungKopf
+        properties:
+          - name: editor-position
+            value: 3
         reference: true
         type:
           name: Panzerung
       - name: rolle
+        properties:
+          - name: nullable
+            value: false
+          - name: editor-position
+            value: 2
         reference: true
         type:
           name: Rolle
@@ -197,6 +265,8 @@ classes:
     properties:
       - name: order
         value: name
+      - name: gui
+        value: true
     attributes:
       - name: id
         properties:
@@ -213,24 +283,32 @@ classes:
         properties:
           - name: nullable
             value: false
+          - name: editor-position
+            value: 1
         type:
           name: boolean
       - name: name
         properties:
           - name: nullable
             value: false
+          - name: editor-position
+            value: 2
         type:
           name: String
       - name: sw
         properties:
           - name: nullable
             value: false
+          - name: editor-position
+            value: 3
         type:
           name: int
   - name: Rolle
     properties:
       - name: order
         value: name
+      - name: gui
+        value: true
     attributes:
       - name: id
         properties:
@@ -247,44 +325,23 @@ classes:
         properties:
           - name: nullable
             value: false
+          - name: editor-position
+            value: 1
         type:
           name: String
-  - name: Waffe
-    properties:
-      - name: order
-        value: name
-    attributes:
-      - name: id
+      - name: rollenfertigkeit
         properties:
           - name: nullable
             value: false
-          - name: id
-            value: true
-        type:
-          name: UUID
-          properties:
-            - name: import
-              value: java.util.UUID
-      - name: fertigkeit
-        properties:
-          - name: nullable
-            value: false
+          - name: editor-position
+            value: 2
         reference: true
         type:
           name: Fertigkeit
-      - name: name
-        properties:
-          - name: nullable
-            value: false
-        type:
-          name: String
-      - name: schaden
-        properties:
-          - name: nullable
-            value: false
-        type:
-          name: int
-  - name: WaffePunk
+  - name: RollePunk
+    properties:
+      - name: gui
+        value: true
     attributes:
       - name: id
         properties:
@@ -301,6 +358,85 @@ classes:
         properties:
           - name: nullable
             value: false
+          - name: editor-position
+            value: 1
+        reference: true
+        type:
+          name: Punk
+      - name: rolle
+        properties:
+          - name: nullable
+            value: false
+          - name: editor-position
+            value: 2
+        reference: true
+        type:
+          name: Rolle
+  - name: Waffe
+    properties:
+      - name: order
+        value: name
+      - name: gui
+        value: true
+    attributes:
+      - name: id
+        properties:
+          - name: nullable
+            value: false
+          - name: id
+            value: true
+        type:
+          name: UUID
+          properties:
+            - name: import
+              value: java.util.UUID
+      - name: fertigkeit
+        properties:
+          - name: nullable
+            value: false
+          - name: editor-position
+            value: 2
+        reference: true
+        type:
+          name: Fertigkeit
+      - name: name
+        properties:
+          - name: nullable
+            value: false
+          - name: editor-position
+            value: 1
+        type:
+          name: String
+      - name: schaden
+        properties:
+          - name: nullable
+            value: false
+          - name: editor-position
+            value: 3
+        type:
+          name: String
+  - name: WaffePunk
+    properties:
+      - name: gui
+        value: true
+    attributes:
+      - name: id
+        properties:
+          - name: nullable
+            value: false
+          - name: id
+            value: true
+        type:
+          name: UUID
+          properties:
+            - name: import
+              value: java.util.UUID
+      - name: punk
+        properties:
+          - name: nullable
+            value: false
+          - name: editor-position
+            value: 1
         reference: true
         type:
           name: Punk
@@ -308,6 +444,8 @@ classes:
         properties:
           - name: nullable
             value: false
+          - name: editor-position
+            value: 2
         reference: true
         type:
           name: Waffe
