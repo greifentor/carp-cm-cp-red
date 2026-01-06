@@ -1,0 +1,296 @@
+<!-- Schieber -->
+<punk>
+    <name>William "Bill" Freeman</name>
+    <intelligenz>10</intelligenz>
+    <reflexe>5</reflexe>
+    <geschicklichkeit>5</geschicklichkeit>
+    <tech>5</tech>
+    <coolness>10</coolness>
+    <wille>6</wille>
+    <glueck>8</glueck>
+    <bewegung>5</bewegung>
+    <kraft>5</kraft>
+    <empathie>9</empathie>
+    <anfaenglicheTP>25</anfaenglicheTP>
+    <schwerVerwundet>13</schwerVerwundet>
+    <traumaprobe>5</traumaprobe>
+    <panzerung>Leichte Panzerung</panzerung>
+    <swKopf>11</swKopf>
+    <swKoerper>11</swKoerper>
+    <fertigkeit0Name>Allgemeinwissen</fertigkeit0Name>
+    <fertigkeit0Wert>(INT) + 6</fertigkeit0Wert>
+    <fertigkeit1Name>Athletik</fertigkeit1Name>
+    <fertigkeit1Wert>(GES) + 2</fertigkeit1Wert>
+    <fertigkeit2Name>Ausweichen</fertigkeit2Name>
+    <fertigkeit2Wert>(GES) + 6</fertigkeit2Wert>
+    <fertigkeit3Name>Heimlichkeit</fertigkeit3Name>
+    <fertigkeit3Wert>(GES) + 2</fertigkeit3Wert>
+    <fertigkeit4Name>Gespräch</fertigkeit4Name>
+    <fertigkeit4Wert>(EMP) + 6</fertigkeit4Wert>
+    <fertigkeit5Name>Faustkampf</fertigkeit5Name>
+    <fertigkeit5Wert>(GES) + 2</fertigkeit5Wert>
+    <fertigkeit6Name>Konzentration</fertigkeit6Name>
+    <fertigkeit6Wert>(WIL) + 6</fertigkeit6Wert>
+    <fertigkeit7Name>Konzernbräuche</fertigkeit7Name>
+    <fertigkeit7Wert>(INT) + 6</fertigkeit7Wert>
+    <fertigkeit8Name>Menschenkenntnis</fertigkeit8Name>
+    <fertigkeit8Wert>(EMP) + 3</fertigkeit8Wert>
+    <fertigkeit9Name>Ortskunde</fertigkeit9Name>
+    <fertigkeit9Wert>(INT) + 4</fertigkeit9Wert>
+    <fertigkeitAName>Schießen</fertigkeitAName>
+    <fertigkeitAWert>(REF) + 6</fertigkeitAWert>
+    <fertigkeitBName>Wahrnehmung</fertigkeitBName>
+    <fertigkeitBWert>(INT) + 2</fertigkeitBWert>
+    <waffe0Name>Sehr schwere Pistole</waffe0Name>
+    <waffe0Schaden>4W6</waffe0Schaden>
+    <waffe1Name></waffe1Name>
+    <waffe1Schaden></waffe1Schaden>
+    <waffe2Name></waffe2Name>
+    <waffe2Schaden></waffe2Schaden>
+    <waffe3Name></waffe3Name>
+    <waffe3Schaden></waffe3Schaden>
+    <cyberware0Name>Biomonitor</cyberware0Name>
+    <cyberware0Beschreibung>Subdermales Implantat, das deine Vitalfunkionen anzeigt. Ist mit deinem Agent verbunden.</cyberware0Beschreibung>
+    <cyberware1Name>Cyberaudio (Interner Agent)</cyberware1Name>
+    <cyberware1Beschreibung>Voll funktionsfähiger, intern installierter Agent (nur Audio).</cyberware1Beschreibung>
+    <cyberware2Name>Cyberaudio (Stimmstreßanalysator)</cyberware2Name>
+    <cyberware2Beschreibung>+2 auf Proben auf Menschenkenntnis und Verhören.</cyberware2Beschreibung>
+    <cyberware2Name></cyberware2Name>
+    <cyberware2Beschreibung></cyberware2Beschreibung>
+    <ausruestung0Name>Verspiegelte Sonnenbrille</ausruestung0Name>
+    <ausruestung0Beschreibung>n/a</ausruestung0Beschreibung>
+    <ausruestung1Name>500 Eurodollar in unmarkierten Scheinen</ausruestung1Name>
+    <ausruestung1Beschreibung>n/a</ausruestung1Beschreibung>
+    <ausruestung2Name></ausruestung2Name>
+    <ausruestung2Beschreibung></ausruestung2Beschreibung>
+    <hintergrund><![CDATA[- Mann, weiß.
+- leider gekündigt.
+- Alkoholiker.]]></hintergrund>
+    <motivation></motivation>
+    <ziele></ziele>
+    <freunde></freunde>
+    <feinde></feinde>
+    <liebschaften></liebschaften>
+    <personlichkeit></personlichkeit>
+</punk>
+<!-- Netrunner -->
+<!-- punk>
+    <name>Netrunner</name>
+    <intelligenz>7</intelligenz>
+    <reflexe>10</reflexe>
+    <geschicklichkeit>8</geschicklichkeit>
+    <tech>6</tech>
+    <coolness>10</coolness>
+    <wille>3</wille>
+    <glueck>10</glueck>
+    <bewegung>7</bewegung>
+    <kraft>6</kraft>
+    <empathie>4</empathie>
+    <anfaenglicheTP>30</anfaenglicheTP>
+    <schwerVerwundet>15</schwerVerwundet>
+    <traumaprobe>6</traumaprobe>
+    <panzerung>Bodyweight-Anzug</panzerung>
+    <swKopf>11</swKopf>
+    <swKoerper>11</swKoerper>
+    <fertigkeit0Name>Allgemeinwissen</fertigkeit0Name>
+    <fertigkeit0Wert>(INT) + 6</fertigkeit0Wert>
+    <fertigkeit1Name>Athletik</fertigkeit1Name>
+    <fertigkeit1Wert>(GES) + 2</fertigkeit1Wert>
+    <fertigkeit2Name>Ausweichen</fertigkeit2Name>
+    <fertigkeit2Wert>(GES) + 3</fertigkeit2Wert>
+    <fertigkeit3Name>Elektronik</fertigkeit3Name>
+    <fertigkeit3Wert>(TCH) + 3</fertigkeit3Wert>
+    <fertigkeit4Name>Faustkampf</fertigkeit4Name>
+    <fertigkeit4Wert>(GES) + 4</fertigkeit4Wert>
+    <fertigkeit5Name>Heimlichkeit</fertigkeit5Name>
+    <fertigkeit5Wert>(GES) + 6</fertigkeit5Wert>
+    <fertigkeit6Name>Interface</fertigkeit6Name>
+    <fertigkeit6Wert>(INT) + 7</fertigkeit6Wert>
+    <fertigkeit7Name>Konzentration</fertigkeit7Name>
+    <fertigkeit7Wert>(WIL) + 6</fertigkeit7Wert>
+    <fertigkeit8Name>Ortskunde</fertigkeit8Name>
+    <fertigkeit8Wert>(INT) + 2</fertigkeit8Wert>
+    <fertigkeit9Name>Schießen</fertigkeit9Name>
+    <fertigkeit9Wert>(REF) + 3</fertigkeit9Wert>
+    <fertigkeitAName>Überzeugen</fertigkeitAName>
+    <fertigkeitAWert>(COO) + 2</fertigkeitAWert>
+    <fertigkeitBName>Wahrnehmung</fertigkeitBName>
+    <fertigkeitBWert>(INT) + 4</fertigkeitBWert>
+    <waffe0Name>Schwere Pistole</waffe0Name>
+    <waffe0Schaden>3W6</waffe0Schaden>
+    <waffe1Name></waffe1Name>
+    <waffe1Schaden></waffe1Schaden>
+    <waffe2Name></waffe2Name>
+    <waffe2Schaden></waffe2Schaden>
+    <waffe3Name></waffe3Name>
+    <waffe3Schaden></waffe3Schaden>
+    <cyberware0Name>Interface-Buchse</cyberware0Name>
+    <cyberware0Beschreibung>Anschlüsse, über die du dich mit einer Maschine, Cybertech oder einem Cyberdeck verbinden kannst.</cyberware0Beschreibung>
+    <cyberware1Name></cyberware1Name>
+    <cyberware1Beschreibung></cyberware1Beschreibung>
+    <cyberware2Name></cyberware2Name>
+    <cyberware2Beschreibung></cyberware2Beschreibung>
+    <ausruestung0Name>Agent</ausruestung0Name>
+    <ausruestung0Beschreibung>Eine Kombination aus Computer und Telefon in Taschengröße.</ausruestung0Beschreibung>
+    <ausruestung1Name>Cyberdeck &amp; Kabel</ausruestung1Name>
+    <ausruestung1Beschreibung>Ein Gerät für Netruns in Taschengröße.</ausruestung1Beschreibung>
+    <ausruestung2Name>Drei Programme</ausruestung2Name>
+    <ausruestung2Beschreibung>Speedy Gonzalvez, Vorschlaghammer, Flak</ausruestung2Beschreibung>
+    <ausruestung3Name>Schwarzes ICE</ausruestung3Name>
+    <ausruestung3Beschreibung>Höllenhund</ausruestung3Beschreibung>
+    <hintergrund><![CDATA[- Frau (Asiatin, 22-23 Jahre alt)
+- aus Trainee-Programm von Ziggurat geflogen
+- ist an einer eigenen Intrige gescheitert]]></hintergrund>
+    <motivation></motivation>
+    <ziele></ziele>
+    <freunde></freunde>
+    <feinde></feinde>
+    <liebschaften></liebschaften>
+    <personlichkeit></personlichkeit>
+</punk -->
+<!-- Schieber -->
+<!-- punk>
+    <name>Aphrodite "Diti"</name>
+    <intelligenz>9</intelligenz>
+    <reflexe>5</reflexe>
+    <geschicklichkeit>5</geschicklichkeit>
+    <tech>5</tech>
+    <coolness>7</coolness>
+    <wille>7</wille>
+    <glueck>10</glueck>
+    <bewegung>7</bewegung>
+    <kraft>5</kraft>
+    <empathie>9</empathie>
+    <anfaenglicheTP>25</anfaenglicheTP>
+    <schwerVerwundet>13</schwerVerwundet>
+    <traumaprobe>5</traumaprobe>
+    <panzerung>Leichte Panzerung</panzerung>
+    <swKopf>11</swKopf>
+    <swKoerper>11</swKoerper>
+    <fertigkeit0Name>Allgemeinwissen</fertigkeit0Name>
+    <fertigkeit0Wert>(INT) + 3</fertigkeit0Wert>
+    <fertigkeit1Name>Athletik</fertigkeit1Name>
+    <fertigkeit1Wert>(GES) + 4</fertigkeit1Wert>
+    <fertigkeit2Name>Ausweichen</fertigkeit2Name>
+    <fertigkeit2Wert>(GES) + 5</fertigkeit2Wert>
+    <fertigkeit3Name>Bestechung</fertigkeit3Name>
+    <fertigkeit3Wert>(COO) + 5</fertigkeit3Wert>
+    <fertigkeit4Name>Faustkampf</fertigkeit4Name>
+    <fertigkeit4Wert>(GES) + 3</fertigkeit4Wert>
+    <fertigkeit5Name>Gespräch</fertigkeit5Name>
+    <fertigkeit5Wert>(EMP) + 5</fertigkeit5Wert>
+    <fertigkeit6Name>Konzentration</fertigkeit6Name>
+    <fertigkeit6Wert>(WIL) + 5</fertigkeit6Wert>
+    <fertigkeit7Name>Menschenkenntnis</fertigkeit7Name>
+    <fertigkeit7Wert>(EMP) + 3</fertigkeit7Wert>
+    <fertigkeit8Name>Ortskunde</fertigkeit8Name>
+    <fertigkeit8Wert>(INT) + 4</fertigkeit8Wert>
+    <fertigkeit9Name>Schießen</fertigkeit9Name>
+    <fertigkeit9Wert>(REF) + 3</fertigkeit9Wert>
+    <fertigkeitAName>Überzeugen</fertigkeitAName>
+    <fertigkeitAWert>(COO) + 4</fertigkeitAWert>
+    <fertigkeitBName>Wahrnehmung</fertigkeitBName>
+    <fertigkeitBWert>(INT) + 3</fertigkeitBWert>
+    <waffe0Name>Mittelschwere MP</waffe0Name>
+    <waffe0Schaden>2W6</waffe0Schaden>
+    <waffe1Name>Schwere Pistole</waffe1Name>
+    <waffe1Schaden>3W6</waffe1Schaden>
+    <waffe2Name></waffe2Name>
+    <waffe2Schaden></waffe2Schaden>
+    <waffe3Name></waffe3Name>
+    <waffe3Schaden></waffe3Schaden>
+    <cyberware0Name>Cyberaudio (Gehörverstärker)</cyberware0Name>
+    <cyberware0Beschreibung>Addiert +1 auf alle geräuschbasierten Wahrnehmungsproben.</cyberware0Beschreibung>
+    <cyberware1Name>Cyberoptik (Restlichtverstärker)</cyberware1Name>
+    <cyberware1Beschreibung>Ermöglicht eine deutliche Sicht im Halbdunkel (schwaches Mondlicht, entfernte Straßenlaterne).</cyberware1Beschreibung>
+    <cyberware2Name></cyberware2Name>
+    <cyberware2Beschreibung></cyberware2Beschreibung>
+    <ausruestung0Name>Agent mit Pseudo-KI-Assistent</ausruestung0Name>
+    <ausruestung0Beschreibung>Eine KOmbination aus Computer und Telefon in Taschengröße. Dieses Modell verfügt über einen digitalen Assitenten.</ausruestung0Beschreibung>
+    <ausruestung1Name>100 Eurodollar in unmarkierten Scheinen</ausruestung1Name>
+    <ausruestung1Beschreibung>n/a</ausruestung1Beschreibung>
+    <ausruestung2Name></ausruestung2Name>
+    <ausruestung2Beschreibung></ausruestung2Beschreibung>
+    <hintergrund><![CDATA[- Frau, First-Nation, jung, Anfang 20)
+- viel unterwegs
+- verkauft und nimmt Drogen und Informationen
+- nyphoman]]></hintergrund>
+    <motivation></motivation>
+    <ziele></ziele>
+    <freunde></freunde>
+    <feinde></feinde>
+    <liebschaften></liebschaften>
+    <personlichkeit></personlichkeit>
+</punk -->
+<!-- Solo -->
+<!-- punk>
+    <name>Solo</name>
+    <intelligenz>6</intelligenz>
+    <reflexe>10</reflexe>
+    <geschicklichkeit>7</geschicklichkeit>
+    <tech>4</tech>
+    <coolness>8</coolness>
+    <wille>10</wille>
+    <glueck>5</glueck>
+    <bewegung>7</bewegung>
+    <kraft>9</kraft>
+    <empathie>5</empathie>
+    <anfaenglicheTP>45</anfaenglicheTP>
+    <schwerVerwundet>23</schwerVerwundet>
+    <traumaprobe>9</traumaprobe>
+    <panzerung>Schwere Panzerung</panzerung>
+    <swKopf>15</swKopf>
+    <swKoerper>15</swKoerper>
+    <fertigkeit0Name>Allgemeinwissen</fertigkeit0Name>
+    <fertigkeit0Wert>(INT) + 2</fertigkeit0Wert>
+    <fertigkeit1Name>Athletik</fertigkeit1Name>
+    <fertigkeit1Wert>(GES) + 5</fertigkeit1Wert>
+    <fertigkeit2Name>Ausweichen</fertigkeit2Name>
+    <fertigkeit2Wert>(GES) + 5</fertigkeit2Wert>
+    <fertigkeit3Name>Faustkampf</fertigkeit3Name>
+    <fertigkeit3Wert>(GES) + 4</fertigkeit3Wert>
+    <fertigkeit4Name>Heimlichkeit</fertigkeit4Name>
+    <fertigkeit4Wert>(GES) + 3</fertigkeit4Wert>
+    <fertigkeit5Name>Konzentration</fertigkeit5Name>
+    <fertigkeit5Wert>(WIL) + 4</fertigkeit5Wert>
+    <fertigkeit6Name>Nahkampfwaffe</fertigkeit6Name>
+    <fertigkeit6Wert>(GES) + 5</fertigkeit6Wert>
+    <fertigkeit7Name>Ortskunde</fertigkeit7Name>
+    <fertigkeit7Wert>(INT) + 3</fertigkeit7Wert>
+    <fertigkeit8Name>Schießen</fertigkeit8Name>
+    <fertigkeit8Wert>(REF) + 6</fertigkeit8Wert>
+    <fertigkeit9Name>Überzeugen</fertigkeit9Name>
+    <fertigkeit9Wert>(COO) + 2</fertigkeit9Wert>
+    <fertigkeitAName>Verhören</fertigkeitAName>
+    <fertigkeitAWert>(COO) + 3</fertigkeitAWert>
+    <fertigkeitBName>Wahrnehmung</fertigkeitBName>
+    <fertigkeitBWert>(INT) + 5</fertigkeitBWert>
+    <waffe0Name>Cyberarm</waffe0Name>
+    <waffe0Schaden>1W6</waffe0Schaden>
+    <waffe1Name>Krallen</waffe1Name>
+    <waffe1Schaden>2W6</waffe1Schaden>
+    <waffe2Name>Messer</waffe2Name>
+    <waffe2Schaden>1W6</waffe2Schaden>
+    <waffe3Name>Sturmgewehr</waffe3Name>
+    <waffe3Schaden>5W6</waffe3Schaden>
+    <cyberware0Name>Cyberware mit Krallen</cyberware0Name>
+    <cyberware0Beschreibung>Ein Cyberarm, in dem Krallen verborgen sind.</cyberware0Beschreibung>
+    <cyberware1Name>Cyberbeine mit Sprungverstärkern</cyberware1Name>
+    <cyberware1Beschreibung>Du kannst bis zu 6 m gerade nach oben oder bis zu 8 m weit springen.</cyberware1Beschreibung>
+    <cyberware2Name>Cyberoptik (Zielerfassung)</cyberware2Name>
+    <cyberware2Beschreibung>Ein eigebautes Zielvisier verleiht dir einen Bonus von +1 auf Schießen.</cyberware2Beschreibung>
+    <ausruestung0Name>Agent</ausruestung0Name>
+    <ausruestung0Beschreibung>Eine Kombination aus Computer und Telefon in Taschengröße.</ausruestung0Beschreibung>
+    <ausruestung1Name></ausruestung1Name>
+    <ausruestung1Beschreibung></ausruestung1Beschreibung>
+    <ausruestung2Name></ausruestung2Name>
+    <ausruestung2Beschreibung></ausruestung2Beschreibung>
+    <hintergrund><![CDATA[- Mann
+- schwarz]]></hintergrund>
+    <motivation></motivation>
+    <ziele></ziele>
+    <freunde></freunde>
+    <feinde></feinde>
+    <liebschaften></liebschaften>
+    <personlichkeit></personlichkeit>
+</punk -->

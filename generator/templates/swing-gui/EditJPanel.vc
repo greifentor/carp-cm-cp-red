@@ -111,7 +111,7 @@ public class ${ClassName}EditJPanel extends AbstractEditPanel<${ClassName}> {
 		#elseif(${Attribute.getTypeName()} == "int")
 		SpinnerModel spinnerModel${Attribute.getNameCamelCase()} = new SpinnerNumberModel(toEdit.get${Attribute.getNameCamelCase()}(), 0, 1000, 1);
 		spinner${Attribute.getNameCamelCase()} = new JSpinner(spinnerModel${Attribute.getNameCamelCase()});
-		p.add(spinnerAmountInGr);
+		p.add(spinner${Attribute.getNameCamelCase()});
 		#else
 		textField${Attribute.getNameCamelCase()} = new JTextField(toEdit.get${Attribute.getNameCamelCase()}(), 40);
 		p.add(textField${Attribute.getNameCamelCase()});

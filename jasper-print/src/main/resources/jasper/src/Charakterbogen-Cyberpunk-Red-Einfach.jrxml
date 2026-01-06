@@ -1,0 +1,639 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Charakter-Bogen-Einfach" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="80dd2a3a-540f-495c-981c-4b57139650e9">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="src/DataAdapter-Test.xml"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="anfaenglicheTP" class="java.lang.String"/>
+	<field name="ausruestung0Name" class="java.lang.String"/>
+	<field name="ausruestung0Beschreibung" class="java.lang.String"/>
+	<field name="ausruestung1Name" class="java.lang.String"/>
+	<field name="ausruestung1Beschreibung" class="java.lang.String"/>
+	<field name="ausruestung2Name" class="java.lang.String"/>
+	<field name="ausruestung2Beschreibung" class="java.lang.String"/>
+	<field name="ausruestung3Name" class="java.lang.String"/>
+	<field name="ausruestung3Beschreibung" class="java.lang.String"/>
+	<field name="bewegung" class="java.lang.String"/>
+	<field name="coolness" class="java.lang.String"/>
+	<field name="cyberware0Name" class="java.lang.String"/>
+	<field name="cyberware0Beschreibung" class="java.lang.String"/>
+	<field name="cyberware1Name" class="java.lang.String"/>
+	<field name="cyberware1Beschreibung" class="java.lang.String"/>
+	<field name="cyberware2Name" class="java.lang.String"/>
+	<field name="cyberware2Beschreibung" class="java.lang.String"/>
+	<field name="cyberware3Name" class="java.lang.String"/>
+	<field name="cyberware3Beschreibung" class="java.lang.String"/>
+	<field name="empathie" class="java.lang.String"/>
+	<field name="fertigkeit0Name" class="java.lang.String"/>
+	<field name="fertigkeit0Wert" class="java.lang.String"/>
+	<field name="fertigkeit1Name" class="java.lang.String"/>
+	<field name="fertigkeit1Wert" class="java.lang.String"/>
+	<field name="fertigkeit2Name" class="java.lang.String"/>
+	<field name="fertigkeit2Wert" class="java.lang.String"/>
+	<field name="fertigkeit3Name" class="java.lang.String"/>
+	<field name="fertigkeit3Wert" class="java.lang.String"/>
+	<field name="fertigkeit4Name" class="java.lang.String"/>
+	<field name="fertigkeit4Wert" class="java.lang.String"/>
+	<field name="fertigkeit5Name" class="java.lang.String"/>
+	<field name="fertigkeit5Wert" class="java.lang.String"/>
+	<field name="fertigkeit6Name" class="java.lang.String"/>
+	<field name="fertigkeit6Wert" class="java.lang.String"/>
+	<field name="fertigkeit7Name" class="java.lang.String"/>
+	<field name="fertigkeit7Wert" class="java.lang.String"/>
+	<field name="fertigkeit8Name" class="java.lang.String"/>
+	<field name="fertigkeit8Wert" class="java.lang.String"/>
+	<field name="fertigkeit9Name" class="java.lang.String"/>
+	<field name="fertigkeit9Wert" class="java.lang.String"/>
+	<field name="fertigkeitAName" class="java.lang.String"/>
+	<field name="fertigkeitAWert" class="java.lang.String"/>
+	<field name="fertigkeitBName" class="java.lang.String"/>
+	<field name="fertigkeitBWert" class="java.lang.String"/>
+	<field name="geschicklichkeit" class="java.lang.String"/>
+	<field name="feinde" class="java.lang.String"/>
+	<field name="freunde" class="java.lang.String"/>
+	<field name="glueck" class="java.lang.String"/>
+	<field name="hintergrund" class="java.lang.String"/>
+	<field name="intelligenz" class="java.lang.String"/>
+	<field name="kraft" class="java.lang.String"/>
+	<field name="liebschaften" class="java.lang.String"/>
+	<field name="motivation" class="java.lang.String"/>
+	<field name="name" class="java.lang.String"/>
+	<field name="panzerung" class="java.lang.String"/>
+	<field name="persoenlichkeit" class="java.lang.String"/>
+	<field name="reflexe" class="java.lang.String"/>
+	<field name="schwerVerwundet" class="java.lang.String"/>
+	<field name="swKoerper" class="java.lang.String"/>
+	<field name="swKopf" class="java.lang.String"/>
+	<field name="tech" class="java.lang.String"/>
+	<field name="traumaprobe" class="java.lang.String"/>
+	<field name="waffe0Name" class="java.lang.String"/>
+	<field name="waffe0Schaden" class="java.lang.String"/>
+	<field name="waffe1Name" class="java.lang.String"/>
+	<field name="waffe1Schaden" class="java.lang.String"/>
+	<field name="waffe2Name" class="java.lang.String"/>
+	<field name="waffe2Schaden" class="java.lang.String"/>
+	<field name="waffe3Name" class="java.lang.String"/>
+	<field name="waffe3Schaden" class="java.lang.String"/>
+	<field name="wille" class="java.lang.String"/>
+	<field name="ziele" class="java.lang.String"/>
+	<detail>
+		<band height="802" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<image>
+				<reportElement x="0" y="0" width="555" height="802" uuid="e74e169b-1462-4b52-9f2d-470d61a5557a">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<imageExpression><![CDATA["/src/img/Charakterbogen-Cyberpunk-Red-Einfach.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="174" y="107" width="33" height="13" uuid="f858deb9-c1fe-49bc-91c4-272d8c0004a9">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{intelligenz}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="178" y="75" width="341" height="16" uuid="e7917e52-e385-4e84-9f63-d9def61d7f76">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="209" y="107" width="32" height="13" uuid="ac6008ab-ea8a-4548-bd70-c893fabd26e4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{reflexe}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="243" y="107" width="33" height="13" uuid="63fa2b56-8e56-4092-a2f0-9d987f48dde8">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{geschicklichkeit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="278" y="107" width="32" height="13" uuid="ebc398ec-dc94-47c7-a321-760ad60d5af3">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tech}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="312" y="107" width="33" height="13" uuid="05fb7627-234f-4705-8510-f6f927be34fa">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{coolness}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="347" y="107" width="32" height="13" uuid="ac01f0fc-a2e6-4f8b-8bc6-1f4c816e41c4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{wille}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="382" y="107" width="32" height="13" uuid="a4b5b321-167b-48bf-81f8-0635fe674b10">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{glueck}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="416" y="107" width="32" height="13" uuid="8a83c97e-f04e-4f04-8da3-27e25d90c1fc">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bewegung}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="107" width="33" height="13" uuid="87d203f7-2ee3-4a59-b022-f19d4e6428cb">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kraft}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="485" y="107" width="33" height="13" uuid="00839bcb-33fb-408d-85e1-7436b6bedebe">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empathie}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="38" y="215" width="158" height="13" uuid="6c225911-30e9-4ed2-9627-f092013976af">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{anfaenglicheTP} + " - "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="199" y="215" width="157" height="13" uuid="ced0180e-fba6-4e53-9cf9-908dad4def95">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{schwerVerwundet}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="360" y="215" width="157" height="13" uuid="f668bf5a-d4a2-47f8-b69c-2b9e9014c682">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{traumaprobe}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="372" y="266" width="145" height="13" uuid="89a05a69-2c4f-47ef-99ad-93f7fef3f22d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{panzerung}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="449" y="284" width="68" height="13" uuid="e96c2861-ead5-4338-9ae3-c2e4103c4c35">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{swKopf}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="449" y="301" width="68" height="13" uuid="5146e326-56ae-42d3-ac57-36207d90f6ee">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{swKoerper}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="39" y="284" width="70" height="20" uuid="33cdd709-20f2-41e5-a0b5-8bff918c85e4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$F{fertigkeit0Name} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+					<font size="7" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>" + $F{fertigkeit0Name} + "</b><br>" + $F{fertigkeit0Wert}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="113" y="284" width="69" height="20" uuid="c83e3b27-a55a-49e4-87e8-d3e46cf952a2">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$F{fertigkeit1Name} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+					<font size="7" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>" + $F{fertigkeit1Name} + "</b><br>" + $F{fertigkeit1Wert}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="186" y="284" width="70" height="20" uuid="114fe7a7-56d4-49db-a613-a5439991d74d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$F{fertigkeit2Name} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+					<font size="7" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>" + $F{fertigkeit2Name} + "</b><br>" + $F{fertigkeit2Wert}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="113" y="307" width="69" height="20" uuid="e69ae39e-25aa-4798-8aea-1c1da373edc2">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$F{fertigkeit4Name} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+					<font size="7" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>" + $F{fertigkeit4Name} + "</b><br>" + $F{fertigkeit4Wert}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="113" y="331" width="69" height="20" uuid="3f294585-479d-4170-9432-40fa74f308a1">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$F{fertigkeit7Name} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+					<font size="7" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>" + $F{fertigkeit7Name} + "</b><br>" + $F{fertigkeit7Wert}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="113" y="354" width="69" height="20" uuid="6d51c87e-f765-44fd-bd32-b9cd7f69f3fc">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$F{fertigkeitAName} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+					<font size="7" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>" + $F{fertigkeitAName} + "</b><br>" + $F{fertigkeitAWert}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="39" y="308" width="70" height="20" uuid="5829e60f-8890-407b-959d-d56954224ffb">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$F{fertigkeit3Name} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+					<font size="7" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>" + $F{fertigkeit3Name} + "</b><br>" + $F{fertigkeit3Wert}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="39" y="331" width="70" height="20" uuid="f950cf0c-37b1-4eaf-97d5-8aaabbcb0a15">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$F{fertigkeit6Name} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+					<font size="7" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>" + $F{fertigkeit6Name} + "</b><br>" + $F{fertigkeit6Wert}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="39" y="354" width="70" height="20" uuid="0a7b145a-b484-45f4-8955-4b504c04d35c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$F{fertigkeit9Name} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+					<font size="7" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>" + $F{fertigkeit9Name} + "</b><br>" + $F{fertigkeit9Wert}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="186" y="307" width="70" height="20" uuid="fad66326-44c4-4ac8-b152-6783c2ddd360">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$F{fertigkeit5Name} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+					<font size="7" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>" + $F{fertigkeit5Name} + "</b><br>" + $F{fertigkeit5Wert}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="186" y="331" width="70" height="20" uuid="68caedf7-ab80-4a2f-8b3e-8f1b20ec6f2f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$F{fertigkeit8Name} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+					<font size="7" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>" + $F{fertigkeit8Name} + "</b><br>" + $F{fertigkeit8Wert}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="186" y="354" width="70" height="20" uuid="c11b4885-89f9-49a0-91ff-eab6ea945bb5">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$F{fertigkeitBName} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+					<font size="7" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>" + $F{fertigkeitBName} + "</b><br>" + $F{fertigkeitBWert}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="353" y="366" width="108" height="14" uuid="c8f9ea3e-fbb0-41ee-b849-2c9bf7fa20de">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{waffe0Name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="353" y="383" width="108" height="14" uuid="a2701596-c5c6-42ae-bc83-9aff6daf584f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{waffe1Name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="353" y="401" width="108" height="14" uuid="bc45c402-2f7e-424a-95ca-60737b9dcedd">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{waffe2Name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="353" y="418" width="108" height="14" uuid="6face4ba-097f-4de7-a421-032302415749">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{waffe3Name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="465" y="366" width="52" height="14" uuid="b98ea414-66a4-4017-8918-7f62d8a44759">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{waffe0Schaden}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="465" y="383" width="52" height="14" uuid="674b8771-7db7-40c8-9a20-bcf005d18ee7">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{waffe1Schaden}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="465" y="401" width="52" height="14" uuid="43085d7c-6781-4dc7-a6c4-cee3400c2d87">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{waffe2Schaden}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="465" y="418" width="52" height="14" uuid="e25eb1b0-0c62-4deb-a47d-18169680212d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{waffe3Schaden}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement x="298" y="484" width="107" height="14" uuid="0f15615f-8f50-4a64-88fa-f5e34ae9fcaf">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$F{cyberware0Name} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+					<font size="7" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>" + $F{cyberware0Name} + "</b><br>" + $F{cyberware0Beschreibung}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="298" y="503" width="107" height="14" uuid="e98c25e1-591f-46f2-be5a-fa8342093baa">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$F{cyberware1Name} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+					<font size="7" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>" + $F{cyberware1Name} + "</b><br>" + $F{cyberware1Beschreibung}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="298" y="522" width="107" height="14" uuid="2f6b1205-f260-43d8-a0ba-d13e8694daaa">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$F{cyberware2Name} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+					<font size="7" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>" + $F{cyberware2Name} + "</b><br>" + $F{cyberware2Beschreibung}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement x="410" y="484" width="107" height="14" uuid="f6731fbd-db28-485d-9e16-729a5dd33c25">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$F{ausruestung0Name} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+					<font size="7" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>" + $F{ausruestung0Name} + "</b><br>" + $F{ausruestung0Beschreibung}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="410" y="503" width="107" height="14" uuid="d0a7443a-eae0-4ca3-8dfb-377524b83e65">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$F{ausruestung1Name} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+					<font size="7" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>" + $F{ausruestung1Name} + "</b><br>" + $F{ausruestung1Beschreibung}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="410" y="522" width="107" height="14" uuid="d04b81ca-7e76-4abc-b0bd-22d3b6f74779">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$F{ausruestung2Name} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+					<font size="7" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>" + $F{ausruestung2Name} + "</b><br>" + $F{ausruestung2Beschreibung}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="137" y="412" width="120" height="36" uuid="e4c29e82-d9e3-4d6d-93a2-946a9165517a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="7" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{hintergrund}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="137" y="494" width="120" height="36" uuid="5a48f2d3-7561-4e66-9eaf-e47fc019ed97">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="7" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ziele}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="137" y="453" width="120" height="36" uuid="938a220e-d2fe-4397-b8a6-ddfd611a9b07">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="7" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{motivation}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="137" y="535" width="120" height="36" uuid="9dfac2ba-000f-42ae-84fb-90f36f717bd4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="7" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{freunde}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="137" y="576" width="120" height="36" uuid="63a20991-a2d1-4e26-b32d-fd77bf7e5a81">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="7" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{feinde}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="137" y="617" width="120" height="36" uuid="7f24ae95-4143-4a0e-858c-fce62c6e27a8">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="7" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{liebschaften}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="137" y="659" width="120" height="36" uuid="36eb99f7-c5cd-4999-8186-11cf76527ba3">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="7" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{persoenlichkeit}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="298" y="541" width="107" height="14" uuid="3d1a9bff-9a2c-4bd9-8e9e-6b82042af596">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$F{cyberware3Name} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+					<font size="7" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>" + $F{cyberware3Name} + "</b><br>" + $F{cyberware3Beschreibung}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="410" y="541" width="107" height="14" uuid="a68f551a-854c-433d-bdb2-d5b0375f80ee">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$F{ausruestung3Name} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+					<font size="7" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>" + $F{ausruestung3Name} + "</b><br>" + $F{ausruestung3Beschreibung}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

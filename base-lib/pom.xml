@@ -13,7 +13,7 @@
 	<artifactId>carp-cm-cp-red-base-lib</artifactId>
 	<packaging>jar</packaging>
 
-	<name>CARP CM CP RED (Base-Lib)</name>
+	<name>CARP CM CP Red (Base-Lib)</name>
 	<description>The base library of the application.</description>
 
 	<properties>

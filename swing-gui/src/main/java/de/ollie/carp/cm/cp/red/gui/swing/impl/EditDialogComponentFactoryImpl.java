@@ -1,0 +1,28 @@
+package de.ollie.carp.cm.cp.red.gui.swing.impl;
+
+import de.ollie.carp.cm.cp.red.gui.swing.ComponentFactory;
+import de.ollie.carp.cm.cp.red.gui.swing.EditDialogComponentFactory;
+import de.ollie.carp.cm.cp.red.gui.swing.edit.AbstractEditJInternalFrame;
+import de.ollie.carp.cm.cp.red.gui.swing.edit.AbstractEditJInternalFrame.Observer;
+import jakarta.inject.Named;
+import javax.swing.JButton;
+import lombok.RequiredArgsConstructor;
+
+@Named
+@RequiredArgsConstructor
+class EditDialogComponentFactoryImpl implements EditDialogComponentFactory {
+
+	private final ComponentFactory componentFactory;
+
+	@Override
+	public <T> JButton createSaveButton(Observer<T> observer, AbstractEditJInternalFrame<T> internalFrame) {
+		JButton b = componentFactory.createButton("Save");
+		if (observer != null) {
+			b.addActionListener(e -> {
+				observer.onSave(internalFrame.getCurrentContent());
+				internalFrame.closeDialog();
+			});
+		}
+		return b;
+	}
+}

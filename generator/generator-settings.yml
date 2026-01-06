@@ -38,6 +38,22 @@ generators:
     properties:
       - name: target-path
         value: service-interface/src/main/java
+  - type: CLASS
+    package: de.ollie.carp.cm.cp.red.core.service
+    target-file-name: ${UnitName}Service
+    path: generator
+    template: templates/core/Service.vc
+    properties:
+      - name: target-path
+        value: service-interface/src/main/java
+  - type: CLASS
+    package: de.ollie.carp.cm.cp.red.core.service.impl
+    target-file-name: ${UnitName}ServiceImpl
+    path: generator
+    template: templates/core/ServiceImpl.vc
+    properties:
+      - name: target-path
+        value: service/src/main/java
 # --- JPA ---
   - type: MODEL
     package: de.ollie.carp.cm.cp.red.persistence.jpa
