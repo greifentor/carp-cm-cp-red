@@ -5,7 +5,6 @@ import static de.ollie.carp.cm.cp.red.gui.swing.Constants.VGAP;
 
 import de.ollie.carp.cm.cp.red.core.service.model.Panzerung;
 import de.ollie.carp.cm.cp.red.core.service.model.Punk;
-import de.ollie.carp.cm.cp.red.core.service.model.Rolle;
 import de.ollie.carp.cm.cp.red.gui.swing.ItemProvider;
 import de.ollie.carp.cm.cp.red.gui.swing.edit.AbstractEditPanel;
 import java.awt.GridLayout;
@@ -25,11 +24,9 @@ import lombok.Generated;
 @Generated
 public class PunkEditJPanel extends AbstractEditPanel<Punk> {
 
-	public static final String ROLLE_ITEM_PROVIDER_ID = "rolle-item-provider";
 	public static final String PANZERUNG_ITEM_PROVIDER_ID = "panzerung-item-provider";
 
 	private JTextField textFieldName;
-	private JComboBox<Rolle> comboBoxRolle;
 	private JComboBox<Panzerung> comboBoxPanzerungKopf;
 	private JComboBox<Panzerung> comboBoxPanzerungKoerper;
 
@@ -39,24 +36,14 @@ public class PunkEditJPanel extends AbstractEditPanel<Punk> {
 
 	@Override
 	protected JPanel createLabelPanel() {
-		return createLabelSubPanel("Name:", "Rolle:", "Panzerung Kopf:", "Panzerung Koerper:");
+		return createLabelSubPanel("Name:", "Panzerung Kopf:", "Panzerung Koerper:");
 	}
 
 	@Override
 	protected JPanel createComponentPanel(Punk toEdit, Map<String, ItemProvider<?>> itemProviders) {
-		JPanel p = new JPanel(new GridLayout(4, 1, HGAP, VGAP));
+		JPanel p = new JPanel(new GridLayout(3, 1, HGAP, VGAP));
 		textFieldName = new JTextField(toEdit.getName(), 40);
 		p.add(textFieldName);
-		List<Rolle> listRolle = ((ItemProvider<Rolle>) itemProviders.get(ROLLE_ITEM_PROVIDER_ID)).getItem();
-		comboBoxRolle = new JComboBox<>(listRolle.toArray(new Rolle[listRolle.size()]));
-		comboBoxRolle.setSelectedItem(toEdit.getRolle());
-		comboBoxRolle.setRenderer((list, value, index, isSelected, cellHasFocus) -> {
-			if (value != null) {
-				return new JLabel(value.getName());
-			}
-			return new JLabel("-");
-		});
-		p.add(comboBoxRolle);
 		List<Panzerung> listPanzerungKopf =
 			((ItemProvider<Panzerung>) itemProviders.get(PANZERUNG_ITEM_PROVIDER_ID)).getItem();
 		comboBoxPanzerungKopf = new JComboBox<>(listPanzerungKopf.toArray(new Panzerung[listPanzerungKopf.size()]));
@@ -88,7 +75,6 @@ public class PunkEditJPanel extends AbstractEditPanel<Punk> {
 		return new Punk()
 			.setId(toEdit.getId())
 			.setName(textFieldName.getText())
-			.setRolle(((Rolle) comboBoxRolle.getSelectedItem()))
 			.setPanzerungKopf(((Panzerung) comboBoxPanzerungKopf.getSelectedItem()))
 			.setPanzerungKoerper(((Panzerung) comboBoxPanzerungKoerper.getSelectedItem()));
 	}

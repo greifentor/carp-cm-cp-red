@@ -2,26 +2,17 @@ package de.ollie.carp.cm.cp.red.gui.swing.edit.punk;
 
 import de.ollie.carp.cm.cp.red.core.service.model.Panzerung;
 import de.ollie.carp.cm.cp.red.core.service.model.Punk;
-import de.ollie.carp.cm.cp.red.core.service.model.Rolle;
 import de.ollie.carp.cm.cp.red.gui.swing.EditDialogComponentFactory;
 import de.ollie.carp.cm.cp.red.gui.swing.ItemProvider;
 import de.ollie.carp.cm.cp.red.gui.swing.edit.AbstractEditJInternalFrame;
 import java.util.Map;
 import javax.swing.JDesktopPane;
 import javax.swing.JPanel;
-import lombok.Generated;
 
-/**
- * GENERATED CODE - DO NOT TOUCH
- *
- * Remove this comment to suspend class from generation process.
- */
-@Generated
 public class PunkEditJInternalFrame extends AbstractEditJInternalFrame<Punk> {
 
 	public PunkEditJInternalFrame(
 		Punk toEdit,
-		ItemProvider<Rolle> rolles,
 		ItemProvider<Panzerung> panzerungs,
 		EditDialogComponentFactory editDialogComponentFactory,
 		Observer<Punk> observer,
@@ -33,14 +24,7 @@ public class PunkEditJInternalFrame extends AbstractEditJInternalFrame<Punk> {
 			toEdit,
 			editDialogComponentFactory,
 			observer,
-			Map.of(
-				PunkEditJPanel.ROLLE_ITEM_PROVIDER_ID,
-				rolles,
-				PunkEditJPanel.PANZERUNG_ITEM_PROVIDER_ID,
-				panzerungs,
-				PunkEditJPanel.PANZERUNG_ITEM_PROVIDER_ID,
-				panzerungs
-			)
+			Map.of(PunkEditJPanel.PANZERUNG_ITEM_PROVIDER_ID, panzerungs)
 		);
 	}
 

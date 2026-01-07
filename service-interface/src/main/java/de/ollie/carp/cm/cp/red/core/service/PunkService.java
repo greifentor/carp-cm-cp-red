@@ -3,7 +3,6 @@ package de.ollie.carp.cm.cp.red.core.service;
 import de.ollie.carp.cm.cp.red.core.service.model.Panzerung;
 import de.ollie.carp.cm.cp.red.core.service.model.Panzerung;
 import de.ollie.carp.cm.cp.red.core.service.model.Punk;
-import de.ollie.carp.cm.cp.red.core.service.model.Rolle;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -16,7 +15,7 @@ import lombok.Generated;
  */
 @Generated
 public interface PunkService {
-	Punk createPunk(String name, Panzerung panzerungKoerper, Panzerung panzerungKopf, Rolle rolle);
+	Punk createPunk(String name, Panzerung panzerungKoerper, Panzerung panzerungKopf);
 
 	void deletePunk(UUID id);
 

@@ -155,13 +155,7 @@ public class CarpCmCpRedMainFrame extends JFrame implements ActionListener {
 				editDialogComponentFactory
 			);
 		} else if (e.getSource() == menuItemEditFertigkeitPunk) {} else if (e.getSource() == menuItemEditPunk) {
-			new PunkSelectJInternalFrame(
-				punkService,
-				rolleService,
-				panzerungService,
-				desktopPane,
-				editDialogComponentFactory
-			);
+			new PunkSelectJInternalFrame(punkService, panzerungService, desktopPane, editDialogComponentFactory);
 		} else if (e.getSource() == menuItemEditPanzerung) {
 			new PanzerungSelectJInternalFrame(panzerungService, desktopPane, editDialogComponentFactory);
 		} else if (e.getSource() == menuItemEditRolle) {

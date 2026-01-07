@@ -132,20 +132,15 @@ public class DboFactory {
 			.setId(uuidFactory.create());
 	}
 
-	public PunkDbo createPunk(String name, UUID panzerungKoerperId, UUID panzerungKopfId, UUID rolleId) {
+	public PunkDbo createPunk(String name, UUID panzerungKoerperId, UUID panzerungKopfId) {
 		ensure(name != null, "name cannot be null!");
 		ensure(!name.isBlank(), "name cannot be blank!");
-		ensure(rolleId != null, "rolle cannot be null!");
 		PanzerungDbo panzerungKoerperDbo = panzerungDboRepository.findById(panzerungKoerperId).orElse(null);
 		PanzerungDbo panzerungKopfDbo = panzerungDboRepository.findById(panzerungKopfId).orElse(null);
-		RolleDbo rolleDbo = rolleDboRepository
-			.findById(rolleId)
-			.orElseThrow(() -> new NoSuchElementException("no rolle found with id: " + rolleId));
 		return new PunkDbo()
 			.setName(name)
 			.setPanzerungKoerper(panzerungKoerperDbo)
 			.setPanzerungKopf(panzerungKopfDbo)
-			.setRolle(rolleDbo)
 			.setId(uuidFactory.create());
 	}
 

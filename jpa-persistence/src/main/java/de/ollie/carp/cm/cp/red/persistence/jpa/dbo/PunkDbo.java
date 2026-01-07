@@ -38,8 +38,4 @@ public class PunkDbo {
 	@JoinColumn(name = "PANZERUNG_KOPF", referencedColumnName = "ID", nullable = true)
 	@ManyToOne(fetch = FetchType.EAGER)
 	private PanzerungDbo panzerungKopf;
-
-	@JoinColumn(name = "ROLLE", referencedColumnName = "ID", nullable = false)
-	@ManyToOne(fetch = FetchType.EAGER)
-	private RolleDbo rolle;
 }

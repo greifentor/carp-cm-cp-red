@@ -3,7 +3,6 @@ package de.ollie.carp.cm.cp.red.core.service.port.persistence;
 import de.ollie.carp.cm.cp.red.core.service.model.Panzerung;
 import de.ollie.carp.cm.cp.red.core.service.model.Panzerung;
 import de.ollie.carp.cm.cp.red.core.service.model.Punk;
-import de.ollie.carp.cm.cp.red.core.service.model.Rolle;
 import jakarta.inject.Named;
 import java.util.List;
 import java.util.Optional;
@@ -18,7 +17,7 @@ import lombok.Generated;
 @Generated
 @Named
 public interface PunkPersistencePort {
-	Punk create(String name, Panzerung panzerungKoerper, Panzerung panzerungKopf, Rolle rolle);
+	Punk create(String name, Panzerung panzerungKoerper, Panzerung panzerungKopf);
 
 	void deleteById(UUID id);
 

@@ -19,5 +19,4 @@ public class Punk {
 	private String name;
 	private Panzerung panzerungKoerper;
 	private Panzerung panzerungKopf;
-	private Rolle rolle;
 }

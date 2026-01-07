@@ -4,7 +4,6 @@ import de.ollie.carp.cm.cp.red.core.service.PunkService;
 import de.ollie.carp.cm.cp.red.core.service.model.Panzerung;
 import de.ollie.carp.cm.cp.red.core.service.model.Panzerung;
 import de.ollie.carp.cm.cp.red.core.service.model.Punk;
-import de.ollie.carp.cm.cp.red.core.service.model.Rolle;
 import de.ollie.carp.cm.cp.red.core.service.port.persistence.PunkPersistencePort;
 import jakarta.inject.Named;
 import java.util.List;
@@ -26,8 +25,8 @@ class PunkServiceImpl implements PunkService {
 	private final PunkPersistencePort punkPersistencePort;
 
 	@Override
-	public Punk createPunk(String name, Panzerung panzerungKoerper, Panzerung panzerungKopf, Rolle rolle) {
-		return punkPersistencePort.create(name, panzerungKoerper, panzerungKopf, rolle);
+	public Punk createPunk(String name, Panzerung panzerungKoerper, Panzerung panzerungKopf) {
+		return punkPersistencePort.create(name, panzerungKoerper, panzerungKopf);
 	}
 
 	@Override

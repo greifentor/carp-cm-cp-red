@@ -6,7 +6,6 @@ import de.ollie.carp.cm.cp.red.core.service.exception.TooManyElementsException;
 import de.ollie.carp.cm.cp.red.core.service.model.Panzerung;
 import de.ollie.carp.cm.cp.red.core.service.model.Panzerung;
 import de.ollie.carp.cm.cp.red.core.service.model.Punk;
-import de.ollie.carp.cm.cp.red.core.service.model.Rolle;
 import de.ollie.carp.cm.cp.red.core.service.port.persistence.PunkPersistencePort;
 import de.ollie.carp.cm.cp.red.persistence.jpa.mapper.PunkDboMapper;
 import de.ollie.carp.cm.cp.red.persistence.jpa.repository.PunkDboRepository;
@@ -32,9 +31,9 @@ class PunkPersistenceJpaAdapter implements PunkPersistencePort {
 	private final PunkDboRepository repository;
 
 	@Override
-	public Punk create(String name, Panzerung panzerungKoerper, Panzerung panzerungKopf, Rolle rolle) {
+	public Punk create(String name, Panzerung panzerungKoerper, Panzerung panzerungKopf) {
 		return mapper.toModel(
-			repository.save(dboFactory.createPunk(name, panzerungKoerper.getId(), panzerungKopf.getId(), rolle.getId()))
+			repository.save(dboFactory.createPunk(name, panzerungKoerper.getId(), panzerungKopf.getId()))
 		);
 	}
 
