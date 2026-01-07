@@ -3,6 +3,8 @@ package de.ollie.carp.cm.cp.red.gui.swing;
 import static de.ollie.carp.cm.cp.red.gui.swing.Constants.HGAP;
 import static de.ollie.carp.cm.cp.red.gui.swing.Constants.VGAP;
 
+import de.ollie.carp.cm.cp.red.core.service.AusruestungsgegenstandService;
+import de.ollie.carp.cm.cp.red.gui.swing.select.ausruestungsgegenstand.AusruestungsgegenstandSelectJInternalFrame;
 import jakarta.annotation.PostConstruct;
 import jakarta.inject.Named;
 import java.awt.BorderLayout;
@@ -25,6 +27,7 @@ import lombok.RequiredArgsConstructor;
 public class CarpCmCpRedMainFrame extends JFrame implements ActionListener {
 
 	private final EditDialogComponentFactory editDialogComponentFactory;
+	private final AusruestungsgegenstandService ausruestungsgegenstandService;
 
 	private JDesktopPane desktopPane;
 	private JMenuItem menuItemEditAusruestungsgegenstands;
@@ -110,17 +113,23 @@ public class CarpCmCpRedMainFrame extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == menuItemEditAusruestungsgegenstands) {} else if (
-			e.getSource() == menuItemEditAusruestungsgegenstandPunk
-		) {} else if (e.getSource() == menuItemEditEigenschaft) {} else if (
-			e.getSource() == menuItemEditEigenschaftPunk
-		) {} else if (e.getSource() == menuItemEditFertigkeit) {} else if (
-			e.getSource() == menuItemEditFertigkeitPunk
-		) {} else if (e.getSource() == menuItemEditPunk) {} else if (e.getSource() == menuItemEditPanzerung) {} else if (
-			e.getSource() == menuItemEditRolle
-		) {} else if (e.getSource() == menuItemEditRollePunk) {} else if (e.getSource() == menuItemEditWaffe) {} else if (
-			e.getSource() == menuItemEditWaffePunk
-		) {} else if (e.getSource() == menuItemFilePrint) {
+		if (e.getSource() == menuItemEditAusruestungsgegenstands) {
+			new AusruestungsgegenstandSelectJInternalFrame(
+				ausruestungsgegenstandService,
+				desktopPane,
+				editDialogComponentFactory
+			);
+		} else if (e.getSource() == menuItemEditAusruestungsgegenstandPunk) {} else if (
+			e.getSource() == menuItemEditEigenschaft
+		) {} else if (e.getSource() == menuItemEditEigenschaftPunk) {} else if (
+			e.getSource() == menuItemEditFertigkeit
+		) {} else if (e.getSource() == menuItemEditFertigkeitPunk) {} else if (
+			e.getSource() == menuItemEditPunk
+		) {} else if (e.getSource() == menuItemEditPanzerung) {} else if (e.getSource() == menuItemEditRolle) {} else if (
+			e.getSource() == menuItemEditRollePunk
+		) {} else if (e.getSource() == menuItemEditWaffe) {} else if (e.getSource() == menuItemEditWaffePunk) {} else if (
+			e.getSource() == menuItemFilePrint
+		) {
 			//			LocalDate now = LocalDate.now();
 			//			byte[] pdf = reportPrintService.printForTimeInterval(
 			//				now.withDayOfMonth(1),

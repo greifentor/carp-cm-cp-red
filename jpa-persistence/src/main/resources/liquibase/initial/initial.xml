@@ -1,48 +1,10 @@
 <?xml version="1.1" encoding="UTF-8" standalone="no"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.6.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
-    <changeSet author="dm-comp" id="Add-Table-BLOOD_PRESSURE_MEASUREMENT" objectQuotingStrategy="LEGACY" runOnChange="true">
-        <createTable tableName="BLOOD_PRESSURE_MEASUREMENT">
-            <column name="ID" type="UUID">
-                <constraints primaryKey="true" nullable="false"/>
-            </column>
-            <column name="DATE_OF_RECORDING" type="DATE">
-                <constraints nullable="true"/>
-            </column>
-            <column name="TIME_OF_RECORDING" type="TIME">
+    <changeSet author="dm-comp" id="Added-First-Bundle-of-Tables" failOnError="true" runInTransaction="true">
+        <createTable tableName="ROLLE">
+            <column name="ROLLENFERTIGKEIT" type="UUID">
                 <constraints nullable="false"/>
             </column>
-            <column name="DIA_MM_HG" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="SYS_MM_HG" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="PULSE_PER_MINUTE" type="INTEGER">
-                <constraints nullable="false"/>
-            </column>
-            <column name="STATUS" type="VARCHAR(40)">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-    </changeSet>
-    <changeSet author="dm-comp" id="Add-Table-COMMENT" objectQuotingStrategy="LEGACY" runOnChange="true">
-        <createTable tableName="COMMENT">
-            <column name="ID" type="UUID">
-                <constraints primaryKey="true" nullable="false"/>
-            </column>
-            <column name="DATE_OF_RECORDING" type="DATE">
-                <constraints nullable="true"/>
-            </column>
-            <column name="TIME_OF_RECORDING" type="TIME">
-                <constraints nullable="false"/>
-            </column>
-            <column name="CONTENT" type="LONGVARCHAR">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-    </changeSet>
-    <changeSet author="dm-comp" id="Add-Table-DOCTOR_TYPE" objectQuotingStrategy="LEGACY" runOnChange="true">
-        <createTable tableName="DOCTOR_TYPE">
             <column name="ID" type="UUID">
                 <constraints nullable="false"/>
             </column>
@@ -50,91 +12,20 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
-        <addPrimaryKey columnNames="ID" tableName="DOCTOR_TYPE"/>
-    </changeSet>
-    <changeSet author="dm-comp" id="Add-Table-DOCTOR" objectQuotingStrategy="LEGACY" runOnChange="true">
-        <createTable tableName="DOCTOR">
-            <column name="ID" type="UUID">
+        <addPrimaryKey columnNames="ID" tableName="ROLLE"/>
+        <createTable tableName="AUSRUESTUNGSGEGENSTAND_PUNK">
+            <column name="AUSRUESTUNGSGEGENSTAND" type="UUID">
                 <constraints nullable="false"/>
             </column>
-            <column name="DOCTOR_TYPE" type="UUID">
-                <constraints nullable="false"/>
-            </column>
-            <column name="NAME" type="VARCHAR(100)">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-        <addPrimaryKey columnNames="ID" tableName="DOCTOR"/>
-        <addForeignKeyConstraint baseColumnNames="DOCTOR_TYPE" baseTableName="DOCTOR" constraintName="FK_DOCTOR_DOCTOR_TYPE_TO_DOCTOR_TYPE" referencedColumnNames="ID" referencedTableName="DOCTOR_TYPE"/>
-    </changeSet>
-    <changeSet author="dm-comp" id="Add-Table-DOCTORCONSULTATION" objectQuotingStrategy="LEGACY" runOnChange="true">
-        <createTable tableName="DOCTOR_CONSULTATION">
-            <column name="DATE" type="DATE">
-                <constraints nullable="false"/>
-            </column>
-            <column name="TIME" type="TIME">
+            <column name="PUNK" type="UUID">
                 <constraints nullable="false"/>
             </column>
             <column name="ID" type="UUID">
                 <constraints nullable="false"/>
             </column>
-            <column name="REASON" type="LONGVARCHAR">
-                <constraints nullable="false"/>
-            </column>
-            <column name="DOCTOR" type="UUID">
-                <constraints nullable="false"/>
-            </column>
         </createTable>
-        <addPrimaryKey columnNames="ID" tableName="DOCTOR_CONSULTATION"/>
-        <addForeignKeyConstraint baseColumnNames="DOCTOR" baseTableName="DOCTOR_CONSULTATION" constraintName="FK_DOCTOR_CONSULTATION_DOCTOR_TO_DOCTOR" referencedColumnNames="ID" referencedTableName="DOCTOR"/>
-    </changeSet>
-    <changeSet author="dm-comp" id="Add-Medication-Tables" objectQuotingStrategy="LEGACY" runOnChange="true">
-        <createTable tableName="MEDICATION">
-            <column name="ID" type="UUID">
-                <constraints nullable="false"/>
-            </column>
-            <column name="MANUFACTURER" type="UUID">
-                <constraints nullable="false"/>
-            </column>
-            <column name="NAME" type="VARCHAR(100)">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-        <addPrimaryKey columnNames="ID" tableName="MEDICATION"/>
-        <createTable tableName="MEDICATION_LOG">
-            <column name="MEDICATION" type="UUID">
-                <constraints nullable="false"/>
-            </column>
-            <column name="DATE_OF_INTAKE" type="DATE">
-                <constraints nullable="false"/>
-            </column>
-            <column name="TIME_OF_INTAKE" type="TIME">
-                <constraints nullable="false"/>
-            </column>
-            <column name="ID" type="UUID">
-                <constraints nullable="false"/>
-            </column>
-            <column name="MEDICATION_UNIT" type="UUID">
-                <constraints nullable="false"/>
-            </column>
-            <column name="UNIT_COUNT" type="NUMERIC(5, 2)">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-        <addPrimaryKey columnNames="ID" tableName="MEDICATION_LOG"/>
-        <createTable tableName="MEDICATION_UNIT">
-            <column name="ID" type="UUID">
-                <constraints nullable="false"/>
-            </column>
-            <column name="TOKEN" type="VARCHAR(5)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="NAME" type="VARCHAR(100)">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-        <addPrimaryKey columnNames="ID" tableName="MEDICATION_UNIT"/>
-        <createTable tableName="MANUFACTURER">
+        <addPrimaryKey columnNames="ID" tableName="AUSRUESTUNGSGEGENSTAND_PUNK"/>
+        <createTable tableName="AUSRUESTUNGSGEGENSTAND">
             <column name="ID" type="UUID">
                 <constraints nullable="false"/>
             </column>
@@ -142,127 +33,25 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
-        <addPrimaryKey columnNames="ID" tableName="MANUFACTURER"/>
-        <addForeignKeyConstraint baseColumnNames="MANUFACTURER" baseTableName="MEDICATION" constraintName="FK_MEDICATION_MANUFACTURER_TO_MANUFACTURER" referencedColumnNames="ID" referencedTableName="MANUFACTURER"/>
-        <addForeignKeyConstraint baseColumnNames="MEDICATION_UNIT" baseTableName="MEDICATION_LOG" constraintName="FK_MEDICATION_LOG_MEDICATION_UNIT_TO_MEDICATION_UNIT" referencedColumnNames="ID" referencedTableName="MEDICATION_UNIT"/>
-        <addForeignKeyConstraint baseColumnNames="MEDICATION" baseTableName="MEDICATION_LOG" constraintName="FK_MEDICATION_LOG_MEDICATION_TO_MEDICATION" referencedColumnNames="ID" referencedTableName="MEDICATION"/>
-    </changeSet>
-    <changeSet author="dm-comp" id="Add-RESULT-Field-to-Table-DOCTOR_CONSULTATION" objectQuotingStrategy="LEGACY" runOnChange="true">
-        <addColumn tableName="DOCTOR_CONSULTATION">
-            <column name="RESULT" type="LONGVARCHAR">
+        <addPrimaryKey columnNames="ID" tableName="AUSRUESTUNGSGEGENSTAND"/>
+        <createTable tableName="FERTIGKEIT_PUNK">
+            <column name="FERTIGKEIT" type="UUID">
                 <constraints nullable="false"/>
             </column>
-        </addColumn>
-    </changeSet>
-    <changeSet author="dm-comp" id="Add-SYMPTOM-Table" objectQuotingStrategy="LEGACY" runOnChange="true">
-        <createTable tableName="SYMPTOM">
-            <column name="DATE_OF_RECORDING" type="DATE">
+            <column name="PUNK" type="UUID">
                 <constraints nullable="false"/>
             </column>
-            <column name="DESCRIPTION" type="LONGVARCHAR">
+            <column name="WERT" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-            <column name="ID" type="VARCHAR(40)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="TIME_OF_RECORDING" type="TIME">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-        <addPrimaryKey columnNames="ID" tableName="SYMPTOM"/>
-    </changeSet>
-    <changeSet author="dm-comp" id="Add-Copy-Data-to-SYMPTOM-Table-and-Remove-Data-from-COMMENT-Table" objectQuotingStrategy="LEGACY" runOnChange="true">
-        <sql>
-            INSERT INTO SYMPTOM (ID, DATE_OF_RECORDING, DESCRIPTION, TIME_OF_RECORDING)
-            SELECT ID, DATE_OF_RECORDING, CONTENT, TIME_OF_RECORDING FROM COMMENT;
-        </sql>
-        <sql>
-            DELETE FROM COMMENT;
-        </sql>
-    </changeSet>
-    <changeSet author="dm-comp" id="Drop-Time-Fields-from-Tables-COMMENT-and-SYMPTOM" objectQuotingStrategy="LEGACY" runOnChange="true">
-        <dropColumn tableName="COMMENT">
-            <column name="TIME_OF_RECORDING"/>
-        </dropColumn>
-        <dropColumn tableName="SYMPTOM">
-            <column name="TIME_OF_RECORDING"/>
-        </dropColumn>
-    </changeSet>
-    <changeSet author="dm-comp" id="Add-Field-IRREGULAR_HEARTBEAT-to-Table-BLOOD_PRESSURE_MEASUREMENT" objectQuotingStrategy="LEGACY" runOnChange="true">
-        <addColumn tableName="BLOOD_PRESSURE_MEASUREMENT">
-            <column name="IRREGULAR_HEARTBEAT" type="BOOLEAN" defaultValue="false">
-                <constraints nullable="false"/>
-            </column>
-        </addColumn>
-    </changeSet>
-    <changeSet author="dm-comp" id="Add-BodyPart-and-Exercise-Tables" objectQuotingStrategy="LEGACY" runOnChange="true">
-        <createTable tableName="GENERAL_BODY_PART">
-            <column name="ID" type="VARCHAR(40)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="NAME" type="VARCHAR(100)">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-        <addPrimaryKey columnNames="ID" tableName="GENERAL_BODY_PART"/>
-        <createTable tableName="EXERCISE">
-            <column name="DESCRIPTION" type="LONGVARCHAR">
-                <constraints nullable="false"/>
-            </column>
-            <column name="BODY_PART" type="VARCHAR(40)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="ID" type="VARCHAR(40)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="NAME" type="VARCHAR(100)">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-        <addPrimaryKey columnNames="ID" tableName="EXERCISE"/>
-        <createTable tableName="BODY_PART">
-            <column name="GENERAL_BODY_PART" type="VARCHAR(40)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="ID" type="VARCHAR(40)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="NAME" type="VARCHAR(100)">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-        <addPrimaryKey columnNames="ID" tableName="BODY_PART"/>
-        <addColumn tableName="SYMPTOM">
-            <column name="BODY_PART" type="VARCHAR(40)"/>
-        </addColumn>
-    </changeSet>
-    <changeSet author="dm-comp" id="Add-BodyPart-and-Exercise-Tables-Foreignkeys" objectQuotingStrategy="LEGACY" runOnChange="true">
-        <addForeignKeyConstraint baseColumnNames="BODY_PART"         baseTableName="SYMPTOM"   constraintName="FK_SYMPTOM_BODY_PART_TO_BODY_PART"                   referencedColumnNames="ID" referencedTableName="BODY_PART"/>
-        <addForeignKeyConstraint baseColumnNames="BODY_PART"         baseTableName="EXERCISE"  constraintName="FK_EXERCISE_BODY_PART_TO_BODY_PART"                  referencedColumnNames="ID" referencedTableName="BODY_PART"/>
-        <addForeignKeyConstraint baseColumnNames="GENERAL_BODY_PART" baseTableName="BODY_PART" constraintName="FK_BODY_PART_GENERAL_BODY_PART_TO_GENERAL_BODY_PART" referencedColumnNames="ID" referencedTableName="GENERAL_BODY_PART"/>
-    </changeSet>
-    <changeSet author="dm-comp" id="Add-Table-MEAT_CONSUMPTION" objectQuotingStrategy="LEGACY" runOnChange="true">
-        <createTable tableName="MEAT_CONSUMPTION">
             <column name="ID" type="UUID">
-                <constraints primaryKey="true" nullable="false"/>
-            </column>
-            <column name="DATE_OF_RECORDING" type="DATE">
-                <constraints nullable="true"/>
-            </column>
-            <column name="DESCRIPTION" type="LONGVARCHAR">
                 <constraints nullable="false"/>
             </column>
         </createTable>
-    </changeSet>
-    <changeSet author="dm-comp" id="Add-Column-UNVERIFIED-to-Table-SYMPTOM" objectQuotingStrategy="LEGACY" runOnChange="true">
-        <addColumn tableName="SYMPTOM">
-            <column name="UNVERIFIED" type="BOOLEAN" defaultValue="false">
-                <constraints nullable="false"/>
-            </column>
-        </addColumn>
-    </changeSet>
-    <changeSet author="dm-comp" id="Split-Meat-Consumption-Information" failOnError="true" runInTransaction="true">
-        <createTable tableName="MEAT_TYPE">
+        <addPrimaryKey columnNames="ID" tableName="FERTIGKEIT_PUNK"/>
+        <createTable tableName="PUNK">
+            <column name="PANZERUNG_KOPF" type="UUID"/>
+            <column name="PANZERUNG_KOERPER" type="UUID"/>
             <column name="ID" type="UUID">
                 <constraints nullable="false"/>
             </column>
@@ -270,64 +59,115 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
-        <addPrimaryKey columnNames="ID" tableName="MEAT_TYPE"/>
-        <addColumn tableName="MEAT_CONSUMPTION">
-            <column name="MEAT_TYPE" type="UUID">
-                <constraints nullable="true"/>
-            </column>
-        </addColumn>
-        <addColumn tableName="MEAT_CONSUMPTION">
-            <column name="AMOUNT_IN_GR" type="INTEGER">
+        <addPrimaryKey columnNames="ID" tableName="PUNK"/>
+        <createTable tableName="ROLLE_PUNK">
+            <column name="ROLLE" type="UUID">
                 <constraints nullable="false"/>
             </column>
-        </addColumn>
-        <addForeignKeyConstraint constraintName="FK_MEAT_CONSUMPTION_MEAT_TYPE_TO_MEAT_TYPE" baseColumnNames="MEAT_TYPE" baseTableName="MEAT_CONSUMPTION" referencedColumnNames="ID" referencedTableName="MEAT_TYPE"/>
-    </changeSet>
-    <changeSet author="dm-comp" id="Add-Flag-SELF_MEDICATION-to-Table-MEDICATION_LOG" failOnError="true" runInTransaction="true">
-        <addColumn tableName="MEDICATION_LOG">
-            <column name="SELF_MEDICATION" type="BOOLEAN" defaultValue="false">
+            <column name="PUNK" type="UUID">
                 <constraints nullable="false"/>
             </column>
-        </addColumn>
-    </changeSet>
-    <changeSet author="dm-comp" id="Add-CommentType-Fields-and-Tables" failOnError="true" runInTransaction="true">
-        <createTable tableName="COMMENT_TYPE">
-            <column name="ID" type="VARCHAR(40)">
+            <column name="ID" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey columnNames="ID" tableName="ROLLE_PUNK"/>
+        <createTable tableName="WAFFE">
+            <column name="FERTIGKEIT" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ID" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SCHADEN" type="VARCHAR(100)">
                 <constraints nullable="false"/>
             </column>
             <column name="NAME" type="VARCHAR(100)">
                 <constraints nullable="false"/>
             </column>
         </createTable>
-        <addPrimaryKey columnNames="ID" tableName="COMMENT_TYPE"/>
-        <addColumn tableName="COMMENT">
-            <column name="COMMENT_TYPE" type="VARCHAR(40)" />
-        </addColumn>
-        <addForeignKeyConstraint constraintName="FK_COMMENT_COMMENT_TYPE_TO_COMMENT_TYPE" baseColumnNames="COMMENT_TYPE" baseTableName="COMMENT" referencedColumnNames="ID" referencedTableName="COMMENT_TYPE"/>
-        <sql>
-            INSERT INTO COMMENT_TYPE (ID, NAME)
-            VALUES ('a66c2739-0918-4dae-ae1a-85c14aaf9117', 'Dummy');
-        </sql>
-        <sql>
-            UPDATE COMMENT
-            SET COMMENT_TYPE = 'a66c2739-0918-4dae-ae1a-85c14aaf9117';
-        </sql>
-    </changeSet>
-    <changeSet author="dm-comp" id="Add-Not-Null-Constraint-to-Field-COMMENT_TYPE-in-Table-COMMENT" failOnError="true" runInTransaction="true">
-        <addNotNullConstraint columnName="COMMENT_TYPE" tableName="COMMENT" columnDataType="VARCHAR(40)"/>
-    </changeSet>
-    <changeSet author="dm-comp" id="Add-Field-OPEN-to-Table-DOCTOR_CONSULTATION" failOnError="true" runInTransaction="true">
-        <addColumn tableName="DOCTOR_CONSULTATION">
-            <column name="OPEN" type="BOOLEAN" defaultValue="false">
+        <addPrimaryKey columnNames="ID" tableName="WAFFE"/>
+        <createTable tableName="FERTIGKEIT">
+            <column name="ROLLENFERTIGKEIT" type="BOOLEAN">
                 <constraints nullable="false"/>
             </column>
-        </addColumn>
-    </changeSet>
-    <changeSet author="dm-comp" id="Add-Field-SUBSEQUENT_APPOINTMENT_OF-to-Table-DOCTOR_CONSULTATION" failOnError="true" runInTransaction="true">
-        <addColumn tableName="DOCTOR_CONSULTATION">
-            <column name="SUBSEQUENT_APPOINTMENT_OF" type="UUID"/>
-        </addColumn>
-        <addForeignKeyConstraint constraintName="FK_DOCTOR_CONSULTATION_SUBSEQUENT_APPOINTMENT_OF_TO_DOCTOR_CON" baseColumnNames="SUBSEQUENT_APPOINTMENT_OF" baseTableName="DOCTOR_CONSULTATION" referencedColumnNames="ID" referencedTableName="DOCTOR_CONSULTATION"/>
+            <column name="EIGENSCHAFT" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ID" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NAME" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey columnNames="ID" tableName="FERTIGKEIT"/>
+        <createTable tableName="EIGENSCHAFT_PUNK">
+            <column name="PUNK" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EIGENSCHAFT" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="WERT" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ID" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey columnNames="ID" tableName="EIGENSCHAFT_PUNK"/>
+        <createTable tableName="EIGENSCHAFT">
+            <column name="ID" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NAME" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey columnNames="ID" tableName="EIGENSCHAFT"/>
+        <createTable tableName="PANZERUNG">
+            <column name="KOERPERPANZERUNG" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SW" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ID" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NAME" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey columnNames="ID" tableName="PANZERUNG"/>
+        <createTable tableName="WAFFE_PUNK">
+            <column name="WAFFE" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PUNK" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ID" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey columnNames="ID" tableName="WAFFE_PUNK"/>
+        <addForeignKeyConstraint baseColumnNames="ROLLENFERTIGKEIT" baseTableName="ROLLE" constraintName="FK_ROLLE_ROLLENFERTIGKEIT_TO_FERTIGKEIT" referencedColumnNames="ID" referencedTableName="FERTIGKEIT"/>
+        <addForeignKeyConstraint baseColumnNames="AUSRUESTUNGSGEGENSTAND" baseTableName="AUSRUESTUNGSGEGENSTAND_PUNK" constraintName="FK_AUSRUESTUNGSGEGENSTAND_PUNK_AUSRUESTUNGSGEGENSTAND_TO_AUSRUES" referencedColumnNames="ID" referencedTableName="AUSRUESTUNGSGEGENSTAND"/>
+        <addForeignKeyConstraint baseColumnNames="PUNK" baseTableName="AUSRUESTUNGSGEGENSTAND_PUNK" constraintName="FK_AUSRUESTUNGSGEGENSTAND_PUNK_PUNK_TO_PUNK" referencedColumnNames="ID" referencedTableName="PUNK"/>
+        <addForeignKeyConstraint baseColumnNames="FERTIGKEIT" baseTableName="FERTIGKEIT_PUNK" constraintName="FK_FERTIGKEIT_PUNK_FERTIGKEIT_TO_FERTIGKEIT" referencedColumnNames="ID" referencedTableName="FERTIGKEIT"/>
+        <addForeignKeyConstraint baseColumnNames="PUNK" baseTableName="FERTIGKEIT_PUNK" constraintName="FK_FERTIGKEIT_PUNK_PUNK_TO_PUNK" referencedColumnNames="ID" referencedTableName="PUNK"/>
+        <addForeignKeyConstraint baseColumnNames="PANZERUNG_KOPF" baseTableName="PUNK" constraintName="FK_PUNK_PANZERUNG_KOPF_TO_PANZERUNG" referencedColumnNames="ID" referencedTableName="PANZERUNG"/>
+        <addForeignKeyConstraint baseColumnNames="PANZERUNG_KOERPER" baseTableName="PUNK" constraintName="FK_PUNK_PANZERUNG_KOERPER_TO_PANZERUNG" referencedColumnNames="ID" referencedTableName="PANZERUNG"/>
+        <addForeignKeyConstraint baseColumnNames="PUNK" baseTableName="ROLLE_PUNK" constraintName="FK_ROLLE_PUNK_PUNK_TO_PUNK" referencedColumnNames="ID" referencedTableName="PUNK"/>
+        <addForeignKeyConstraint baseColumnNames="ROLLE" baseTableName="ROLLE_PUNK" constraintName="FK_ROLLE_PUNK_ROLLE_TO_ROLLE" referencedColumnNames="ID" referencedTableName="ROLLE"/>
+        <addForeignKeyConstraint baseColumnNames="FERTIGKEIT" baseTableName="WAFFE" constraintName="FK_WAFFE_FERTIGKEIT_TO_FERTIGKEIT" referencedColumnNames="ID" referencedTableName="FERTIGKEIT"/>
+        <addForeignKeyConstraint baseColumnNames="EIGENSCHAFT" baseTableName="FERTIGKEIT" constraintName="FK_FERTIGKEIT_EIGENSCHAFT_TO_EIGENSCHAFT" referencedColumnNames="ID" referencedTableName="EIGENSCHAFT"/>
+        <addForeignKeyConstraint baseColumnNames="EIGENSCHAFT" baseTableName="EIGENSCHAFT_PUNK" constraintName="FK_EIGENSCHAFT_PUNK_EIGENSCHAFT_TO_EIGENSCHAFT" referencedColumnNames="ID" referencedTableName="EIGENSCHAFT"/>
+        <addForeignKeyConstraint baseColumnNames="PUNK" baseTableName="EIGENSCHAFT_PUNK" constraintName="FK_EIGENSCHAFT_PUNK_PUNK_TO_PUNK" referencedColumnNames="ID" referencedTableName="PUNK"/>
+        <addForeignKeyConstraint baseColumnNames="PUNK" baseTableName="WAFFE_PUNK" constraintName="FK_WAFFE_PUNK_PUNK_TO_PUNK" referencedColumnNames="ID" referencedTableName="PUNK"/>
+        <addForeignKeyConstraint baseColumnNames="WAFFE" baseTableName="WAFFE_PUNK" constraintName="FK_WAFFE_PUNK_WAFFE_TO_WAFFE" referencedColumnNames="ID" referencedTableName="WAFFE"/>
     </changeSet>
 
 </databaseChangeLog>
