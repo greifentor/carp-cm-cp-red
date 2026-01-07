@@ -241,26 +241,17 @@ classes:
       - name: panzerungKoerper
         properties:
           - name: editor-position
-            value: 4
+            value: 3
         reference: true
         type:
           name: Panzerung
       - name: panzerungKopf
         properties:
           - name: editor-position
-            value: 3
-        reference: true
-        type:
-          name: Panzerung
-      - name: rolle
-        properties:
-          - name: nullable
-            value: false
-          - name: editor-position
             value: 2
         reference: true
         type:
-          name: Rolle
+          name: Panzerung
   - name: Panzerung
     properties:
       - name: order

@@ -3,8 +3,20 @@ package de.ollie.carp.cm.cp.red.gui.swing;
 import static de.ollie.carp.cm.cp.red.gui.swing.Constants.HGAP;
 import static de.ollie.carp.cm.cp.red.gui.swing.Constants.VGAP;
 
+import de.ollie.carp.cm.cp.red.core.service.AusruestungsgegenstandPunkService;
 import de.ollie.carp.cm.cp.red.core.service.AusruestungsgegenstandService;
+import de.ollie.carp.cm.cp.red.core.service.EigenschaftService;
+import de.ollie.carp.cm.cp.red.core.service.FertigkeitService;
+import de.ollie.carp.cm.cp.red.core.service.PanzerungService;
+import de.ollie.carp.cm.cp.red.core.service.PunkService;
+import de.ollie.carp.cm.cp.red.core.service.RolleService;
 import de.ollie.carp.cm.cp.red.gui.swing.select.ausruestungsgegenstand.AusruestungsgegenstandSelectJInternalFrame;
+import de.ollie.carp.cm.cp.red.gui.swing.select.ausruestungsgegenstandpunk.AusruestungsgegenstandPunkSelectJInternalFrame;
+import de.ollie.carp.cm.cp.red.gui.swing.select.eigenschaft.EigenschaftSelectJInternalFrame;
+import de.ollie.carp.cm.cp.red.gui.swing.select.fertigkeit.FertigkeitSelectJInternalFrame;
+import de.ollie.carp.cm.cp.red.gui.swing.select.panzerung.PanzerungSelectJInternalFrame;
+import de.ollie.carp.cm.cp.red.gui.swing.select.punk.PunkSelectJInternalFrame;
+import de.ollie.carp.cm.cp.red.gui.swing.select.rolle.RolleSelectJInternalFrame;
 import jakarta.annotation.PostConstruct;
 import jakarta.inject.Named;
 import java.awt.BorderLayout;
@@ -26,8 +38,14 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class CarpCmCpRedMainFrame extends JFrame implements ActionListener {
 
-	private final EditDialogComponentFactory editDialogComponentFactory;
 	private final AusruestungsgegenstandService ausruestungsgegenstandService;
+	private final AusruestungsgegenstandPunkService ausruestungsgegenstandPunkService;
+	private final EditDialogComponentFactory editDialogComponentFactory;
+	private final EigenschaftService eigenschaftService;
+	private final FertigkeitService fertigkeitService;
+	private final PanzerungService panzerungService;
+	private final PunkService punkService;
+	private final RolleService rolleService;
 
 	private JDesktopPane desktopPane;
 	private JMenuItem menuItemEditAusruestungsgegenstands;
@@ -119,17 +137,38 @@ public class CarpCmCpRedMainFrame extends JFrame implements ActionListener {
 				desktopPane,
 				editDialogComponentFactory
 			);
-		} else if (e.getSource() == menuItemEditAusruestungsgegenstandPunk) {} else if (
-			e.getSource() == menuItemEditEigenschaft
-		) {} else if (e.getSource() == menuItemEditEigenschaftPunk) {} else if (
-			e.getSource() == menuItemEditFertigkeit
-		) {} else if (e.getSource() == menuItemEditFertigkeitPunk) {} else if (
-			e.getSource() == menuItemEditPunk
-		) {} else if (e.getSource() == menuItemEditPanzerung) {} else if (e.getSource() == menuItemEditRolle) {} else if (
-			e.getSource() == menuItemEditRollePunk
-		) {} else if (e.getSource() == menuItemEditWaffe) {} else if (e.getSource() == menuItemEditWaffePunk) {} else if (
-			e.getSource() == menuItemFilePrint
-		) {
+		} else if (e.getSource() == menuItemEditAusruestungsgegenstandPunk) {
+			new AusruestungsgegenstandPunkSelectJInternalFrame(
+				ausruestungsgegenstandPunkService,
+				ausruestungsgegenstandService,
+				punkService,
+				desktopPane,
+				editDialogComponentFactory
+			);
+		} else if (e.getSource() == menuItemEditEigenschaft) {
+			new EigenschaftSelectJInternalFrame(eigenschaftService, desktopPane, editDialogComponentFactory);
+		} else if (e.getSource() == menuItemEditEigenschaftPunk) {} else if (e.getSource() == menuItemEditFertigkeit) {
+			new FertigkeitSelectJInternalFrame(
+				fertigkeitService,
+				eigenschaftService,
+				desktopPane,
+				editDialogComponentFactory
+			);
+		} else if (e.getSource() == menuItemEditFertigkeitPunk) {} else if (e.getSource() == menuItemEditPunk) {
+			new PunkSelectJInternalFrame(
+				punkService,
+				rolleService,
+				panzerungService,
+				desktopPane,
+				editDialogComponentFactory
+			);
+		} else if (e.getSource() == menuItemEditPanzerung) {
+			new PanzerungSelectJInternalFrame(panzerungService, desktopPane, editDialogComponentFactory);
+		} else if (e.getSource() == menuItemEditRolle) {
+			new RolleSelectJInternalFrame(rolleService, fertigkeitService, desktopPane, editDialogComponentFactory);
+		} else if (e.getSource() == menuItemEditRollePunk) {} else if (e.getSource() == menuItemEditWaffe) {} else if (
+			e.getSource() == menuItemEditWaffePunk
+		) {} else if (e.getSource() == menuItemFilePrint) {
 			//			LocalDate now = LocalDate.now();
 			//			byte[] pdf = reportPrintService.printForTimeInterval(
 			//				now.withDayOfMonth(1),
