@@ -1,9 +1,10 @@
 package de.ollie.carp.cm.cp.red.persistence.jpa.repository;
 
 import de.ollie.carp.cm.cp.red.persistence.jpa.dbo.WaffeDbo;
+import java.util.List;
 import java.util.UUID;
-import lombok.Generated;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -11,6 +12,8 @@ import org.springframework.stereotype.Repository;
  *
  * Remove this comment to suspend class from generation process.
  */
-@Generated
 @Repository
-public interface WaffeDboRepository extends JpaRepository<WaffeDbo, UUID> {}
+public interface WaffeDboRepository extends JpaRepository<WaffeDbo, UUID> {
+	@Query("SELECT dbo FROM WaffeDbo dbo ORDER BY dbo.name")
+	List<WaffeDbo> findAllOrdered();
+}

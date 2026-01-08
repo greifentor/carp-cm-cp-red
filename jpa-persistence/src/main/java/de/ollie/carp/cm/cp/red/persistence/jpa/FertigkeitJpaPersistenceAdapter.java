@@ -48,7 +48,7 @@ class FertigkeitPersistenceJpaAdapter implements FertigkeitPersistencePort {
 
 	@Override
 	public List<Fertigkeit> list() {
-		return repository.findAll().stream().map(mapper::toModel).toList();
+		return repository.findAllOrdered().stream().map(mapper::toModel).toList();
 	}
 
 	@Override

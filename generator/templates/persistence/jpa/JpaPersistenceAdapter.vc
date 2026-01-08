@@ -86,7 +86,11 @@ class ${ClassName}PersistenceJpaAdapter implements ${ClassName}PersistencePort {
 
 	@Override
 	public List<${ClassName}> list() {
+		#if(${Class.hasPropertyWithName("order")})
+		return repository.findAllOrdered().stream().map(mapper::toModel).toList();
+		#else
 		return repository.findAll().stream().map(mapper::toModel).toList();
+		#end
 	}
 	
 	@Override

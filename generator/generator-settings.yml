@@ -82,7 +82,7 @@ generators:
   - type: CLASS
     package: de.ollie.carp.cm.cp.red.persistence.jpa.repository
     target-file-name: ${UnitName}DboRepository
-    resource-class-loader: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+    path: generator
     template: templates/persistence/jpa/DboRepository.vc
     properties:
       - name: target-path

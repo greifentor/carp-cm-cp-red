@@ -1,9 +1,10 @@
 package de.ollie.carp.cm.cp.red.persistence.jpa.repository;
 
 import de.ollie.carp.cm.cp.red.persistence.jpa.dbo.EigenschaftDbo;
+import java.util.List;
 import java.util.UUID;
-import lombok.Generated;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -11,6 +12,8 @@ import org.springframework.stereotype.Repository;
  *
  * Remove this comment to suspend class from generation process.
  */
-@Generated
 @Repository
-public interface EigenschaftDboRepository extends JpaRepository<EigenschaftDbo, UUID> {}
+public interface EigenschaftDboRepository extends JpaRepository<EigenschaftDbo, UUID> {
+	@Query("SELECT dbo FROM EigenschaftDbo dbo ORDER BY dbo.name")
+	List<EigenschaftDbo> findAllOrdered();
+}

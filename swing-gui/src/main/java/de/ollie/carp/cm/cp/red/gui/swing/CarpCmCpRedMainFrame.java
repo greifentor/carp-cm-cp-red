@@ -5,18 +5,28 @@ import static de.ollie.carp.cm.cp.red.gui.swing.Constants.VGAP;
 
 import de.ollie.carp.cm.cp.red.core.service.AusruestungsgegenstandPunkService;
 import de.ollie.carp.cm.cp.red.core.service.AusruestungsgegenstandService;
+import de.ollie.carp.cm.cp.red.core.service.EigenschaftPunkService;
 import de.ollie.carp.cm.cp.red.core.service.EigenschaftService;
+import de.ollie.carp.cm.cp.red.core.service.FertigkeitPunkService;
 import de.ollie.carp.cm.cp.red.core.service.FertigkeitService;
 import de.ollie.carp.cm.cp.red.core.service.PanzerungService;
 import de.ollie.carp.cm.cp.red.core.service.PunkService;
+import de.ollie.carp.cm.cp.red.core.service.RollePunkService;
 import de.ollie.carp.cm.cp.red.core.service.RolleService;
+import de.ollie.carp.cm.cp.red.core.service.WaffePunkService;
+import de.ollie.carp.cm.cp.red.core.service.WaffeService;
 import de.ollie.carp.cm.cp.red.gui.swing.select.ausruestungsgegenstand.AusruestungsgegenstandSelectJInternalFrame;
 import de.ollie.carp.cm.cp.red.gui.swing.select.ausruestungsgegenstandpunk.AusruestungsgegenstandPunkSelectJInternalFrame;
 import de.ollie.carp.cm.cp.red.gui.swing.select.eigenschaft.EigenschaftSelectJInternalFrame;
+import de.ollie.carp.cm.cp.red.gui.swing.select.eigenschaftpunk.EigenschaftPunkSelectJInternalFrame;
 import de.ollie.carp.cm.cp.red.gui.swing.select.fertigkeit.FertigkeitSelectJInternalFrame;
+import de.ollie.carp.cm.cp.red.gui.swing.select.fertigkeitpunk.FertigkeitPunkSelectJInternalFrame;
 import de.ollie.carp.cm.cp.red.gui.swing.select.panzerung.PanzerungSelectJInternalFrame;
 import de.ollie.carp.cm.cp.red.gui.swing.select.punk.PunkSelectJInternalFrame;
 import de.ollie.carp.cm.cp.red.gui.swing.select.rolle.RolleSelectJInternalFrame;
+import de.ollie.carp.cm.cp.red.gui.swing.select.rollepunk.RollePunkSelectJInternalFrame;
+import de.ollie.carp.cm.cp.red.gui.swing.select.waffe.WaffeSelectJInternalFrame;
+import de.ollie.carp.cm.cp.red.gui.swing.select.waffepunk.WaffePunkSelectJInternalFrame;
 import jakarta.annotation.PostConstruct;
 import jakarta.inject.Named;
 import java.awt.BorderLayout;
@@ -42,10 +52,15 @@ public class CarpCmCpRedMainFrame extends JFrame implements ActionListener {
 	private final AusruestungsgegenstandPunkService ausruestungsgegenstandPunkService;
 	private final EditDialogComponentFactory editDialogComponentFactory;
 	private final EigenschaftService eigenschaftService;
+	private final EigenschaftPunkService eigenschaftPunkService;
 	private final FertigkeitService fertigkeitService;
+	private final FertigkeitPunkService fertigkeitPunkService;
 	private final PanzerungService panzerungService;
 	private final PunkService punkService;
 	private final RolleService rolleService;
+	private final RollePunkService rollePunkService;
+	private final WaffeService waffeService;
+	private final WaffePunkService waffePunkService;
 
 	private JDesktopPane desktopPane;
 	private JMenuItem menuItemEditAusruestungsgegenstands;
@@ -81,7 +96,7 @@ public class CarpCmCpRedMainFrame extends JFrame implements ActionListener {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		setTitle("Health-Tracker");
+		setTitle("CARP Charaktermanager Cyberpunk Red");
 		setVisible(true);
 	}
 
@@ -147,22 +162,54 @@ public class CarpCmCpRedMainFrame extends JFrame implements ActionListener {
 			);
 		} else if (e.getSource() == menuItemEditEigenschaft) {
 			new EigenschaftSelectJInternalFrame(eigenschaftService, desktopPane, editDialogComponentFactory);
-		} else if (e.getSource() == menuItemEditEigenschaftPunk) {} else if (e.getSource() == menuItemEditFertigkeit) {
+		} else if (e.getSource() == menuItemEditEigenschaftPunk) {
+			new EigenschaftPunkSelectJInternalFrame(
+				eigenschaftPunkService,
+				punkService,
+				eigenschaftService,
+				desktopPane,
+				editDialogComponentFactory
+			);
+		} else if (e.getSource() == menuItemEditFertigkeit) {
 			new FertigkeitSelectJInternalFrame(
 				fertigkeitService,
 				eigenschaftService,
 				desktopPane,
 				editDialogComponentFactory
 			);
-		} else if (e.getSource() == menuItemEditFertigkeitPunk) {} else if (e.getSource() == menuItemEditPunk) {
+		} else if (e.getSource() == menuItemEditFertigkeitPunk) {
+			new FertigkeitPunkSelectJInternalFrame(
+				fertigkeitPunkService,
+				punkService,
+				fertigkeitService,
+				desktopPane,
+				editDialogComponentFactory
+			);
+		} else if (e.getSource() == menuItemEditPunk) {
 			new PunkSelectJInternalFrame(punkService, panzerungService, desktopPane, editDialogComponentFactory);
 		} else if (e.getSource() == menuItemEditPanzerung) {
 			new PanzerungSelectJInternalFrame(panzerungService, desktopPane, editDialogComponentFactory);
 		} else if (e.getSource() == menuItemEditRolle) {
 			new RolleSelectJInternalFrame(rolleService, fertigkeitService, desktopPane, editDialogComponentFactory);
-		} else if (e.getSource() == menuItemEditRollePunk) {} else if (e.getSource() == menuItemEditWaffe) {} else if (
-			e.getSource() == menuItemEditWaffePunk
-		) {} else if (e.getSource() == menuItemFilePrint) {
+		} else if (e.getSource() == menuItemEditRollePunk) {
+			new RollePunkSelectJInternalFrame(
+				rollePunkService,
+				punkService,
+				rolleService,
+				desktopPane,
+				editDialogComponentFactory
+			);
+		} else if (e.getSource() == menuItemEditWaffe) {
+			new WaffeSelectJInternalFrame(waffeService, fertigkeitService, desktopPane, editDialogComponentFactory);
+		} else if (e.getSource() == menuItemEditWaffePunk) {
+			new WaffePunkSelectJInternalFrame(
+				waffePunkService,
+				punkService,
+				waffeService,
+				desktopPane,
+				editDialogComponentFactory
+			);
+		} else if (e.getSource() == menuItemFilePrint) {
 			//			LocalDate now = LocalDate.now();
 			//			byte[] pdf = reportPrintService.printForTimeInterval(
 			//				now.withDayOfMonth(1),

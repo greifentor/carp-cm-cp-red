@@ -14,14 +14,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import lombok.Generated;
 
-/**
- * GENERATED CODE - DO NOT TOUCH
- *
- * Remove this comment to suspend class from generation process.
- */
-@Generated
 public class PunkEditJPanel extends AbstractEditPanel<Punk> {
 
 	public static final String PANZERUNG_ITEM_PROVIDER_ID = "panzerung-item-provider";

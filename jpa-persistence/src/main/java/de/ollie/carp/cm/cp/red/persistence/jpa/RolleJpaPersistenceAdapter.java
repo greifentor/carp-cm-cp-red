@@ -48,7 +48,7 @@ class RollePersistenceJpaAdapter implements RollePersistencePort {
 
 	@Override
 	public List<Rolle> list() {
-		return repository.findAll().stream().map(mapper::toModel).toList();
+		return repository.findAllOrdered().stream().map(mapper::toModel).toList();
 	}
 
 	@Override

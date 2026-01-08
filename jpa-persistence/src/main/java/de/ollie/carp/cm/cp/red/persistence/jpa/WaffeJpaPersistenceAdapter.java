@@ -48,7 +48,7 @@ class WaffePersistenceJpaAdapter implements WaffePersistencePort {
 
 	@Override
 	public List<Waffe> list() {
-		return repository.findAll().stream().map(mapper::toModel).toList();
+		return repository.findAllOrdered().stream().map(mapper::toModel).toList();
 	}
 
 	@Override
