@@ -1,4 +1,4 @@
-<!-- Schieber -->
+<!-- Konzerner -->
 <punk>
     <name>William "Bill" Freeman</name>
     <intelligenz>10</intelligenz>
@@ -17,30 +17,68 @@
     <panzerung>Leichte Panzerung</panzerung>
     <swKopf>11</swKopf>
     <swKoerper>11</swKoerper>
-    <fertigkeit0Name>Allgemeinwissen</fertigkeit0Name>
-    <fertigkeit0Wert>(INT) + 6</fertigkeit0Wert>
-    <fertigkeit1Name>Athletik</fertigkeit1Name>
-    <fertigkeit1Wert>(GES) + 2</fertigkeit1Wert>
-    <fertigkeit2Name>Ausweichen</fertigkeit2Name>
-    <fertigkeit2Wert>(GES) + 6</fertigkeit2Wert>
-    <fertigkeit3Name>Heimlichkeit</fertigkeit3Name>
-    <fertigkeit3Wert>(GES) + 2</fertigkeit3Wert>
-    <fertigkeit4Name>Gespräch</fertigkeit4Name>
-    <fertigkeit4Wert>(EMP) + 6</fertigkeit4Wert>
-    <fertigkeit5Name>Faustkampf</fertigkeit5Name>
-    <fertigkeit5Wert>(GES) + 2</fertigkeit5Wert>
-    <fertigkeit6Name>Konzentration</fertigkeit6Name>
-    <fertigkeit6Wert>(WIL) + 6</fertigkeit6Wert>
-    <fertigkeit7Name>Konzernbräuche</fertigkeit7Name>
-    <fertigkeit7Wert>(INT) + 6</fertigkeit7Wert>
-    <fertigkeit8Name>Menschenkenntnis</fertigkeit8Name>
-    <fertigkeit8Wert>(EMP) + 3</fertigkeit8Wert>
-    <fertigkeit9Name>Ortskunde</fertigkeit9Name>
-    <fertigkeit9Wert>(INT) + 4</fertigkeit9Wert>
-    <fertigkeitAName>Schießen</fertigkeitAName>
-    <fertigkeitAWert>(REF) + 6</fertigkeitAWert>
-    <fertigkeitBName>Wahrnehmung</fertigkeitBName>
-    <fertigkeitBWert>(INT) + 2</fertigkeitBWert>
+    <fertigkeiten>
+	    <fertigkeit>
+	    	<name>Allgemeinwissen</name>
+	    	<eigenschaft>INT</eigenschaft>
+	    	<wert>6</wert>
+	    </fertigkeit>
+	    <fertigkeit>
+	    	<name>Athletik</name>
+	    	<eigenschaft>GES</eigenschaft>
+	    	<wert>2</wert>
+	    </fertigkeit>
+	    <fertigkeit>
+	    	<name>Ausweichen</name>
+	    	<eigenschaft>GES</eigenschaft>
+	    	<wert>6</wert>
+	    </fertigkeit>
+	    <fertigkeit>
+	    	<name>Heimlichkeit</name>
+	    	<eigenschaft>GES</eigenschaft>
+	    	<wert>3</wert>
+	    </fertigkeit>
+	    <fertigkeit>
+	    	<name>Gespräch</name>
+	    	<eigenschaft>EMP</eigenschaft>
+	    	<wert>6</wert>
+	    </fertigkeit>
+	    <fertigkeit>
+	    	<name>Faustkampf</name>
+	    	<eigenschaft>GES</eigenschaft>
+	    	<wert>2</wert>
+	    </fertigkeit>
+	    <fertigkeit>
+	    	<name>Konzentration</name>
+	    	<eigenschaft>WIL</eigenschaft>
+	    	<wert>6</wert>
+	    </fertigkeit>
+	    <fertigkeit>
+	    	<name>Konzernbräuche</name>
+	    	<eigenschaft>INT</eigenschaft>
+	    	<wert>6</wert>
+	    </fertigkeit>
+	    <fertigkeit>
+	    	<name>Menschenkenntnis</name>
+	    	<eigenschaft>EMP</eigenschaft>
+	    	<wert>3</wert>
+	    </fertigkeit>
+	    <fertigkeit>
+	    	<name>Ortskunde</name>
+	    	<eigenschaft>INT</eigenschaft>
+	    	<wert>4</wert>
+	    </fertigkeit>
+	    <fertigkeit>
+	    	<name>Schießen</name>
+	    	<eigenschaft>REF</eigenschaft>
+	    	<wert>6</wert>
+	    </fertigkeit>
+	    <fertigkeit>
+	    	<name>Wahrnehmung</name>
+	    	<eigenschaft>INT</eigenschaft>
+	    	<wert>2</wert>
+	    </fertigkeit>
+	</fertigkeiten>
     <waffe0Name>Sehr schwere Pistole</waffe0Name>
     <waffe0Schaden>4W6</waffe0Schaden>
     <waffe1Name></waffe1Name>
