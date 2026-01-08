@@ -11,10 +11,13 @@ import de.ollie.carp.cm.cp.red.core.service.FertigkeitPunkService;
 import de.ollie.carp.cm.cp.red.core.service.FertigkeitService;
 import de.ollie.carp.cm.cp.red.core.service.PanzerungService;
 import de.ollie.carp.cm.cp.red.core.service.PunkService;
+import de.ollie.carp.cm.cp.red.core.service.ReportPrintService;
 import de.ollie.carp.cm.cp.red.core.service.RollePunkService;
 import de.ollie.carp.cm.cp.red.core.service.RolleService;
 import de.ollie.carp.cm.cp.red.core.service.WaffePunkService;
 import de.ollie.carp.cm.cp.red.core.service.WaffeService;
+import de.ollie.carp.cm.cp.red.core.service.model.Punk;
+import de.ollie.carp.cm.cp.red.gui.swing.print.pdf.viewer.ExternalPdfViewerStarter;
 import de.ollie.carp.cm.cp.red.gui.swing.select.ausruestungsgegenstand.AusruestungsgegenstandSelectJInternalFrame;
 import de.ollie.carp.cm.cp.red.gui.swing.select.ausruestungsgegenstandpunk.AusruestungsgegenstandPunkSelectJInternalFrame;
 import de.ollie.carp.cm.cp.red.gui.swing.select.eigenschaft.EigenschaftSelectJInternalFrame;
@@ -33,6 +36,7 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -53,10 +57,12 @@ public class CarpCmCpRedMainFrame extends JFrame implements ActionListener {
 	private final EditDialogComponentFactory editDialogComponentFactory;
 	private final EigenschaftService eigenschaftService;
 	private final EigenschaftPunkService eigenschaftPunkService;
+	private final ExternalPdfViewerStarter externalPdfViewerStarter;
 	private final FertigkeitService fertigkeitService;
 	private final FertigkeitPunkService fertigkeitPunkService;
 	private final PanzerungService panzerungService;
 	private final PunkService punkService;
+	private final ReportPrintService reportPrintService;
 	private final RolleService rolleService;
 	private final RollePunkService rollePunkService;
 	private final WaffeService waffeService;
@@ -210,18 +216,13 @@ public class CarpCmCpRedMainFrame extends JFrame implements ActionListener {
 				editDialogComponentFactory
 			);
 		} else if (e.getSource() == menuItemFilePrint) {
-			//			LocalDate now = LocalDate.now();
-			//			byte[] pdf = reportPrintService.printForTimeInterval(
-			//				now.withDayOfMonth(1),
-			//				now.withDayOfMonth(now.lengthOfMonth()),
-			//				"jasper",
-			//				new HashMap<>()
-			//			);
-			//			try {
-			//				externalPdfViewerStarter.show(pdf);
-			//			} catch (Exception ex) {
-			//				ex.printStackTrace();
-			//			}
+			Punk punk = punkService.listPunks().get(0);
+			byte[] pdf = reportPrintService.printPunk(punk, "jasper", new HashMap<>());
+			try {
+				externalPdfViewerStarter.show(pdf);
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
 		} else if (e.getSource() == menuItemFileQuit) {
 			System.exit(0);
 		}
