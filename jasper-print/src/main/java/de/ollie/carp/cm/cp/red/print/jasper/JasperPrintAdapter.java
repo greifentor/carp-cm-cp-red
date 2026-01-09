@@ -65,14 +65,14 @@ class JasperPrintAdapter implements PrintPort {
 		int kraft = eigenschaften.get("KRA");
 		return new PunkPO()
 			.setAnfaenglicheTP("" + tpService.getAnfaenglicheTp(kraft))
-			.setAusruestung0Beschreibung(ausruestungsgegenstaende.get(0).getAusruestungsgegenstand().getName())
-			.setAusruestung0Name("-")
-			.setAusruestung1Beschreibung(ausruestungsgegenstaende.get(1).getAusruestungsgegenstand().getName())
-			.setAusruestung1Name("-")
-			.setAusruestung2Beschreibung(ausruestungsgegenstaende.get(2).getAusruestungsgegenstand().getName())
-			.setAusruestung2Name("-")
-			.setAusruestung3Beschreibung(ausruestungsgegenstaende.get(3).getAusruestungsgegenstand().getName())
-			.setAusruestung3Name("-")
+			.setAusruestung0Beschreibung(ausruestungsgegenstaende.get(0).getAusruestungsgegenstand().getBeschreibung())
+			.setAusruestung0Name(ausruestungsgegenstaende.get(0).getAusruestungsgegenstand().getName())
+			.setAusruestung1Beschreibung(ausruestungsgegenstaende.get(1).getAusruestungsgegenstand().getBeschreibung())
+			.setAusruestung1Name(ausruestungsgegenstaende.get(1).getAusruestungsgegenstand().getName())
+			.setAusruestung2Beschreibung(ausruestungsgegenstaende.get(2).getAusruestungsgegenstand().getBeschreibung())
+			.setAusruestung2Name(ausruestungsgegenstaende.get(2).getAusruestungsgegenstand().getName())
+			.setAusruestung3Beschreibung(ausruestungsgegenstaende.get(3).getAusruestungsgegenstand().getBeschreibung())
+			.setAusruestung3Name(ausruestungsgegenstaende.get(3).getAusruestungsgegenstand().getName())
 			.setBewegung("" + eigenschaften.get("BEW"))
 			.setCoolness("" + eigenschaften.get("COO"))
 			.setEmpathie("" + eigenschaften.get("EMP"))
@@ -112,7 +112,7 @@ class JasperPrintAdapter implements PrintPort {
 			l.add(
 				new AusruestungsgegenstandPunk()
 					.setPunk(punk)
-					.setAusruestungsgegenstand(new Ausruestungsgegenstand().setName(""))
+					.setAusruestungsgegenstand(new Ausruestungsgegenstand().setBeschreibung("").setName(""))
 			);
 		}
 		return l;

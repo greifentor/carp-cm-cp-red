@@ -21,6 +21,7 @@ import lombok.Generated;
 @Generated
 public class AusruestungsgegenstandEditJPanel extends AbstractEditPanel<Ausruestungsgegenstand> {
 
+	private JTextField textFieldBeschreibung;
 	private JTextField textFieldName;
 
 	public AusruestungsgegenstandEditJPanel(Ausruestungsgegenstand toEdit, Map<String, ItemProvider<?>> itemProviders) {
@@ -29,12 +30,14 @@ public class AusruestungsgegenstandEditJPanel extends AbstractEditPanel<Ausruest
 
 	@Override
 	protected JPanel createLabelPanel() {
-		return createLabelSubPanel("Name:");
+		return createLabelSubPanel("Beschreibung:", "Name:");
 	}
 
 	@Override
 	protected JPanel createComponentPanel(Ausruestungsgegenstand toEdit, Map<String, ItemProvider<?>> itemProviders) {
-		JPanel p = new JPanel(new GridLayout(1, 1, HGAP, VGAP));
+		JPanel p = new JPanel(new GridLayout(2, 1, HGAP, VGAP));
+		textFieldBeschreibung = new JTextField(toEdit.getBeschreibung(), 40);
+		p.add(textFieldBeschreibung);
 		textFieldName = new JTextField(toEdit.getName(), 40);
 		p.add(textFieldName);
 		return p;
@@ -42,6 +45,9 @@ public class AusruestungsgegenstandEditJPanel extends AbstractEditPanel<Ausruest
 
 	@Override
 	public Ausruestungsgegenstand getCurrentContent() {
-		return new Ausruestungsgegenstand().setId(toEdit.getId()).setName(textFieldName.getText());
+		return new Ausruestungsgegenstand()
+			.setId(toEdit.getId())
+			.setBeschreibung(textFieldBeschreibung.getText())
+			.setName(textFieldName.getText());
 	}
 }

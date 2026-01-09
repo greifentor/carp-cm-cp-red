@@ -25,6 +25,9 @@ public class AusruestungsgegenstandDbo {
 	@Column(name = "ID", nullable = false)
 	private UUID id;
 
+	@Column(name = "BESCHREIBUNG", nullable = true)
+	private String beschreibung;
+
 	@Column(name = "NAME", nullable = false)
 	private String name;
 }

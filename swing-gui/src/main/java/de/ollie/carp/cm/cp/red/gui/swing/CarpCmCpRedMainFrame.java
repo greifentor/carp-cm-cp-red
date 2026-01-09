@@ -44,8 +44,6 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
 import lombok.RequiredArgsConstructor;
 
 @Named
@@ -96,12 +94,12 @@ public class CarpCmCpRedMainFrame extends JFrame implements ActionListener {
 	}
 
 	public void showFrame() {
-		try {
-			UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
-			SwingUtilities.updateComponentTreeUI(this);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		//		try {
+		//			UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+		//			SwingUtilities.updateComponentTreeUI(this);
+		//		} catch (Exception e) {
+		//			e.printStackTrace();
+		//		}
 		setTitle("CARP Charaktermanager Cyberpunk Red");
 		setVisible(true);
 	}

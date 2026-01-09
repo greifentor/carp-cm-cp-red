@@ -13,7 +13,7 @@ import lombok.Generated;
  */
 @Generated
 public interface AusruestungsgegenstandService {
-	Ausruestungsgegenstand createAusruestungsgegenstand(String name);
+	Ausruestungsgegenstand createAusruestungsgegenstand(String beschreibung, String name);
 
 	void deleteAusruestungsgegenstand(UUID id);
 

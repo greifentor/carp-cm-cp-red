@@ -57,10 +57,10 @@ public class DboFactory {
 	private final WaffePunkDboRepository waffePunkDboRepository;
 	private final UuidFactory uuidFactory;
 
-	public AusruestungsgegenstandDbo createAusruestungsgegenstand(String name) {
+	public AusruestungsgegenstandDbo createAusruestungsgegenstand(String beschreibung, String name) {
 		ensure(name != null, "name cannot be null!");
 		ensure(!name.isBlank(), "name cannot be blank!");
-		return new AusruestungsgegenstandDbo().setName(name).setId(uuidFactory.create());
+		return new AusruestungsgegenstandDbo().setBeschreibung(beschreibung).setName(name).setId(uuidFactory.create());
 	}
 
 	public AusruestungsgegenstandPunkDbo createAusruestungsgegenstandPunk(UUID ausruestungsgegenstandId, UUID punkId) {

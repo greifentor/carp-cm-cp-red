@@ -17,6 +17,12 @@ classes:
           properties:
             - name: import
               value: java.util.UUID
+      - name: beschreibung
+        properties:
+          - name: editor-position
+            value: 1
+        type:
+          name: String
       - name: name
         properties:
           - name: nullable

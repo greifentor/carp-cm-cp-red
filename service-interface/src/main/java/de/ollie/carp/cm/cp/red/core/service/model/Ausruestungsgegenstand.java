@@ -16,5 +16,6 @@ import lombok.experimental.Accessors;
 public class Ausruestungsgegenstand {
 
 	private UUID id;
+	private String beschreibung;
 	private String name;
 }

@@ -1,6 +1,7 @@
 package de.ollie.carp.cm.cp.red.core.service;
 
 import de.ollie.carp.cm.cp.red.core.service.model.Panzerung;
+import de.ollie.carp.cm.cp.red.core.service.model.Panzerung;
 import de.ollie.carp.cm.cp.red.core.service.model.Punk;
 import java.util.List;
 import java.util.Optional;

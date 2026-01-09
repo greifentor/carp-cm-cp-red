@@ -169,6 +169,11 @@
         <addForeignKeyConstraint baseColumnNames="PUNK" baseTableName="WAFFE_PUNK" constraintName="FK_WAFFE_PUNK_PUNK_TO_PUNK" referencedColumnNames="ID" referencedTableName="PUNK"/>
         <addForeignKeyConstraint baseColumnNames="WAFFE" baseTableName="WAFFE_PUNK" constraintName="FK_WAFFE_PUNK_WAFFE_TO_WAFFE" referencedColumnNames="ID" referencedTableName="WAFFE"/>
     </changeSet>
+    <changeSet author="dm-comp" id="Add-Field-BESCHREIBUNG-to-Table-AUSRUESTUNGSGEGENSTAND" failOnError="true" runInTransaction="true">
+        <addColumn tableName="AUSRUESTUNGSGEGENSTAND">
+            <column name="BESCHREIBUNG" type="LONGVARCHAR"/>
+        </addColumn>
+    </changeSet>
 
 </databaseChangeLog>
 

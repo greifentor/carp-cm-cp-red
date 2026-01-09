@@ -9,12 +9,6 @@ import java.util.Optional;
 import java.util.UUID;
 import lombok.Generated;
 
-/**
- * GENERATED CODE - DO NOT TOUCH
- *
- * Remove this comment to suspend class from generation process.
- */
-@Generated
 public interface EigenschaftPunkService {
 	EigenschaftPunk createEigenschaftPunk(Eigenschaft eigenschaft, Punk punk, int wert);
 

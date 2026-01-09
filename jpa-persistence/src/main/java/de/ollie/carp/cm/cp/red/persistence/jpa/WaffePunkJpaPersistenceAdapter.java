@@ -2,6 +2,7 @@ package de.ollie.carp.cm.cp.red.persistence.jpa;
 
 import static de.ollie.baselib.util.Check.ensure;
 
+import de.ollie.carp.cm.cp.red.core.service.exception.TooManyElementsException;
 import de.ollie.carp.cm.cp.red.core.service.model.Punk;
 import de.ollie.carp.cm.cp.red.core.service.model.Waffe;
 import de.ollie.carp.cm.cp.red.core.service.model.WaffePunk;
@@ -18,12 +19,6 @@ import java.util.UUID;
 import lombok.Generated;
 import lombok.RequiredArgsConstructor;
 
-/**
- * GENERATED CODE - DO NOT TOUCH
- *
- * Remove this comment to suspend class from generation process.
- */
-@Generated
 @Named
 @RequiredArgsConstructor
 class WaffePunkPersistenceJpaAdapter implements WaffePunkPersistencePort {

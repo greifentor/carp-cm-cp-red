@@ -8,11 +8,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-/**
- * GENERATED CODE - DO NOT TOUCH
- *
- * Remove this comment to suspend class from generation process.
- */
 @Repository
 public interface WaffePunkDboRepository extends JpaRepository<WaffePunkDbo, UUID> {
 	List<WaffePunkDbo> findAllByPunk(PunkDbo punk);

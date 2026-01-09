@@ -29,8 +29,8 @@ class AusruestungsgegenstandPersistenceJpaAdapter implements Ausruestungsgegenst
 	private final AusruestungsgegenstandDboRepository repository;
 
 	@Override
-	public Ausruestungsgegenstand create(String name) {
-		return mapper.toModel(repository.save(dboFactory.createAusruestungsgegenstand(name)));
+	public Ausruestungsgegenstand create(String beschreibung, String name) {
+		return mapper.toModel(repository.save(dboFactory.createAusruestungsgegenstand(beschreibung, name)));
 	}
 
 	@Override

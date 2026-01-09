@@ -23,8 +23,8 @@ class AusruestungsgegenstandServiceImpl implements AusruestungsgegenstandService
 	private final AusruestungsgegenstandPersistencePort ausruestungsgegenstandPersistencePort;
 
 	@Override
-	public Ausruestungsgegenstand createAusruestungsgegenstand(String name) {
-		return ausruestungsgegenstandPersistencePort.create(name);
+	public Ausruestungsgegenstand createAusruestungsgegenstand(String beschreibung, String name) {
+		return ausruestungsgegenstandPersistencePort.create(beschreibung, name);
 	}
 
 	@Override

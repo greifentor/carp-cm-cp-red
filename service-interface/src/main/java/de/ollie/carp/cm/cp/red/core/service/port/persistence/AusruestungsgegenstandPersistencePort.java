@@ -15,7 +15,7 @@ import lombok.Generated;
 @Generated
 @Named
 public interface AusruestungsgegenstandPersistencePort {
-	Ausruestungsgegenstand create(String name);
+	Ausruestungsgegenstand create(String beschreibung, String name);
 
 	void deleteById(UUID id);
 
