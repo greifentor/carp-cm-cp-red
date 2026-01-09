@@ -38,6 +38,11 @@ class AusruestungsgegenstandPunkServiceImpl implements AusruestungsgegenstandPun
 	}
 
 	@Override
+	public List<AusruestungsgegenstandPunk> findAllByPunkId(UUID punkId) {
+		return ausruestungsgegenstandPunkPersistencePort.findAllByPunkId(punkId);
+	}
+
+	@Override
 	public Optional<AusruestungsgegenstandPunk> findById(UUID id) {
 		return ausruestungsgegenstandPunkPersistencePort.findById(id);
 	}

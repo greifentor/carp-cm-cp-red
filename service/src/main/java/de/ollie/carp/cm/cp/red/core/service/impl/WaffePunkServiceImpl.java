@@ -35,8 +35,8 @@ class WaffePunkServiceImpl implements WaffePunkService {
 	}
 
 	@Override
-	public List<WaffePunk> findAllByPunk(UUID punkId) {
-		return waffePunkPersistencePort.findAllByPunk(punkId);
+	public List<WaffePunk> findAllByPunkId(UUID punkId) {
+		return waffePunkPersistencePort.findAllByPunkId(punkId);
 	}
 
 	@Override

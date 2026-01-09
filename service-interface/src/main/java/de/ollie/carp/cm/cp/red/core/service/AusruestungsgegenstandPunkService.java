@@ -19,6 +19,8 @@ public interface AusruestungsgegenstandPunkService {
 
 	void deleteAusruestungsgegenstandPunk(UUID id);
 
+	List<AusruestungsgegenstandPunk> findAllByPunkId(UUID punkId);
+
 	Optional<AusruestungsgegenstandPunk> findById(UUID id);
 
 	List<AusruestungsgegenstandPunk> listAusruestungsgegenstandPunks();

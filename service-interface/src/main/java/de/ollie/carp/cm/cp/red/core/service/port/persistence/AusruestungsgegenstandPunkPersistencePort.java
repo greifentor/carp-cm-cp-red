@@ -21,6 +21,8 @@ public interface AusruestungsgegenstandPunkPersistencePort {
 
 	void deleteById(UUID id);
 
+	List<AusruestungsgegenstandPunk> findAllByPunkId(UUID punkId);
+
 	Optional<AusruestungsgegenstandPunk> findById(UUID id);
 
 	List<AusruestungsgegenstandPunk> list();

@@ -45,7 +45,7 @@ class WaffePunkPersistenceJpaAdapter implements WaffePunkPersistencePort {
 	}
 
 	@Override
-	public List<WaffePunk> findAllByPunk(UUID punkId) {
+	public List<WaffePunk> findAllByPunkId(UUID punkId) {
 		PunkDbo punk = punkRepository
 			.findById(punkId)
 			.orElseThrow(() -> new NoSuchElementException("punk not found id:" + punkId));
