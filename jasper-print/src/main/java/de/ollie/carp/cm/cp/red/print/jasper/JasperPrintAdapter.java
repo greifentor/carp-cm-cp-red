@@ -1,13 +1,24 @@
 package de.ollie.carp.cm.cp.red.print.jasper;
 
+import de.ollie.carp.cm.cp.red.core.service.EigenschaftPunkService;
+import de.ollie.carp.cm.cp.red.core.service.TpService;
+import de.ollie.carp.cm.cp.red.core.service.WaffePunkService;
 import de.ollie.carp.cm.cp.red.core.service.exception.PrintReportException;
+import de.ollie.carp.cm.cp.red.core.service.model.Eigenschaft;
+import de.ollie.carp.cm.cp.red.core.service.model.EigenschaftPunk;
 import de.ollie.carp.cm.cp.red.core.service.model.Punk;
+import de.ollie.carp.cm.cp.red.core.service.model.Waffe;
+import de.ollie.carp.cm.cp.red.core.service.model.WaffePunk;
 import de.ollie.carp.cm.cp.red.core.service.port.print.PrintPort;
 import de.ollie.carp.cm.cp.red.print.jasper.po.PunkPO;
 import jakarta.inject.Named;
 import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import lombok.RequiredArgsConstructor;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperExportManager;
@@ -20,6 +31,9 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 class JasperPrintAdapter implements PrintPort {
 
 	private final JasperConfiguration jasperConfiguration;
+	private final EigenschaftPunkService eigenschaftPunkService;
+	private final TpService tpService;
+	private final WaffePunkService waffePunkService;
 
 	@Override
 	public Details getDetails() {
@@ -41,7 +55,61 @@ class JasperPrintAdapter implements PrintPort {
 	}
 
 	private PunkPO mapToPO(Punk punk) {
-		return new PunkPO();
+		Map<String, Integer> eigenschaften = getEigenschaften(punk);
+		List<WaffePunk> waffen = getWaffen(punk);
+		int kraft = eigenschaften.get("KRA");
+		return new PunkPO()
+			.setAnfaenglicheTP("" + tpService.getAnfaenglicheTp(kraft))
+			.setBewegung("" + eigenschaften.get("BEW"))
+			.setCoolness("" + eigenschaften.get("COO"))
+			.setEmpathie("" + eigenschaften.get("EMP"))
+			.setGeschicklichkeit("" + eigenschaften.get("GES"))
+			.setGlueck("" + eigenschaften.get("GLK"))
+			.setIntelligenz("" + eigenschaften.get("INT"))
+			.setKraft("" + eigenschaften.get("KRA"))
+			.setName(punk.getName())
+			.setPanzerung(getPanzerung(punk))
+			.setReflexe("" + eigenschaften.get("REF"))
+			.setSchwerVerwundet("" + tpService.getSchwertVerwundet(kraft))
+			.setSwKoerper(punk.getPanzerungKoerper() != null ? "" + punk.getPanzerungKoerper().getSw() : null)
+			.setSwKopf(punk.getPanzerungKopf() != null ? "" + punk.getPanzerungKopf().getSw() : null)
+			.setTech("" + eigenschaften.get("TCH"))
+			.setTraumaprobe("" + tpService.getTraumaprobe(kraft))
+			.setWaffe0Name(waffen.get(0).getWaffe().getName())
+			.setWaffe0Schaden(waffen.get(0).getWaffe().getSchaden())
+			.setWaffe1Name(waffen.get(1).getWaffe().getName())
+			.setWaffe1Schaden(waffen.get(1).getWaffe().getSchaden())
+			.setWaffe2Name(waffen.get(2).getWaffe().getName())
+			.setWaffe2Schaden(waffen.get(2).getWaffe().getSchaden())
+			.setWaffe3Name(waffen.get(3).getWaffe().getName())
+			.setWaffe3Schaden(waffen.get(3).getWaffe().getSchaden())
+			.setWille("" + eigenschaften.get("WIL"));
+	}
+
+	private Map<String, Integer> getEigenschaften(Punk punk) {
+		Map<String, Integer> m = new HashMap<>();
+		for (Entry<Eigenschaft, EigenschaftPunk> e : eigenschaftPunkService.findAllByPunkId(punk.getId()).entrySet()) {
+			m.put(e.getKey().getName(), e.getValue().getWert());
+		}
+		return m;
+	}
+
+	private String getPanzerung(Punk punk) {
+		String panzerung = punk.getPanzerungKoerper() != null ? punk.getPanzerungKoerper().getName() : "";
+		if (!punk.getPanzerungKoerper().equals(punk.getPanzerungKopf())) {
+			panzerung +=
+				((punk.getPanzerungKoerper() != null) && (punk.getPanzerungKopf() != null) ? ", " : "") +
+				(punk.getPanzerungKopf() != null ? punk.getPanzerungKopf().getName() : "");
+		}
+		return panzerung;
+	}
+
+	private List<WaffePunk> getWaffen(Punk punk) {
+		List<WaffePunk> l = new ArrayList<>(waffePunkService.findAllByPunk(punk.getId()));
+		while (l.size() < 4) {
+			l.add(new WaffePunk().setPunk(punk).setWaffe(new Waffe().setName("").setSchaden("")));
+		}
+		return l;
 	}
 
 	private JasperPrint createDocument(
@@ -49,6 +117,10 @@ class JasperPrintAdapter implements PrintPort {
 		JRBeanCollectionDataSource dataSource,
 		Map<String, Object> parameters
 	) throws JRException {
-		return JasperFillManager.fillReport(jasperPath + "HealthReport.jasper", parameters, dataSource);
+		return JasperFillManager.fillReport(
+			jasperPath + "Charakterbogen-Cyberpunk-Red-Einfach.jasper",
+			parameters,
+			dataSource
+		);
 	}
 }

@@ -7,6 +7,7 @@ import de.ollie.carp.cm.cp.red.core.service.model.Punk;
 import de.ollie.carp.cm.cp.red.core.service.port.persistence.EigenschaftPunkPersistencePort;
 import jakarta.inject.Named;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 import lombok.Generated;
@@ -32,6 +33,11 @@ class EigenschaftPunkServiceImpl implements EigenschaftPunkService {
 	@Override
 	public void deleteEigenschaftPunk(UUID id) {
 		eigenschaftPunkPersistencePort.deleteById(id);
+	}
+
+	@Override
+	public Map<Eigenschaft, EigenschaftPunk> findAllByPunkId(UUID punkId) {
+		return eigenschaftPunkPersistencePort.findAllByPunkId(punkId);
 	}
 
 	@Override

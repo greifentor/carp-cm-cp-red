@@ -44,12 +44,12 @@
 			<version>0.0.1</version>
 			<scope>runtime</scope>
 		</dependency>
-		<!-- dependency>
+		<dependency>
 			<groupId>de.ollie</groupId>
 			<artifactId>carp-cm-cp-red-jasper-print</artifactId>
 			<version>0.0.1</version>
 			<scope>runtime</scope>
-		</dependency -->
+		</dependency>
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>

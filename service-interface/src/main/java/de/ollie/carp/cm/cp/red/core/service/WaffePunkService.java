@@ -19,6 +19,8 @@ public interface WaffePunkService {
 
 	void deleteWaffePunk(UUID id);
 
+	List<WaffePunk> findAllByPunk(UUID punkId);
+
 	Optional<WaffePunk> findById(UUID id);
 
 	List<WaffePunk> listWaffePunks();

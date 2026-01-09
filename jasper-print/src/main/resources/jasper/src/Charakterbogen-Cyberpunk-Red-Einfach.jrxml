@@ -64,7 +64,7 @@
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<imageExpression><![CDATA["/src/img/Charakterbogen-Cyberpunk-Red-Einfach.png"]]></imageExpression>
+				<imageExpression><![CDATA["./jasper-print/src/main/resources/jasper/src/img/Charakterbogen-Cyberpunk-Red-Einfach.png"]]></imageExpression>
 			</image>
 			<textField>
 				<reportElement x="139" y="108" width="36" height="22" uuid="f858deb9-c1fe-49bc-91c4-272d8c0004a9">
@@ -150,7 +150,7 @@
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="9" isBold="true"/>
+					<font size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{bewegung}]]></textFieldExpression>
 			</textField>
@@ -160,7 +160,7 @@
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="9" isBold="true"/>
+					<font size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{kraft}]]></textFieldExpression>
 			</textField>
@@ -170,7 +170,7 @@
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="9" isBold="true"/>
+					<font size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{empathie}]]></textFieldExpression>
 			</textField>
@@ -235,7 +235,7 @@
 				<textFieldExpression><![CDATA[$F{swKoerper}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="353" y="366" width="108" height="14" uuid="c8f9ea3e-fbb0-41ee-b849-2c9bf7fa20de">
+				<reportElement x="353" y="331" width="108" height="14" uuid="c8f9ea3e-fbb0-41ee-b849-2c9bf7fa20de">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -245,7 +245,7 @@
 				<textFieldExpression><![CDATA[$F{waffe0Name}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="353" y="383" width="108" height="14" uuid="a2701596-c5c6-42ae-bc83-9aff6daf584f">
+				<reportElement x="353" y="348" width="108" height="14" uuid="a2701596-c5c6-42ae-bc83-9aff6daf584f">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -255,7 +255,7 @@
 				<textFieldExpression><![CDATA[$F{waffe1Name}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="353" y="401" width="108" height="14" uuid="bc45c402-2f7e-424a-95ca-60737b9dcedd">
+				<reportElement x="353" y="366" width="108" height="14" uuid="bc45c402-2f7e-424a-95ca-60737b9dcedd">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -265,7 +265,7 @@
 				<textFieldExpression><![CDATA[$F{waffe2Name}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="353" y="418" width="108" height="14" uuid="6face4ba-097f-4de7-a421-032302415749">
+				<reportElement x="353" y="383" width="108" height="14" uuid="6face4ba-097f-4de7-a421-032302415749">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -275,7 +275,7 @@
 				<textFieldExpression><![CDATA[$F{waffe3Name}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="465" y="366" width="52" height="14" uuid="b98ea414-66a4-4017-8918-7f62d8a44759">
+				<reportElement x="465" y="331" width="52" height="14" uuid="b98ea414-66a4-4017-8918-7f62d8a44759">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -285,7 +285,7 @@
 				<textFieldExpression><![CDATA[$F{waffe0Schaden}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="465" y="383" width="52" height="14" uuid="674b8771-7db7-40c8-9a20-bcf005d18ee7">
+				<reportElement x="465" y="348" width="52" height="14" uuid="674b8771-7db7-40c8-9a20-bcf005d18ee7">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -295,7 +295,7 @@
 				<textFieldExpression><![CDATA[$F{waffe1Schaden}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="465" y="401" width="52" height="14" uuid="43085d7c-6781-4dc7-a6c4-cee3400c2d87">
+				<reportElement x="465" y="366" width="52" height="14" uuid="43085d7c-6781-4dc7-a6c4-cee3400c2d87">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -305,7 +305,7 @@
 				<textFieldExpression><![CDATA[$F{waffe2Schaden}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="465" y="418" width="52" height="14" uuid="e25eb1b0-0c62-4deb-a47d-18169680212d">
+				<reportElement x="465" y="383" width="52" height="14" uuid="e25eb1b0-0c62-4deb-a47d-18169680212d">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -482,7 +482,7 @@
 			<subreport>
 				<reportElement x="40" y="250" width="217" height="150" uuid="a9933c5f-3544-42e6-b915-1f242f31c371"/>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA["Fertigkeiten.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA["./jasper-print/src/main/resources/jasper/src/Fertigkeiten.jasper"]]></subreportExpression>
 			</subreport>
 		</band>
 	</detail>

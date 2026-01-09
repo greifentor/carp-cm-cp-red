@@ -21,6 +21,8 @@ public interface WaffePunkPersistencePort {
 
 	void deleteById(UUID id);
 
+	List<WaffePunk> findAllByPunk(UUID punkId);
+
 	Optional<WaffePunk> findById(UUID id);
 
 	List<WaffePunk> list();
