@@ -21,8 +21,8 @@ import lombok.Generated;
 @Generated
 public class AusruestungsgegenstandEditJPanel extends AbstractEditPanel<Ausruestungsgegenstand> {
 
-	private JTextField textFieldBeschreibung;
 	private JTextField textFieldName;
+	private JTextField textFieldBeschreibung;
 
 	public AusruestungsgegenstandEditJPanel(Ausruestungsgegenstand toEdit, Map<String, ItemProvider<?>> itemProviders) {
 		super(toEdit, itemProviders);
@@ -30,16 +30,16 @@ public class AusruestungsgegenstandEditJPanel extends AbstractEditPanel<Ausruest
 
 	@Override
 	protected JPanel createLabelPanel() {
-		return createLabelSubPanel("Beschreibung:", "Name:");
+		return createLabelSubPanel("Name:", "Beschreibung:");
 	}
 
 	@Override
 	protected JPanel createComponentPanel(Ausruestungsgegenstand toEdit, Map<String, ItemProvider<?>> itemProviders) {
 		JPanel p = new JPanel(new GridLayout(2, 1, HGAP, VGAP));
-		textFieldBeschreibung = new JTextField(toEdit.getBeschreibung(), 40);
-		p.add(textFieldBeschreibung);
 		textFieldName = new JTextField(toEdit.getName(), 40);
 		p.add(textFieldName);
+		textFieldBeschreibung = new JTextField(toEdit.getBeschreibung(), 40);
+		p.add(textFieldBeschreibung);
 		return p;
 	}
 
@@ -47,7 +47,7 @@ public class AusruestungsgegenstandEditJPanel extends AbstractEditPanel<Ausruest
 	public Ausruestungsgegenstand getCurrentContent() {
 		return new Ausruestungsgegenstand()
 			.setId(toEdit.getId())
-			.setBeschreibung(textFieldBeschreibung.getText())
-			.setName(textFieldName.getText());
+			.setName(textFieldName.getText())
+			.setBeschreibung(textFieldBeschreibung.getText());
 	}
 }

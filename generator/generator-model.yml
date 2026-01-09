@@ -20,7 +20,7 @@ classes:
       - name: beschreibung
         properties:
           - name: editor-position
-            value: 1
+            value: 2
         type:
           name: String
       - name: name

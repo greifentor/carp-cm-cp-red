@@ -45,12 +45,12 @@ public class AusruestungsgegenstandSelectJPanel
 
 	@Override
 	protected AbstractSelectionTableModel<Ausruestungsgegenstand> createSelectionModel() {
-		return new AbstractSelectionTableModel<Ausruestungsgegenstand>(getObjectsToSelect(), "Beschreibung", "Name") {
+		return new AbstractSelectionTableModel<Ausruestungsgegenstand>(getObjectsToSelect(), "Name", "Beschreibung") {
 			@Override
 			protected Object getColumnValueFor(Ausruestungsgegenstand t, int columnIndex) {
 				return switch (columnIndex) {
-					case 0 -> t.getBeschreibung();
-					case 1 -> t.getName();
+					case 0 -> t.getName();
+					case 1 -> t.getBeschreibung();
 					default -> null;
 				};
 			}
