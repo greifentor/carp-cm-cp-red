@@ -25,13 +25,13 @@ public class AusruestungsgegenstandPunkSelectJPanel
 	implements SelectionPanelObserver {
 
 	private final AusruestungsgegenstandPunkService ausruestungsgegenstandPunkService;
-	private final AusruestungsgegenstandService ausruestungsgegenstandService;
 	private final PunkService punkService;
+	private final AusruestungsgegenstandService ausruestungsgegenstandService;
 
 	public AusruestungsgegenstandPunkSelectJPanel(
 		AusruestungsgegenstandPunkService ausruestungsgegenstandPunkService,
-		AusruestungsgegenstandService ausruestungsgegenstandService,
 		PunkService punkService,
+		AusruestungsgegenstandService ausruestungsgegenstandService,
 		String className,
 		JDesktopPane desktopPane,
 		EditDialogComponentFactory editDialogComponentFactory,
@@ -39,8 +39,8 @@ public class AusruestungsgegenstandPunkSelectJPanel
 	) {
 		super(desktopPane, className + "s", editDialogComponentFactory, observer);
 		this.ausruestungsgegenstandPunkService = ausruestungsgegenstandPunkService;
-		this.ausruestungsgegenstandService = ausruestungsgegenstandService;
 		this.punkService = punkService;
+		this.ausruestungsgegenstandService = ausruestungsgegenstandService;
 		updateTableSelection();
 	}
 
@@ -55,14 +55,14 @@ public class AusruestungsgegenstandPunkSelectJPanel
 	protected AbstractSelectionTableModel<AusruestungsgegenstandPunk> createSelectionModel() {
 		return new AbstractSelectionTableModel<AusruestungsgegenstandPunk>(
 			getObjectsToSelect(),
-			"Ausruestungsgegenstand",
-			"Punk"
+			"Punk",
+			"Ausruestungsgegenstand"
 		) {
 			@Override
 			protected Object getColumnValueFor(AusruestungsgegenstandPunk t, int columnIndex) {
 				return switch (columnIndex) {
-					case 0 -> (t.getAusruestungsgegenstand() != null ? t.getAusruestungsgegenstand().getName() : "-");
-					case 1 -> (t.getPunk() != null ? t.getPunk().getName() : "-");
+					case 0 -> (t.getPunk() != null ? t.getPunk().getName() : "-");
+					case 1 -> (t.getAusruestungsgegenstand() != null ? t.getAusruestungsgegenstand().getName() : "-");
 					default -> null;
 				};
 			}
@@ -73,8 +73,8 @@ public class AusruestungsgegenstandPunkSelectJPanel
 	protected void createEditInternalFrame(AusruestungsgegenstandPunk selected) {
 		new AusruestungsgegenstandPunkEditJInternalFrame(
 			selected,
-			() -> ausruestungsgegenstandService.listAusruestungsgegenstands(),
 			() -> punkService.listPunks(),
+			() -> ausruestungsgegenstandService.listAusruestungsgegenstands(),
 			getEditDialogComponentFactory(),
 			this,
 			getDesktopPane()

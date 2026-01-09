@@ -24,8 +24,8 @@ public class AusruestungsgegenstandPunkEditJInternalFrame
 
 	public AusruestungsgegenstandPunkEditJInternalFrame(
 		AusruestungsgegenstandPunk toEdit,
-		ItemProvider<Ausruestungsgegenstand> ausruestungsgegenstands,
 		ItemProvider<Punk> punks,
+		ItemProvider<Ausruestungsgegenstand> ausruestungsgegenstands,
 		EditDialogComponentFactory editDialogComponentFactory,
 		Observer<AusruestungsgegenstandPunk> observer,
 		JDesktopPane desktopPane
@@ -37,10 +37,10 @@ public class AusruestungsgegenstandPunkEditJInternalFrame
 			editDialogComponentFactory,
 			observer,
 			Map.of(
-				AusruestungsgegenstandPunkEditJPanel.AUSRUESTUNGSGEGENSTAND_ITEM_PROVIDER_ID,
-				ausruestungsgegenstands,
 				AusruestungsgegenstandPunkEditJPanel.PUNK_ITEM_PROVIDER_ID,
-				punks
+				punks,
+				AusruestungsgegenstandPunkEditJPanel.AUSRUESTUNGSGEGENSTAND_ITEM_PROVIDER_ID,
+				ausruestungsgegenstands
 			)
 		);
 	}

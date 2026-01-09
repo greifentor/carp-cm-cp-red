@@ -159,8 +159,8 @@ public class CarpCmCpRedMainFrame extends JFrame implements ActionListener {
 		} else if (e.getSource() == menuItemEditAusruestungsgegenstandPunk) {
 			new AusruestungsgegenstandPunkSelectJInternalFrame(
 				ausruestungsgegenstandPunkService,
-				ausruestungsgegenstandService,
 				punkService,
+				ausruestungsgegenstandService,
 				desktopPane,
 				editDialogComponentFactory
 			);

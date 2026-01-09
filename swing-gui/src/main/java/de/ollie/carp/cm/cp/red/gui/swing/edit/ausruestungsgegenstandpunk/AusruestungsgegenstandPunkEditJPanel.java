@@ -26,11 +26,11 @@ import lombok.Generated;
 @Generated
 public class AusruestungsgegenstandPunkEditJPanel extends AbstractEditPanel<AusruestungsgegenstandPunk> {
 
-	public static final String AUSRUESTUNGSGEGENSTAND_ITEM_PROVIDER_ID = "ausruestungsgegenstand-item-provider";
 	public static final String PUNK_ITEM_PROVIDER_ID = "punk-item-provider";
+	public static final String AUSRUESTUNGSGEGENSTAND_ITEM_PROVIDER_ID = "ausruestungsgegenstand-item-provider";
 
-	private JComboBox<Ausruestungsgegenstand> comboBoxAusruestungsgegenstand;
 	private JComboBox<Punk> comboBoxPunk;
+	private JComboBox<Ausruestungsgegenstand> comboBoxAusruestungsgegenstand;
 
 	public AusruestungsgegenstandPunkEditJPanel(
 		AusruestungsgegenstandPunk toEdit,
@@ -41,12 +41,22 @@ public class AusruestungsgegenstandPunkEditJPanel extends AbstractEditPanel<Ausr
 
 	@Override
 	protected JPanel createLabelPanel() {
-		return createLabelSubPanel("Ausruestungsgegenstand:", "Punk:");
+		return createLabelSubPanel("Punk:", "Ausruestungsgegenstand:");
 	}
 
 	@Override
 	protected JPanel createComponentPanel(AusruestungsgegenstandPunk toEdit, Map<String, ItemProvider<?>> itemProviders) {
 		JPanel p = new JPanel(new GridLayout(2, 1, HGAP, VGAP));
+		List<Punk> listPunk = ((ItemProvider<Punk>) itemProviders.get(PUNK_ITEM_PROVIDER_ID)).getItem();
+		comboBoxPunk = new JComboBox<>(listPunk.toArray(new Punk[listPunk.size()]));
+		comboBoxPunk.setSelectedItem(toEdit.getPunk());
+		comboBoxPunk.setRenderer((list, value, index, isSelected, cellHasFocus) -> {
+			if (value != null) {
+				return new JLabel(value.getName());
+			}
+			return new JLabel("-");
+		});
+		p.add(comboBoxPunk);
 		List<Ausruestungsgegenstand> listAusruestungsgegenstand =
 			((ItemProvider<Ausruestungsgegenstand>) itemProviders.get(AUSRUESTUNGSGEGENSTAND_ITEM_PROVIDER_ID)).getItem();
 		comboBoxAusruestungsgegenstand =
@@ -61,16 +71,6 @@ public class AusruestungsgegenstandPunkEditJPanel extends AbstractEditPanel<Ausr
 			return new JLabel("-");
 		});
 		p.add(comboBoxAusruestungsgegenstand);
-		List<Punk> listPunk = ((ItemProvider<Punk>) itemProviders.get(PUNK_ITEM_PROVIDER_ID)).getItem();
-		comboBoxPunk = new JComboBox<>(listPunk.toArray(new Punk[listPunk.size()]));
-		comboBoxPunk.setSelectedItem(toEdit.getPunk());
-		comboBoxPunk.setRenderer((list, value, index, isSelected, cellHasFocus) -> {
-			if (value != null) {
-				return new JLabel(value.getName());
-			}
-			return new JLabel("-");
-		});
-		p.add(comboBoxPunk);
 		return p;
 	}
 
@@ -78,7 +78,7 @@ public class AusruestungsgegenstandPunkEditJPanel extends AbstractEditPanel<Ausr
 	public AusruestungsgegenstandPunk getCurrentContent() {
 		return new AusruestungsgegenstandPunk()
 			.setId(toEdit.getId())
-			.setAusruestungsgegenstand(((Ausruestungsgegenstand) comboBoxAusruestungsgegenstand.getSelectedItem()))
-			.setPunk(((Punk) comboBoxPunk.getSelectedItem()));
+			.setPunk(((Punk) comboBoxPunk.getSelectedItem()))
+			.setAusruestungsgegenstand(((Ausruestungsgegenstand) comboBoxAusruestungsgegenstand.getSelectedItem()));
 	}
 }

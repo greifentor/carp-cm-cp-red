@@ -61,7 +61,7 @@ classes:
           - name: nullable
             value: false
           - name: editor-position
-            value: 2
+            value: 1
         reference: true
         type:
           name: Punk

@@ -25,20 +25,20 @@ public class AusruestungsgegenstandPunkSelectJInternalFrame
 	private static final String CLASS_NAME = "AusruestungsgegenstandPunk";
 
 	private final AusruestungsgegenstandPunkService ausruestungsgegenstandPunkService;
-	private final AusruestungsgegenstandService ausruestungsgegenstandService;
 	private final PunkService punkService;
+	private final AusruestungsgegenstandService ausruestungsgegenstandService;
 
 	public AusruestungsgegenstandPunkSelectJInternalFrame(
 		AusruestungsgegenstandPunkService ausruestungsgegenstandPunkService,
-		AusruestungsgegenstandService ausruestungsgegenstandService,
 		PunkService punkService,
+		AusruestungsgegenstandService ausruestungsgegenstandService,
 		JDesktopPane desktopPane,
 		EditDialogComponentFactory editDialogComponentFactory
 	) {
 		super(desktopPane, CLASS_NAME + "s", editDialogComponentFactory);
 		this.ausruestungsgegenstandPunkService = ausruestungsgegenstandPunkService;
-		this.ausruestungsgegenstandService = ausruestungsgegenstandService;
 		this.punkService = punkService;
+		this.ausruestungsgegenstandService = ausruestungsgegenstandService;
 		finishConstruct();
 	}
 
@@ -46,8 +46,8 @@ public class AusruestungsgegenstandPunkSelectJInternalFrame
 	protected AbstractSelectJPanel<AusruestungsgegenstandPunk> createSelectPanel() {
 		return new AusruestungsgegenstandPunkSelectJPanel(
 			ausruestungsgegenstandPunkService,
-			ausruestungsgegenstandService,
 			punkService,
+			ausruestungsgegenstandService,
 			CLASS_NAME,
 			desktopPane,
 			editDialogComponentFactory,
