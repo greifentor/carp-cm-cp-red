@@ -5,6 +5,8 @@ import static de.ollie.baselib.util.Check.ensure;
 import de.ollie.carp.cm.cp.red.core.service.UuidFactory;
 import de.ollie.carp.cm.cp.red.persistence.jpa.dbo.AusruestungsgegenstandDbo;
 import de.ollie.carp.cm.cp.red.persistence.jpa.dbo.AusruestungsgegenstandPunkDbo;
+import de.ollie.carp.cm.cp.red.persistence.jpa.dbo.CyberwareDbo;
+import de.ollie.carp.cm.cp.red.persistence.jpa.dbo.CyberwarePunkDbo;
 import de.ollie.carp.cm.cp.red.persistence.jpa.dbo.EigenschaftDbo;
 import de.ollie.carp.cm.cp.red.persistence.jpa.dbo.EigenschaftPunkDbo;
 import de.ollie.carp.cm.cp.red.persistence.jpa.dbo.FertigkeitDbo;
@@ -17,6 +19,8 @@ import de.ollie.carp.cm.cp.red.persistence.jpa.dbo.WaffeDbo;
 import de.ollie.carp.cm.cp.red.persistence.jpa.dbo.WaffePunkDbo;
 import de.ollie.carp.cm.cp.red.persistence.jpa.repository.AusruestungsgegenstandDboRepository;
 import de.ollie.carp.cm.cp.red.persistence.jpa.repository.AusruestungsgegenstandPunkDboRepository;
+import de.ollie.carp.cm.cp.red.persistence.jpa.repository.CyberwareDboRepository;
+import de.ollie.carp.cm.cp.red.persistence.jpa.repository.CyberwarePunkDboRepository;
 import de.ollie.carp.cm.cp.red.persistence.jpa.repository.EigenschaftDboRepository;
 import de.ollie.carp.cm.cp.red.persistence.jpa.repository.EigenschaftPunkDboRepository;
 import de.ollie.carp.cm.cp.red.persistence.jpa.repository.FertigkeitDboRepository;
@@ -45,6 +49,8 @@ public class DboFactory {
 
 	private final AusruestungsgegenstandDboRepository ausruestungsgegenstandDboRepository;
 	private final AusruestungsgegenstandPunkDboRepository ausruestungsgegenstandPunkDboRepository;
+	private final CyberwareDboRepository cyberwareDboRepository;
+	private final CyberwarePunkDboRepository cyberwarePunkDboRepository;
 	private final EigenschaftDboRepository eigenschaftDboRepository;
 	private final EigenschaftPunkDboRepository eigenschaftPunkDboRepository;
 	private final FertigkeitDboRepository fertigkeitDboRepository;
@@ -78,6 +84,24 @@ public class DboFactory {
 			.setAusruestungsgegenstand(ausruestungsgegenstandDbo)
 			.setPunk(punkDbo)
 			.setId(uuidFactory.create());
+	}
+
+	public CyberwareDbo createCyberware(String beschreibung, String name) {
+		ensure(name != null, "name cannot be null!");
+		ensure(!name.isBlank(), "name cannot be blank!");
+		return new CyberwareDbo().setBeschreibung(beschreibung).setName(name).setId(uuidFactory.create());
+	}
+
+	public CyberwarePunkDbo createCyberwarePunk(UUID cyberwareId, UUID punkId) {
+		ensure(cyberwareId != null, "cyberware cannot be null!");
+		ensure(punkId != null, "punk cannot be null!");
+		CyberwareDbo cyberwareDbo = cyberwareDboRepository
+			.findById(cyberwareId)
+			.orElseThrow(() -> new NoSuchElementException("no cyberware found with id: " + cyberwareId));
+		PunkDbo punkDbo = punkDboRepository
+			.findById(punkId)
+			.orElseThrow(() -> new NoSuchElementException("no punk found with id: " + punkId));
+		return new CyberwarePunkDbo().setCyberware(cyberwareDbo).setPunk(punkDbo).setId(uuidFactory.create());
 	}
 
 	public EigenschaftDbo createEigenschaft(String name) {

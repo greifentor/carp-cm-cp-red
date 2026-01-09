@@ -65,6 +65,72 @@ classes:
         reference: true
         type:
           name: Punk
+  - name: Cyberware
+    properties:
+      - name: order
+        value: name
+      - name: gui
+        value: true
+    attributes:
+      - name: id
+        properties:
+          - name: nullable
+            value: false
+          - name: id
+            value: true
+        type:
+          name: UUID
+          properties:
+            - name: import
+              value: java.util.UUID
+      - name: beschreibung
+        properties:
+          - name: editor-position
+            value: 2
+        type:
+          name: String
+      - name: name
+        properties:
+          - name: nullable
+            value: false
+          - name: editor-position
+            value: 1
+        type:
+          name: String
+  - name: CyberwarePunk
+    properties:
+      - name: gui
+        value: true
+    attributes:
+      - name: id
+        properties:
+          - name: nullable
+            value: false
+          - name: id
+            value: true
+        type:
+          name: UUID
+          properties:
+            - name: import
+              value: java.util.UUID
+      - name: cyberware
+        properties:
+          - name: nullable
+            value: false
+          - name: editor-position
+            value: 2
+        reference: true
+        type:
+          name: Cyberware
+      - name: punk
+        properties:
+          - name: nullable
+            value: false
+          - name: editor-position
+            value: 1
+        reference: true
+        type:
+          name: Punk
   - name: Eigenschaft
     properties:
       - name: order

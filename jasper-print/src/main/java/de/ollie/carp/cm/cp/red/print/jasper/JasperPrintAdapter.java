@@ -1,12 +1,15 @@
 package de.ollie.carp.cm.cp.red.print.jasper;
 
 import de.ollie.carp.cm.cp.red.core.service.AusruestungsgegenstandPunkService;
+import de.ollie.carp.cm.cp.red.core.service.CyberwarePunkService;
 import de.ollie.carp.cm.cp.red.core.service.EigenschaftPunkService;
 import de.ollie.carp.cm.cp.red.core.service.TpService;
 import de.ollie.carp.cm.cp.red.core.service.WaffePunkService;
 import de.ollie.carp.cm.cp.red.core.service.exception.PrintReportException;
 import de.ollie.carp.cm.cp.red.core.service.model.Ausruestungsgegenstand;
 import de.ollie.carp.cm.cp.red.core.service.model.AusruestungsgegenstandPunk;
+import de.ollie.carp.cm.cp.red.core.service.model.Cyberware;
+import de.ollie.carp.cm.cp.red.core.service.model.CyberwarePunk;
 import de.ollie.carp.cm.cp.red.core.service.model.Eigenschaft;
 import de.ollie.carp.cm.cp.red.core.service.model.EigenschaftPunk;
 import de.ollie.carp.cm.cp.red.core.service.model.Punk;
@@ -34,6 +37,7 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 class JasperPrintAdapter implements PrintPort {
 
 	private final AusruestungsgegenstandPunkService ausruestungsgegenstandPunkService;
+	private final CyberwarePunkService cyberwarePunkService;
 	private final JasperConfiguration jasperConfiguration;
 	private final EigenschaftPunkService eigenschaftPunkService;
 	private final TpService tpService;
@@ -60,6 +64,7 @@ class JasperPrintAdapter implements PrintPort {
 
 	private PunkPO mapToPO(Punk punk) {
 		List<AusruestungsgegenstandPunk> ausruestungsgegenstaende = getAusruestungsgegenstaende(punk);
+		List<CyberwarePunk> cyberware = getCyberware(punk);
 		Map<String, Integer> eigenschaften = getEigenschaften(punk);
 		List<WaffePunk> waffen = getWaffen(punk);
 		int kraft = eigenschaften.get("KRA");
@@ -75,6 +80,14 @@ class JasperPrintAdapter implements PrintPort {
 			.setAusruestung3Name(ausruestungsgegenstaende.get(3).getAusruestungsgegenstand().getName())
 			.setBewegung("" + eigenschaften.get("BEW"))
 			.setCoolness("" + eigenschaften.get("COO"))
+			.setCyberware0Beschreibung(cyberware.get(0).getCyberware().getBeschreibung())
+			.setCyberware0Name(cyberware.get(0).getCyberware().getName())
+			.setCyberware1Beschreibung(cyberware.get(1).getCyberware().getBeschreibung())
+			.setCyberware1Name(cyberware.get(1).getCyberware().getName())
+			.setCyberware2Beschreibung(cyberware.get(2).getCyberware().getBeschreibung())
+			.setCyberware2Name(cyberware.get(2).getCyberware().getName())
+			.setCyberware3Beschreibung(cyberware.get(3).getCyberware().getBeschreibung())
+			.setCyberware3Name(cyberware.get(3).getCyberware().getName())
 			.setEmpathie("" + eigenschaften.get("EMP"))
 			.setGeschicklichkeit("" + eigenschaften.get("GES"))
 			.setGlueck("" + eigenschaften.get("GLK"))
@@ -114,6 +127,20 @@ class JasperPrintAdapter implements PrintPort {
 					.setPunk(punk)
 					.setAusruestungsgegenstand(new Ausruestungsgegenstand().setBeschreibung("").setName(""))
 			);
+		}
+		return l;
+	}
+
+	private List<CyberwarePunk> getCyberware(Punk punk) {
+		List<CyberwarePunk> l = new ArrayList<>(
+			cyberwarePunkService
+				.findAllByPunkId(punk.getId())
+				.stream()
+				.sorted((a0, a1) -> a0.getCyberware().getName().compareTo(a1.getCyberware().getName()))
+				.toList()
+		);
+		while (l.size() < 4) {
+			l.add(new CyberwarePunk().setPunk(punk).setCyberware(new Cyberware().setBeschreibung("").setName("")));
 		}
 		return l;
 	}

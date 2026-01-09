@@ -5,6 +5,8 @@ import static de.ollie.carp.cm.cp.red.gui.swing.Constants.VGAP;
 
 import de.ollie.carp.cm.cp.red.core.service.AusruestungsgegenstandPunkService;
 import de.ollie.carp.cm.cp.red.core.service.AusruestungsgegenstandService;
+import de.ollie.carp.cm.cp.red.core.service.CyberwarePunkService;
+import de.ollie.carp.cm.cp.red.core.service.CyberwareService;
 import de.ollie.carp.cm.cp.red.core.service.EigenschaftPunkService;
 import de.ollie.carp.cm.cp.red.core.service.EigenschaftService;
 import de.ollie.carp.cm.cp.red.core.service.FertigkeitPunkService;
@@ -20,6 +22,8 @@ import de.ollie.carp.cm.cp.red.core.service.model.Punk;
 import de.ollie.carp.cm.cp.red.gui.swing.print.pdf.viewer.ExternalPdfViewerStarter;
 import de.ollie.carp.cm.cp.red.gui.swing.select.ausruestungsgegenstand.AusruestungsgegenstandSelectJInternalFrame;
 import de.ollie.carp.cm.cp.red.gui.swing.select.ausruestungsgegenstandpunk.AusruestungsgegenstandPunkSelectJInternalFrame;
+import de.ollie.carp.cm.cp.red.gui.swing.select.cyberware.CyberwareSelectJInternalFrame;
+import de.ollie.carp.cm.cp.red.gui.swing.select.cyberwarepunk.CyberwarePunkSelectJInternalFrame;
 import de.ollie.carp.cm.cp.red.gui.swing.select.eigenschaft.EigenschaftSelectJInternalFrame;
 import de.ollie.carp.cm.cp.red.gui.swing.select.eigenschaftpunk.EigenschaftPunkSelectJInternalFrame;
 import de.ollie.carp.cm.cp.red.gui.swing.select.fertigkeit.FertigkeitSelectJInternalFrame;
@@ -52,6 +56,8 @@ public class CarpCmCpRedMainFrame extends JFrame implements ActionListener {
 
 	private final AusruestungsgegenstandService ausruestungsgegenstandService;
 	private final AusruestungsgegenstandPunkService ausruestungsgegenstandPunkService;
+	private final CyberwareService cyberwareService;
+	private final CyberwarePunkService cyberwarePunkService;
 	private final EditDialogComponentFactory editDialogComponentFactory;
 	private final EigenschaftService eigenschaftService;
 	private final EigenschaftPunkService eigenschaftPunkService;
@@ -67,8 +73,10 @@ public class CarpCmCpRedMainFrame extends JFrame implements ActionListener {
 	private final WaffePunkService waffePunkService;
 
 	private JDesktopPane desktopPane;
-	private JMenuItem menuItemEditAusruestungsgegenstands;
+	private JMenuItem menuItemEditAusruestungsgegenstand;
 	private JMenuItem menuItemEditAusruestungsgegenstandPunk;
+	private JMenuItem menuItemEditCyberware;
+	private JMenuItem menuItemEditCyberwarePunk;
 	private JMenuItem menuItemEditEigenschaft;
 	private JMenuItem menuItemEditEigenschaftPunk;
 	private JMenuItem menuItemEditFertigkeit;
@@ -114,10 +122,14 @@ public class CarpCmCpRedMainFrame extends JFrame implements ActionListener {
 		menu.add(menuItemFileQuit);
 		menuBar.add(menu);
 		menu = new JMenu("Edit");
-		menuItemEditAusruestungsgegenstands = createMenuItem("Ausrüstungsgegenstand", this);
-		menu.add(menuItemEditAusruestungsgegenstands);
+		menuItemEditAusruestungsgegenstand = createMenuItem("Ausrüstungsgegenstand", this);
+		menu.add(menuItemEditAusruestungsgegenstand);
 		menuItemEditAusruestungsgegenstandPunk = createMenuItem("Ausrüstungsgegenstand - Punk", this);
 		menu.add(menuItemEditAusruestungsgegenstandPunk);
+		menuItemEditCyberware = createMenuItem("Cyberware", this);
+		menu.add(menuItemEditCyberware);
+		menuItemEditCyberwarePunk = createMenuItem("Cyberware - Punk", this);
+		menu.add(menuItemEditCyberwarePunk);
 		menuItemEditEigenschaft = createMenuItem("Eigenschaft", this);
 		menu.add(menuItemEditEigenschaft);
 		menuItemEditEigenschaftPunk = createMenuItem("Eigenschaft - Punk", this);
@@ -150,7 +162,7 @@ public class CarpCmCpRedMainFrame extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == menuItemEditAusruestungsgegenstands) {
+		if (e.getSource() == menuItemEditAusruestungsgegenstand) {
 			new AusruestungsgegenstandSelectJInternalFrame(
 				ausruestungsgegenstandService,
 				desktopPane,
@@ -161,6 +173,16 @@ public class CarpCmCpRedMainFrame extends JFrame implements ActionListener {
 				ausruestungsgegenstandPunkService,
 				punkService,
 				ausruestungsgegenstandService,
+				desktopPane,
+				editDialogComponentFactory
+			);
+		} else if (e.getSource() == menuItemEditCyberware) {
+			new CyberwareSelectJInternalFrame(cyberwareService, desktopPane, editDialogComponentFactory);
+		} else if (e.getSource() == menuItemEditCyberwarePunk) {
+			new CyberwarePunkSelectJInternalFrame(
+				cyberwarePunkService,
+				punkService,
+				cyberwareService,
 				desktopPane,
 				editDialogComponentFactory
 			);
