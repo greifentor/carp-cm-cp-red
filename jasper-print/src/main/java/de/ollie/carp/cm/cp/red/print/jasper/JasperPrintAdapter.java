@@ -168,6 +168,8 @@ class JasperPrintAdapter implements PrintPort {
 		List<FertigkeitPO> v = new ArrayList<>();
 		fertigkeitPunkService
 			.findAllByPunk(punk)
+			.stream()
+			.sorted((f0, f1) -> f0.getFertigkeit().getName().compareTo(f1.getFertigkeit().getName()))
 			.forEach(fp ->
 				v.add(
 					new FertigkeitPO()
@@ -181,7 +183,7 @@ class JasperPrintAdapter implements PrintPort {
 
 	private String getPanzerung(Punk punk) {
 		String panzerung = punk.getPanzerungKoerper() != null ? punk.getPanzerungKoerper().getName() : "";
-		if (!punk.getPanzerungKoerper().equals(punk.getPanzerungKopf())) {
+		if ((punk.getPanzerungKoerper() != null) && (!punk.getPanzerungKoerper().equals(punk.getPanzerungKopf()))) {
 			panzerung +=
 				((punk.getPanzerungKoerper() != null) && (punk.getPanzerungKopf() != null) ? ", " : "") +
 				(punk.getPanzerungKopf() != null ? punk.getPanzerungKopf().getName() : "");

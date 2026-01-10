@@ -114,6 +114,7 @@
 				<filtering>true</filtering>
 				<excludes>
 					<exclude>**/*.jasper</exclude>
+					<exclude>**/*.xcf</exclude>
 				</excludes>
 			</resource>
 		</resources>

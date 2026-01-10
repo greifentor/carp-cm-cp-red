@@ -58,7 +58,7 @@
 		<band height="802" splitType="Stretch">
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<image>
-				<reportElement x="0" y="0" width="555" height="802" uuid="e74e169b-1462-4b52-9f2d-470d61a5557a">
+				<reportElement x="0" y="0" width="555" height="800" uuid="e74e169b-1462-4b52-9f2d-470d61a5557a">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.y" value="px"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
@@ -381,7 +381,7 @@
 				<textFieldExpression><![CDATA["<b>" + $F{ausruestung2Name} + "</b><br>" + $F{ausruestung2Beschreibung}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="137" y="437" width="120" height="36" uuid="e4c29e82-d9e3-4d6d-93a2-946a9165517a">
+				<reportElement x="89" y="435" width="168" height="40" uuid="e4c29e82-d9e3-4d6d-93a2-946a9165517a">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -392,10 +392,9 @@
 				<textFieldExpression><![CDATA[$F{hintergrund}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="137" y="519" width="120" height="36" uuid="5a48f2d3-7561-4e66-9eaf-e47fc019ed97">
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				<reportElement x="89" y="517" width="168" height="40" uuid="5a48f2d3-7561-4e66-9eaf-e47fc019ed97">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font size="7" isBold="false"/>
@@ -403,10 +402,9 @@
 				<textFieldExpression><![CDATA[$F{ziele}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="137" y="478" width="120" height="36" uuid="938a220e-d2fe-4397-b8a6-ddfd611a9b07">
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				<reportElement x="89" y="476" width="168" height="40" uuid="938a220e-d2fe-4397-b8a6-ddfd611a9b07">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font size="7" isBold="false"/>
@@ -414,10 +412,9 @@
 				<textFieldExpression><![CDATA[$F{motivation}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="137" y="560" width="120" height="36" uuid="9dfac2ba-000f-42ae-84fb-90f36f717bd4">
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				<reportElement x="89" y="558" width="168" height="40" uuid="9dfac2ba-000f-42ae-84fb-90f36f717bd4">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font size="7" isBold="false"/>
@@ -425,10 +422,9 @@
 				<textFieldExpression><![CDATA[$F{freunde}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="137" y="601" width="120" height="36" uuid="63a20991-a2d1-4e26-b32d-fd77bf7e5a81">
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				<reportElement x="89" y="599" width="168" height="40" uuid="63a20991-a2d1-4e26-b32d-fd77bf7e5a81">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font size="7" isBold="false"/>
@@ -436,10 +432,9 @@
 				<textFieldExpression><![CDATA[$F{feinde}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="137" y="642" width="120" height="36" uuid="7f24ae95-4143-4a0e-858c-fce62c6e27a8">
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				<reportElement x="89" y="640" width="168" height="40" uuid="7f24ae95-4143-4a0e-858c-fce62c6e27a8">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font size="7" isBold="false"/>
@@ -447,10 +442,9 @@
 				<textFieldExpression><![CDATA[$F{liebschaften}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="137" y="684" width="120" height="36" uuid="36eb99f7-c5cd-4999-8186-11cf76527ba3">
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				<reportElement x="89" y="682" width="168" height="40" uuid="36eb99f7-c5cd-4999-8186-11cf76527ba3">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font size="7" isBold="false"/>
@@ -480,7 +474,7 @@
 				<textFieldExpression><![CDATA["<b>" + $F{ausruestung3Name} + "</b><br>" + $F{ausruestung3Beschreibung}]]></textFieldExpression>
 			</textField>
 			<subreport>
-				<reportElement x="40" y="250" width="213" height="150" uuid="a9933c5f-3544-42e6-b915-1f242f31c371">
+				<reportElement x="40" y="250" width="215" height="170" uuid="a9933c5f-3544-42e6-b915-1f242f31c371">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{fertigkeiten})]]></dataSourceExpression>
