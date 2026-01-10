@@ -73,6 +73,9 @@ public class AusruestungsgegenstandSelectJPanel
 	}
 
 	@Override
+	protected void print(Ausruestungsgegenstand toPrint) {}
+
+	@Override
 	protected void save(Ausruestungsgegenstand toSave) {
 		ausruestungsgegenstandService.updateAusruestungsgegenstand(toSave);
 	}

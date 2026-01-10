@@ -92,6 +92,9 @@ public class AusruestungsgegenstandPunkSelectJPanel
 	}
 
 	@Override
+	protected void print(AusruestungsgegenstandPunk toPrint) {}
+
+	@Override
 	protected void save(AusruestungsgegenstandPunk toSave) {
 		ausruestungsgegenstandPunkService.updateAusruestungsgegenstandPunk(toSave);
 	}

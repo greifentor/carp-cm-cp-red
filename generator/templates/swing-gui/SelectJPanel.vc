@@ -134,6 +134,10 @@ public class ${ClassName}SelectJPanel extends AbstractSelectJPanel<${ClassName}>
 	}
 
 	@Override
+	protected void print(${ClassName} toPrint) {
+	}
+
+	@Override
 	protected void save(${ClassName} toSave) {
 		${ClassNameAsAttribute}Service.update${ClassName}(toSave);
 	}

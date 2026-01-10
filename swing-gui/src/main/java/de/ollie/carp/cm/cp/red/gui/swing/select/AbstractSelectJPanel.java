@@ -160,6 +160,13 @@ public abstract class AbstractSelectJPanel<T>
 	protected abstract void delete(T toDelete);
 
 	@Override
+	public void onPrint(T toPrint) {
+		print(toPrint);
+	}
+
+	protected abstract void print(T toPrint);
+
+	@Override
 	public void onSave(T toSave) {
 		save(toSave);
 		updateTableSelection();

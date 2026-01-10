@@ -69,6 +69,9 @@ public class CyberwareSelectJPanel extends AbstractSelectJPanel<Cyberware> imple
 	}
 
 	@Override
+	protected void print(Cyberware toPrint) {}
+
+	@Override
 	protected void save(Cyberware toSave) {
 		cyberwareService.updateCyberware(toSave);
 	}

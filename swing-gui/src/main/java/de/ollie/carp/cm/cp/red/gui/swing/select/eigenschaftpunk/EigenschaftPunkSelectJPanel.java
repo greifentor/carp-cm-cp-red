@@ -87,6 +87,9 @@ public class EigenschaftPunkSelectJPanel
 	}
 
 	@Override
+	protected void print(EigenschaftPunk toPrint) {}
+
+	@Override
 	protected void save(EigenschaftPunk toSave) {
 		eigenschaftPunkService.updateEigenschaftPunk(toSave);
 	}

@@ -84,6 +84,9 @@ public class RollePunkSelectJPanel extends AbstractSelectJPanel<RollePunk> imple
 	}
 
 	@Override
+	protected void print(RollePunk toPrint) {}
+
+	@Override
 	protected void save(RollePunk toSave) {
 		rollePunkService.updateRollePunk(toSave);
 	}

@@ -68,6 +68,9 @@ public class EigenschaftSelectJPanel extends AbstractSelectJPanel<Eigenschaft> i
 	}
 
 	@Override
+	protected void print(Eigenschaft toPrint) {}
+
+	@Override
 	protected void save(Eigenschaft toSave) {
 		eigenschaftService.updateEigenschaft(toSave);
 	}

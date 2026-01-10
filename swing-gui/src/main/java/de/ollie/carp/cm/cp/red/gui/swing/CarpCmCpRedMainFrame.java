@@ -18,7 +18,6 @@ import de.ollie.carp.cm.cp.red.core.service.RollePunkService;
 import de.ollie.carp.cm.cp.red.core.service.RolleService;
 import de.ollie.carp.cm.cp.red.core.service.WaffePunkService;
 import de.ollie.carp.cm.cp.red.core.service.WaffeService;
-import de.ollie.carp.cm.cp.red.core.service.model.Punk;
 import de.ollie.carp.cm.cp.red.gui.swing.print.pdf.viewer.ExternalPdfViewerStarter;
 import de.ollie.carp.cm.cp.red.gui.swing.select.ausruestungsgegenstand.AusruestungsgegenstandSelectJInternalFrame;
 import de.ollie.carp.cm.cp.red.gui.swing.select.ausruestungsgegenstandpunk.AusruestungsgegenstandPunkSelectJInternalFrame;
@@ -40,14 +39,12 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.HashMap;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-import javax.swing.JSeparator;
 import lombok.RequiredArgsConstructor;
 
 @Named
@@ -87,7 +84,6 @@ public class CarpCmCpRedMainFrame extends JFrame implements ActionListener {
 	private JMenuItem menuItemEditRollePunk;
 	private JMenuItem menuItemEditWaffe;
 	private JMenuItem menuItemEditWaffePunk;
-	private JMenuItem menuItemFilePrint;
 	private JMenuItem menuItemFileQuit;
 
 	@PostConstruct
@@ -115,9 +111,6 @@ public class CarpCmCpRedMainFrame extends JFrame implements ActionListener {
 	private JMenuBar createJMenuBar() {
 		JMenuBar menuBar = new JMenuBar();
 		JMenu menu = new JMenu("File");
-		menuItemFilePrint = createMenuItem("Print", this);
-		menu.add(menuItemFilePrint);
-		menu.add(new JSeparator());
 		menuItemFileQuit = createMenuItem("Quit", this);
 		menu.add(menuItemFileQuit);
 		menuBar.add(menu);
@@ -212,7 +205,14 @@ public class CarpCmCpRedMainFrame extends JFrame implements ActionListener {
 				editDialogComponentFactory
 			);
 		} else if (e.getSource() == menuItemEditPunk) {
-			new PunkSelectJInternalFrame(punkService, panzerungService, desktopPane, editDialogComponentFactory);
+			new PunkSelectJInternalFrame(
+				punkService,
+				panzerungService,
+				desktopPane,
+				editDialogComponentFactory,
+				externalPdfViewerStarter,
+				reportPrintService
+			);
 		} else if (e.getSource() == menuItemEditPanzerung) {
 			new PanzerungSelectJInternalFrame(panzerungService, desktopPane, editDialogComponentFactory);
 		} else if (e.getSource() == menuItemEditRolle) {
@@ -235,14 +235,6 @@ public class CarpCmCpRedMainFrame extends JFrame implements ActionListener {
 				desktopPane,
 				editDialogComponentFactory
 			);
-		} else if (e.getSource() == menuItemFilePrint) {
-			Punk punk = punkService.listPunks().get(0);
-			byte[] pdf = reportPrintService.printPunk(punk, "jasper", new HashMap<>());
-			try {
-				externalPdfViewerStarter.show(pdf);
-			} catch (Exception ex) {
-				ex.printStackTrace();
-			}
 		} else if (e.getSource() == menuItemFileQuit) {
 			System.exit(0);
 		}

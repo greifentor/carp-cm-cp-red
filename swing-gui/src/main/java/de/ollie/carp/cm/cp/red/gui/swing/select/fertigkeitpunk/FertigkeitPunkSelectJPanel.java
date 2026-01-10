@@ -85,6 +85,9 @@ public class FertigkeitPunkSelectJPanel extends AbstractSelectJPanel<FertigkeitP
 	}
 
 	@Override
+	protected void print(FertigkeitPunk toPrint) {}
+
+	@Override
 	protected void save(FertigkeitPunk toSave) {
 		fertigkeitPunkService.updateFertigkeitPunk(toSave);
 	}

@@ -79,6 +79,9 @@ public class RolleSelectJPanel extends AbstractSelectJPanel<Rolle> implements Se
 	}
 
 	@Override
+	protected void print(Rolle toPrint) {}
+
+	@Override
 	protected void save(Rolle toSave) {
 		rolleService.updateRolle(toSave);
 	}

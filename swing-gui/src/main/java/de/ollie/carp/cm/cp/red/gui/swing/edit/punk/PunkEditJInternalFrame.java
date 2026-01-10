@@ -33,4 +33,9 @@ public class PunkEditJInternalFrame extends AbstractEditJInternalFrame<Punk> {
 		editPanel = new PunkEditJPanel(toEdit, itemProviders);
 		return editPanel;
 	}
+
+	@Override
+	protected boolean isPrintable() {
+		return true;
+	}
 }

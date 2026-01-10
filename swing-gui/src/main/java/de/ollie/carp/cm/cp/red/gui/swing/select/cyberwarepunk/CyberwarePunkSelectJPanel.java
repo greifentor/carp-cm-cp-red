@@ -84,6 +84,9 @@ public class CyberwarePunkSelectJPanel extends AbstractSelectJPanel<CyberwarePun
 	}
 
 	@Override
+	protected void print(CyberwarePunk toPrint) {}
+
+	@Override
 	protected void save(CyberwarePunk toSave) {
 		cyberwarePunkService.updateCyberwarePunk(toSave);
 	}

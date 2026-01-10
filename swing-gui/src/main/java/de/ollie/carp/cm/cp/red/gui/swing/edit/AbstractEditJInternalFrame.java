@@ -22,6 +22,8 @@ public abstract class AbstractEditJInternalFrame<T> extends JInternalFrame {
 
 		void onDelete(T toDelete);
 
+		void onPrint(T toPrint);
+
 		void onSave(T toSave);
 	}
 
@@ -66,12 +68,19 @@ public abstract class AbstractEditJInternalFrame<T> extends JInternalFrame {
 	protected abstract JPanel createEditorPanel(T toEdit, Map<String, ItemProvider<?>> itemProviders);
 
 	private JPanel createButtonPanel(Observer<T> observer) {
-		JPanel p = new JPanel(new FlowLayout(FlowLayout.RIGHT, HGAP, VGAP));
-		p.add(createCancelButton(observer));
-		p.add(new JLabel("     "));
-		p.add(createDeleteButton(observer));
-		p.add(new JLabel("     "));
-		p.add(componentFactory.createSaveButton(observer, this));
+		JPanel p = new JPanel(new BorderLayout(HGAP, VGAP));
+		JPanel pRight = new JPanel(new FlowLayout(FlowLayout.RIGHT, HGAP, VGAP));
+		pRight.add(createCancelButton(observer));
+		pRight.add(new JLabel("     "));
+		pRight.add(createDeleteButton(observer));
+		pRight.add(new JLabel("     "));
+		pRight.add(componentFactory.createSaveButton(observer, this));
+		p.add(pRight, BorderLayout.EAST);
+		if (isPrintable()) {
+			JPanel pLeft = new JPanel(new FlowLayout(FlowLayout.LEFT, HGAP, VGAP));
+			pLeft.add(createPrintButton(observer));
+			p.add(pLeft, BorderLayout.WEST);
+		}
 		return p;
 	}
 
@@ -102,7 +111,19 @@ public abstract class AbstractEditJInternalFrame<T> extends JInternalFrame {
 		return b;
 	}
 
+	private JButton createPrintButton(Observer<T> observer) {
+		JButton b = new JButton("Print");
+		if (observer != null) {
+			b.addActionListener(e -> observer.onPrint(toEdit));
+		}
+		return b;
+	}
+
 	public T getCurrentContent() {
 		return editPanel.getCurrentContent();
+	}
+
+	protected boolean isPrintable() {
+		return false;
 	}
 }

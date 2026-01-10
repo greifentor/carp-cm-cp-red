@@ -70,6 +70,9 @@ public class PanzerungSelectJPanel extends AbstractSelectJPanel<Panzerung> imple
 	}
 
 	@Override
+	protected void print(Panzerung toPrint) {}
+
+	@Override
 	protected void save(Panzerung toSave) {
 		panzerungService.updatePanzerung(toSave);
 	}

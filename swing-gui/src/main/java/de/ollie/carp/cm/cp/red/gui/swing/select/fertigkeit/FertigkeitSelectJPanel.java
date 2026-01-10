@@ -85,6 +85,9 @@ public class FertigkeitSelectJPanel extends AbstractSelectJPanel<Fertigkeit> imp
 	}
 
 	@Override
+	protected void print(Fertigkeit toPrint) {}
+
+	@Override
 	protected void save(Fertigkeit toSave) {
 		fertigkeitService.updateFertigkeit(toSave);
 	}

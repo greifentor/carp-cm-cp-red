@@ -84,6 +84,9 @@ public class WaffePunkSelectJPanel extends AbstractSelectJPanel<WaffePunk> imple
 	}
 
 	@Override
+	protected void print(WaffePunk toPrint) {}
+
+	@Override
 	protected void save(WaffePunk toSave) {
 		waffePunkService.updateWaffePunk(toSave);
 	}

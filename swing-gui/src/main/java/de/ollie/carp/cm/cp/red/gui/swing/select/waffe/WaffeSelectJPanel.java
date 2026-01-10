@@ -80,6 +80,9 @@ public class WaffeSelectJPanel extends AbstractSelectJPanel<Waffe> implements Se
 	}
 
 	@Override
+	protected void print(Waffe toPrint) {}
+
+	@Override
 	protected void save(Waffe toSave) {
 		waffeService.updateWaffe(toSave);
 	}
