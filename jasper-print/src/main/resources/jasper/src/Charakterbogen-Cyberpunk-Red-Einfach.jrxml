@@ -27,6 +27,7 @@
 	<field name="empathie" class="java.lang.String"/>
 	<field name="geschicklichkeit" class="java.lang.String"/>
 	<field name="feinde" class="java.lang.String"/>
+	<field name="fertigkeiten" class="java.util.List"/>
 	<field name="freunde" class="java.lang.String"/>
 	<field name="glueck" class="java.lang.String"/>
 	<field name="hintergrund" class="java.lang.String"/>
@@ -53,7 +54,6 @@
 	<field name="waffe3Schaden" class="java.lang.String"/>
 	<field name="wille" class="java.lang.String"/>
 	<field name="ziele" class="java.lang.String"/>
-	<field name="fertigkeiten" class="java.util.Vector"/>
 	<detail>
 		<band height="802" splitType="Stretch">
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
