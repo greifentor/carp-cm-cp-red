@@ -15,8 +15,8 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface FertigkeitPunkDboRepository extends JpaRepository<FertigkeitPunkDbo, UUID> {
-	List<FertigkeitPunkDbo> findAllByPunk(PunkDbo punk);
-
 	@Query("SELECT dbo FROM FertigkeitPunkDbo dbo")
 	List<FertigkeitPunkDbo> findAllOrdered();
+
+	List<FertigkeitPunkDbo> findAllByPunk(PunkDbo punk);
 }

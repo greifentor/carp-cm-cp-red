@@ -29,8 +29,8 @@ class EigenschaftPunkServiceImpl implements EigenschaftPunkService {
 	}
 
 	@Override
-	public Map<Eigenschaft, EigenschaftPunk> findAllByPunkId(UUID punkId) {
-		return eigenschaftPunkPersistencePort.findAllByPunkId(punkId);
+	public Map<Eigenschaft, EigenschaftPunk> findAllByPunk(Punk punk) {
+		return eigenschaftPunkPersistencePort.findAllByPunk(punk);
 	}
 
 	@Override

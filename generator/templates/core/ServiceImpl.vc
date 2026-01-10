@@ -42,6 +42,13 @@ class ${ClassName}ServiceImpl implements ${ClassName}Service {
 	public void delete${ClassName}(UUID id) {
 		${ClassNameAsAttribute}PersistencePort.deleteById(id);
 	}
+#foreach($Attribute in ${Class.getAttributesWithPropertySet("collectable")})
+
+	@Override
+	public List<${ClassName}> findAllBy${Attribute.getNameCamelCase()}(${Attribute.getTypeName()} ${Attribute.getName()}) {
+		return ${ClassNameAsAttribute}PersistencePort.findAllBy${Attribute.getNameCamelCase()}(${Attribute.getName()});
+	}
+#end
 
 	@Override
 	public Optional<${ClassName}> findById(${Class.getAttributeTypeNameByPropertyName("id")} id) {

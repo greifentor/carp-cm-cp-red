@@ -12,14 +12,26 @@ import ${Properties.get("core-model-package")}.${Attribute.getTypeName()};
 import ${Properties.get("core-model-package")}.${Attribute.getTypeName()};
 #end
 #end
+#foreach($Attribute in ${Class.getAttributesWithPropertySet("collectable")})
+import ${Properties.get("core-model-package")}.${Attribute.getTypeName()};
+#end
+#foreach($Attribute in ${Class.getAttributesWithPropertySet("collectable")})
+import ${Properties.get("jpa-entity-package")}.${Attribute.getTypeName()}Dbo;
+#end
 #if (!$Class.getAttributesWithPropertySet("findable").isEmpty())
-import ${Properties.get("jpa-entity-package")}.${ClassName}Dbo;
+import ${Properties.get("jpa-entity-package")}.${Attribute.getTypeName()}Dbo;
 #end
 import ${Properties.get("core-port-persistence-package")}.${ClassName}PersistencePort;
 import ${Properties.get("jpa-mapper-package")}.${ClassName}DboMapper;
 import ${Properties.get("jpa-repository-package")}.${ClassName}DboRepository;
+#foreach($Attribute in ${Class.getAttributesWithPropertySet("collectable")})
+import ${Properties.get("jpa-repository-package")}.${Attribute.getTypeName()}DboRepository;
+#end
 import jakarta.inject.Named;
 import java.util.List;
+#if (!$Class.getAttributesWithPropertySet("collectable").isEmpty())
+import java.util.NoSuchElementException;
+#end
 import java.util.Optional;
 import lombok.Generated;
 import lombok.RequiredArgsConstructor;
@@ -41,6 +53,9 @@ class ${ClassName}PersistenceJpaAdapter implements ${ClassName}PersistencePort {
 	private final DboFactory dboFactory;
 	private final ${ClassName}DboMapper mapper;
 	private final ${ClassName}DboRepository repository;
+#foreach($Attribute in ${Class.getAttributesWithPropertySet("collectable")})
+	private final ${Attribute.getTypeName()}DboRepository ${Attribute.getTypeNameAsAttribute()}Repository;
+#end
 
 	@Override
 	public ${ClassName} create(#foreach($Attribute in ${Class.getAttributesWithPropertyNotSet("id")})${Attribute.getTypeName()} ${Attribute.getName()}#if($foreach.hasNext), #end#end) {
@@ -52,6 +67,16 @@ class ${ClassName}PersistenceJpaAdapter implements ${ClassName}PersistencePort {
 		ensure(id != null, "id cannot be null!");
 		repository.deleteById(id);
 	}
+#foreach($Attribute in ${Class.getAttributesWithPropertySet("collectable")})
+
+	@Override
+	public List<${ClassName}> findAllBy${Attribute.getNameCamelCase()}(${Attribute.getTypeName()} ${Attribute.getName()}) {
+		${Attribute.getTypeName()}Dbo ${Attribute.getName()}Dbo = ${Attribute.getTypeNameAsAttribute()}Repository
+			.findById(${Attribute.getName()}.getId())
+			.orElseThrow(() -> new NoSuchElementException("${Attribute.getName()} not found id:" + ${Attribute.getName()}.getId()));
+		return repository.findAllBy${Attribute.getTypeName()}(${Attribute.getName()}Dbo).stream().map(mapper::toModel).toList();
+	}
+#end
 
 	@Override
 	public Optional<${ClassName}> findById(${Class.getAttributeTypeNameByPropertyName("id")} id) {

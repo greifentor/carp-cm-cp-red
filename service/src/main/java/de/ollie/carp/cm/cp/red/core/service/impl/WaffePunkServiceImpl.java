@@ -9,8 +9,15 @@ import jakarta.inject.Named;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import lombok.Generated;
 import lombok.RequiredArgsConstructor;
 
+/**
+ * GENERATED CODE - DO NOT TOUCH
+ *
+ * Remove this comment to suspend class from generation process.
+ */
+@Generated
 @Named
 @RequiredArgsConstructor
 class WaffePunkServiceImpl implements WaffePunkService {
@@ -28,8 +35,8 @@ class WaffePunkServiceImpl implements WaffePunkService {
 	}
 
 	@Override
-	public List<WaffePunk> findAllByPunkId(UUID punkId) {
-		return waffePunkPersistencePort.findAllByPunkId(punkId);
+	public List<WaffePunk> findAllByPunk(Punk punk) {
+		return waffePunkPersistencePort.findAllByPunk(punk);
 	}
 
 	@Override

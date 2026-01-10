@@ -2,7 +2,6 @@ package de.ollie.carp.cm.cp.red.persistence.jpa;
 
 import static de.ollie.baselib.util.Check.ensure;
 
-import de.ollie.carp.cm.cp.red.core.service.exception.TooManyElementsException;
 import de.ollie.carp.cm.cp.red.core.service.model.Eigenschaft;
 import de.ollie.carp.cm.cp.red.core.service.model.EigenschaftPunk;
 import de.ollie.carp.cm.cp.red.core.service.model.Punk;
@@ -18,7 +17,6 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.UUID;
-import lombok.Generated;
 import lombok.RequiredArgsConstructor;
 
 @Named
@@ -42,12 +40,16 @@ class EigenschaftPunkPersistenceJpaAdapter implements EigenschaftPunkPersistence
 	}
 
 	@Override
-	public Map<Eigenschaft, EigenschaftPunk> findAllByPunkId(UUID punkId) {
-		PunkDbo punk = punkRepository
-			.findById(punkId)
-			.orElseThrow(() -> new NoSuchElementException("punk not found with id:" + punkId));
+	public Map<Eigenschaft, EigenschaftPunk> findAllByPunk(Punk punk) {
+		PunkDbo punkDbo = punkRepository
+			.findById(punk.getId())
+			.orElseThrow(() -> new NoSuchElementException("punk not found with id:" + punk.getId()));
 		Map<Eigenschaft, EigenschaftPunk> m = new HashMap<>();
-		repository.findAllByPunk(punk).stream().map(mapper::toModel).forEach(model -> m.put(model.getEigenschaft(), model));
+		repository
+			.findAllByPunk(punkDbo)
+			.stream()
+			.map(mapper::toModel)
+			.forEach(model -> m.put(model.getEigenschaft(), model));
 		return m;
 	}
 

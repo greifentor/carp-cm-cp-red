@@ -7,16 +7,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
-import lombok.Generated;
 
 public interface EigenschaftPunkService {
 	EigenschaftPunk createEigenschaftPunk(Eigenschaft eigenschaft, Punk punk, int wert);
 
 	void deleteEigenschaftPunk(UUID id);
 
-	Optional<EigenschaftPunk> findById(UUID id);
+	Map<Eigenschaft, EigenschaftPunk> findAllByPunk(Punk punk);
 
-	Map<Eigenschaft, EigenschaftPunk> findAllByPunkId(UUID punkId);
+	Optional<EigenschaftPunk> findById(UUID id);
 
 	List<EigenschaftPunk> listEigenschaftPunks();
 

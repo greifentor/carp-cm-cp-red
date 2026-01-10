@@ -35,6 +35,11 @@ class RollePunkServiceImpl implements RollePunkService {
 	}
 
 	@Override
+	public List<RollePunk> findAllByPunk(Punk punk) {
+		return rollePunkPersistencePort.findAllByPunk(punk);
+	}
+
+	@Override
 	public Optional<RollePunk> findById(UUID id) {
 		return rollePunkPersistencePort.findById(id);
 	}

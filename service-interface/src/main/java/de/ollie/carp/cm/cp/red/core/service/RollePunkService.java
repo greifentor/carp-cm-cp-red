@@ -19,6 +19,8 @@ public interface RollePunkService {
 
 	void deleteRollePunk(UUID id);
 
+	List<RollePunk> findAllByPunk(Punk punk);
+
 	Optional<RollePunk> findById(UUID id);
 
 	List<RollePunk> listRollePunks();

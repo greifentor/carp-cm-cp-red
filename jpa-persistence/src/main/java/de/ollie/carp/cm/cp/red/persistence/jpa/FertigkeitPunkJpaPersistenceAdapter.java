@@ -2,8 +2,10 @@ package de.ollie.carp.cm.cp.red.persistence.jpa;
 
 import static de.ollie.baselib.util.Check.ensure;
 
+import de.ollie.carp.cm.cp.red.core.service.exception.TooManyElementsException;
 import de.ollie.carp.cm.cp.red.core.service.model.Fertigkeit;
 import de.ollie.carp.cm.cp.red.core.service.model.FertigkeitPunk;
+import de.ollie.carp.cm.cp.red.core.service.model.Punk;
 import de.ollie.carp.cm.cp.red.core.service.model.Punk;
 import de.ollie.carp.cm.cp.red.core.service.port.persistence.FertigkeitPunkPersistencePort;
 import de.ollie.carp.cm.cp.red.persistence.jpa.dbo.PunkDbo;
@@ -45,11 +47,11 @@ class FertigkeitPunkPersistenceJpaAdapter implements FertigkeitPunkPersistencePo
 	}
 
 	@Override
-	public List<FertigkeitPunk> findAllByPunkId(UUID punkId) {
-		PunkDbo punk = punkRepository
-			.findById(punkId)
-			.orElseThrow(() -> new NoSuchElementException("punk not found id:" + punkId));
-		return repository.findAllByPunk(punk).stream().map(mapper::toModel).toList();
+	public List<FertigkeitPunk> findAllByPunk(Punk punk) {
+		PunkDbo punkDbo = punkRepository
+			.findById(punk.getId())
+			.orElseThrow(() -> new NoSuchElementException("punk not found id:" + punk.getId()));
+		return repository.findAllByPunk(punkDbo).stream().map(mapper::toModel).toList();
 	}
 
 	@Override

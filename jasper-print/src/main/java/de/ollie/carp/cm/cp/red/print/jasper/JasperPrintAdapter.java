@@ -120,7 +120,7 @@ class JasperPrintAdapter implements PrintPort {
 	private List<AusruestungsgegenstandPunk> getAusruestungsgegenstaende(Punk punk) {
 		List<AusruestungsgegenstandPunk> l = new ArrayList<>(
 			ausruestungsgegenstandPunkService
-				.findAllByPunkId(punk.getId())
+				.findAllByPunk(punk)
 				.stream()
 				.sorted((a0, a1) -> a0.getAusruestungsgegenstand().getName().compareTo(a1.getAusruestungsgegenstand().getName())
 				)
@@ -139,7 +139,7 @@ class JasperPrintAdapter implements PrintPort {
 	private List<CyberwarePunk> getCyberware(Punk punk) {
 		List<CyberwarePunk> l = new ArrayList<>(
 			cyberwarePunkService
-				.findAllByPunkId(punk.getId())
+				.findAllByPunk(punk)
 				.stream()
 				.sorted((a0, a1) -> a0.getCyberware().getName().compareTo(a1.getCyberware().getName()))
 				.toList()
@@ -152,7 +152,7 @@ class JasperPrintAdapter implements PrintPort {
 
 	private Map<String, Integer> getEigenschaften(Punk punk) {
 		Map<String, Integer> m = new HashMap<>();
-		for (Entry<Eigenschaft, EigenschaftPunk> e : eigenschaftPunkService.findAllByPunkId(punk.getId()).entrySet()) {
+		for (Entry<Eigenschaft, EigenschaftPunk> e : eigenschaftPunkService.findAllByPunk(punk).entrySet()) {
 			m.put(e.getKey().getName(), e.getValue().getWert());
 		}
 		return m;
@@ -161,7 +161,7 @@ class JasperPrintAdapter implements PrintPort {
 	private Vector<FertigkeitPO> getFertigkeiten(Punk punk) {
 		Vector<FertigkeitPO> v = new Vector<>();
 		fertigkeitPunkService
-			.findAllByPunkId(punk.getId())
+			.findAllByPunk(punk)
 			.forEach(fp ->
 				v.add(
 					new FertigkeitPO()
@@ -184,7 +184,7 @@ class JasperPrintAdapter implements PrintPort {
 	}
 
 	private List<WaffePunk> getWaffen(Punk punk) {
-		List<WaffePunk> l = new ArrayList<>(waffePunkService.findAllByPunkId(punk.getId()));
+		List<WaffePunk> l = new ArrayList<>(waffePunkService.findAllByPunk(punk));
 		while (l.size() < 4) {
 			l.add(new WaffePunk().setPunk(punk).setWaffe(new Waffe().setName("").setSchaden("")));
 		}

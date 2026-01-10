@@ -1,5 +1,6 @@
 package de.ollie.carp.cm.cp.red.persistence.jpa.repository;
 
+import de.ollie.carp.cm.cp.red.persistence.jpa.dbo.PunkDbo;
 import de.ollie.carp.cm.cp.red.persistence.jpa.dbo.RollePunkDbo;
 import java.util.List;
 import java.util.UUID;
@@ -16,4 +17,6 @@ import org.springframework.stereotype.Repository;
 public interface RollePunkDboRepository extends JpaRepository<RollePunkDbo, UUID> {
 	@Query("SELECT dbo FROM RollePunkDbo dbo")
 	List<RollePunkDbo> findAllOrdered();
+
+	List<RollePunkDbo> findAllByPunk(PunkDbo punk);
 }

@@ -4,13 +4,17 @@ import static de.ollie.baselib.util.Check.ensure;
 
 import de.ollie.carp.cm.cp.red.core.service.exception.TooManyElementsException;
 import de.ollie.carp.cm.cp.red.core.service.model.Punk;
+import de.ollie.carp.cm.cp.red.core.service.model.Punk;
 import de.ollie.carp.cm.cp.red.core.service.model.Rolle;
 import de.ollie.carp.cm.cp.red.core.service.model.RollePunk;
 import de.ollie.carp.cm.cp.red.core.service.port.persistence.RollePunkPersistencePort;
+import de.ollie.carp.cm.cp.red.persistence.jpa.dbo.PunkDbo;
 import de.ollie.carp.cm.cp.red.persistence.jpa.mapper.RollePunkDboMapper;
+import de.ollie.carp.cm.cp.red.persistence.jpa.repository.PunkDboRepository;
 import de.ollie.carp.cm.cp.red.persistence.jpa.repository.RollePunkDboRepository;
 import jakarta.inject.Named;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.UUID;
 import lombok.Generated;
@@ -29,6 +33,7 @@ class RollePunkPersistenceJpaAdapter implements RollePunkPersistencePort {
 	private final DboFactory dboFactory;
 	private final RollePunkDboMapper mapper;
 	private final RollePunkDboRepository repository;
+	private final PunkDboRepository punkRepository;
 
 	@Override
 	public RollePunk create(Punk punk, Rolle rolle) {
@@ -39,6 +44,14 @@ class RollePunkPersistenceJpaAdapter implements RollePunkPersistencePort {
 	public void deleteById(UUID id) {
 		ensure(id != null, "id cannot be null!");
 		repository.deleteById(id);
+	}
+
+	@Override
+	public List<RollePunk> findAllByPunk(Punk punk) {
+		PunkDbo punkDbo = punkRepository
+			.findById(punk.getId())
+			.orElseThrow(() -> new NoSuchElementException("punk not found id:" + punk.getId()));
+		return repository.findAllByPunk(punkDbo).stream().map(mapper::toModel).toList();
 	}
 
 	@Override

@@ -4,6 +4,7 @@ import static de.ollie.baselib.util.Check.ensure;
 
 import de.ollie.carp.cm.cp.red.core.service.exception.TooManyElementsException;
 import de.ollie.carp.cm.cp.red.core.service.model.Punk;
+import de.ollie.carp.cm.cp.red.core.service.model.Punk;
 import de.ollie.carp.cm.cp.red.core.service.model.Waffe;
 import de.ollie.carp.cm.cp.red.core.service.model.WaffePunk;
 import de.ollie.carp.cm.cp.red.core.service.port.persistence.WaffePunkPersistencePort;
@@ -19,14 +20,20 @@ import java.util.UUID;
 import lombok.Generated;
 import lombok.RequiredArgsConstructor;
 
+/**
+ * GENERATED CODE - DO NOT TOUCH
+ *
+ * Remove this comment to suspend class from generation process.
+ */
+@Generated
 @Named
 @RequiredArgsConstructor
 class WaffePunkPersistenceJpaAdapter implements WaffePunkPersistencePort {
 
 	private final DboFactory dboFactory;
-	private final PunkDboRepository punkRepository;
 	private final WaffePunkDboMapper mapper;
 	private final WaffePunkDboRepository repository;
+	private final PunkDboRepository punkRepository;
 
 	@Override
 	public WaffePunk create(Punk punk, Waffe waffe) {
@@ -40,11 +47,11 @@ class WaffePunkPersistenceJpaAdapter implements WaffePunkPersistencePort {
 	}
 
 	@Override
-	public List<WaffePunk> findAllByPunkId(UUID punkId) {
-		PunkDbo punk = punkRepository
-			.findById(punkId)
-			.orElseThrow(() -> new NoSuchElementException("punk not found id:" + punkId));
-		return repository.findAllByPunk(punk).stream().map(mapper::toModel).toList();
+	public List<WaffePunk> findAllByPunk(Punk punk) {
+		PunkDbo punkDbo = punkRepository
+			.findById(punk.getId())
+			.orElseThrow(() -> new NoSuchElementException("punk not found id:" + punk.getId()));
+		return repository.findAllByPunk(punkDbo).stream().map(mapper::toModel).toList();
 	}
 
 	@Override

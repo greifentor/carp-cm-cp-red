@@ -9,8 +9,15 @@ import jakarta.inject.Named;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import lombok.Generated;
 import lombok.RequiredArgsConstructor;
 
+/**
+ * GENERATED CODE - DO NOT TOUCH
+ *
+ * Remove this comment to suspend class from generation process.
+ */
+@Generated
 @Named
 @RequiredArgsConstructor
 class CyberwarePunkServiceImpl implements CyberwarePunkService {
@@ -28,8 +35,8 @@ class CyberwarePunkServiceImpl implements CyberwarePunkService {
 	}
 
 	@Override
-	public List<CyberwarePunk> findAllByPunkId(UUID punkId) {
-		return cyberwarePunkPersistencePort.findAllByPunkId(punkId);
+	public List<CyberwarePunk> findAllByPunk(Punk punk) {
+		return cyberwarePunkPersistencePort.findAllByPunk(punk);
 	}
 
 	@Override

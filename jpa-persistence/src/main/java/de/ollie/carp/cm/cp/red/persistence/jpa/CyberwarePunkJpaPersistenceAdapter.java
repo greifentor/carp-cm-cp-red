@@ -2,8 +2,10 @@ package de.ollie.carp.cm.cp.red.persistence.jpa;
 
 import static de.ollie.baselib.util.Check.ensure;
 
+import de.ollie.carp.cm.cp.red.core.service.exception.TooManyElementsException;
 import de.ollie.carp.cm.cp.red.core.service.model.Cyberware;
 import de.ollie.carp.cm.cp.red.core.service.model.CyberwarePunk;
+import de.ollie.carp.cm.cp.red.core.service.model.Punk;
 import de.ollie.carp.cm.cp.red.core.service.model.Punk;
 import de.ollie.carp.cm.cp.red.core.service.port.persistence.CyberwarePunkPersistencePort;
 import de.ollie.carp.cm.cp.red.persistence.jpa.dbo.PunkDbo;
@@ -15,8 +17,15 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.UUID;
+import lombok.Generated;
 import lombok.RequiredArgsConstructor;
 
+/**
+ * GENERATED CODE - DO NOT TOUCH
+ *
+ * Remove this comment to suspend class from generation process.
+ */
+@Generated
 @Named
 @RequiredArgsConstructor
 class CyberwarePunkPersistenceJpaAdapter implements CyberwarePunkPersistencePort {
@@ -38,11 +47,11 @@ class CyberwarePunkPersistenceJpaAdapter implements CyberwarePunkPersistencePort
 	}
 
 	@Override
-	public List<CyberwarePunk> findAllByPunkId(UUID punkId) {
-		PunkDbo punk = punkRepository
-			.findById(punkId)
-			.orElseThrow(() -> new NoSuchElementException("punk not found id:" + punkId));
-		return repository.findAllByPunk(punk).stream().map(mapper::toModel).toList();
+	public List<CyberwarePunk> findAllByPunk(Punk punk) {
+		PunkDbo punkDbo = punkRepository
+			.findById(punk.getId())
+			.orElseThrow(() -> new NoSuchElementException("punk not found id:" + punk.getId()));
+		return repository.findAllByPunk(punkDbo).stream().map(mapper::toModel).toList();
 	}
 
 	@Override

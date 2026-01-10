@@ -3,18 +3,26 @@ package de.ollie.carp.cm.cp.red.core.service.port.persistence;
 import de.ollie.carp.cm.cp.red.core.service.model.Fertigkeit;
 import de.ollie.carp.cm.cp.red.core.service.model.FertigkeitPunk;
 import de.ollie.carp.cm.cp.red.core.service.model.Punk;
+import de.ollie.carp.cm.cp.red.core.service.model.Punk;
 import jakarta.inject.Named;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import lombok.Generated;
 
+/**
+ * GENERATED CODE - DO NOT TOUCH
+ *
+ * Remove this comment to suspend class from generation process.
+ */
+@Generated
 @Named
 public interface FertigkeitPunkPersistencePort {
 	FertigkeitPunk create(Fertigkeit fertigkeit, Punk punk, int wert);
 
 	void deleteById(UUID id);
 
-	List<FertigkeitPunk> findAllByPunkId(UUID punkId);
+	List<FertigkeitPunk> findAllByPunk(Punk punk);
 
 	Optional<FertigkeitPunk> findById(UUID id);
 

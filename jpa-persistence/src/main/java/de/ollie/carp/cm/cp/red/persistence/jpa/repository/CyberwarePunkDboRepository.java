@@ -8,10 +8,15 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+/**
+ * GENERATED CODE - DO NOT TOUCH
+ *
+ * Remove this comment to suspend class from generation process.
+ */
 @Repository
 public interface CyberwarePunkDboRepository extends JpaRepository<CyberwarePunkDbo, UUID> {
-	List<CyberwarePunkDbo> findAllByPunk(PunkDbo punk);
-
 	@Query("SELECT dbo FROM CyberwarePunkDbo dbo")
 	List<CyberwarePunkDbo> findAllOrdered();
+
+	List<CyberwarePunkDbo> findAllByPunk(PunkDbo punk);
 }

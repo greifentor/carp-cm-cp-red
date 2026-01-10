@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
-import lombok.Generated;
 
 @Named
 public interface EigenschaftPunkPersistencePort {
@@ -16,7 +15,7 @@ public interface EigenschaftPunkPersistencePort {
 
 	void deleteById(UUID id);
 
-	Map<Eigenschaft, EigenschaftPunk> findAllByPunkId(UUID punkId);
+	Map<Eigenschaft, EigenschaftPunk> findAllByPunk(Punk punk);
 
 	Optional<EigenschaftPunk> findById(UUID id);
 

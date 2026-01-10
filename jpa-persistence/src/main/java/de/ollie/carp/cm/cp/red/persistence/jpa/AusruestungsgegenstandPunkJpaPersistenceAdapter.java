@@ -6,6 +6,7 @@ import de.ollie.carp.cm.cp.red.core.service.exception.TooManyElementsException;
 import de.ollie.carp.cm.cp.red.core.service.model.Ausruestungsgegenstand;
 import de.ollie.carp.cm.cp.red.core.service.model.AusruestungsgegenstandPunk;
 import de.ollie.carp.cm.cp.red.core.service.model.Punk;
+import de.ollie.carp.cm.cp.red.core.service.model.Punk;
 import de.ollie.carp.cm.cp.red.core.service.port.persistence.AusruestungsgegenstandPunkPersistencePort;
 import de.ollie.carp.cm.cp.red.persistence.jpa.dbo.PunkDbo;
 import de.ollie.carp.cm.cp.red.persistence.jpa.mapper.AusruestungsgegenstandPunkDboMapper;
@@ -19,6 +20,12 @@ import java.util.UUID;
 import lombok.Generated;
 import lombok.RequiredArgsConstructor;
 
+/**
+ * GENERATED CODE - DO NOT TOUCH
+ *
+ * Remove this comment to suspend class from generation process.
+ */
+@Generated
 @Named
 @RequiredArgsConstructor
 class AusruestungsgegenstandPunkPersistenceJpaAdapter implements AusruestungsgegenstandPunkPersistencePort {
@@ -42,11 +49,11 @@ class AusruestungsgegenstandPunkPersistenceJpaAdapter implements Ausruestungsgeg
 	}
 
 	@Override
-	public List<AusruestungsgegenstandPunk> findAllByPunkId(UUID punkId) {
-		PunkDbo punk = punkRepository
-			.findById(punkId)
-			.orElseThrow(() -> new NoSuchElementException("punk not found id:" + punkId));
-		return repository.findAllByPunk(punk).stream().map(mapper::toModel).toList();
+	public List<AusruestungsgegenstandPunk> findAllByPunk(Punk punk) {
+		PunkDbo punkDbo = punkRepository
+			.findById(punk.getId())
+			.orElseThrow(() -> new NoSuchElementException("punk not found id:" + punk.getId()));
+		return repository.findAllByPunk(punkDbo).stream().map(mapper::toModel).toList();
 	}
 
 	@Override
