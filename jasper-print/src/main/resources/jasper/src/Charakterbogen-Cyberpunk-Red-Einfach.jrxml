@@ -480,8 +480,10 @@
 				<textFieldExpression><![CDATA["<b>" + $F{ausruestung3Name} + "</b><br>" + $F{ausruestung3Beschreibung}]]></textFieldExpression>
 			</textField>
 			<subreport>
-				<reportElement x="40" y="250" width="217" height="150" uuid="a9933c5f-3544-42e6-b915-1f242f31c371"/>
-				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<reportElement x="40" y="250" width="213" height="150" uuid="a9933c5f-3544-42e6-b915-1f242f31c371">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{fertigkeiten})]]></dataSourceExpression>
 				<subreportExpression><![CDATA["./jasper-print/src/main/resources/jasper/src/Fertigkeiten.jasper"]]></subreportExpression>
 			</subreport>
 		</band>

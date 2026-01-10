@@ -32,7 +32,7 @@ public class PunkPO {
 	private String empathie;
 	private String geschicklichkeit;
 	private String feinde;
-	private Vector<String> fertigkeiten;
+	private Vector<FertigkeitPO> fertigkeiten;
 	private String freunde;
 	private String glueck;
 	private String hintergrund;

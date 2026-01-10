@@ -2,15 +2,17 @@ package de.ollie.carp.cm.cp.red.persistence.jpa;
 
 import static de.ollie.baselib.util.Check.ensure;
 
-import de.ollie.carp.cm.cp.red.core.service.exception.TooManyElementsException;
 import de.ollie.carp.cm.cp.red.core.service.model.Fertigkeit;
 import de.ollie.carp.cm.cp.red.core.service.model.FertigkeitPunk;
 import de.ollie.carp.cm.cp.red.core.service.model.Punk;
 import de.ollie.carp.cm.cp.red.core.service.port.persistence.FertigkeitPunkPersistencePort;
+import de.ollie.carp.cm.cp.red.persistence.jpa.dbo.PunkDbo;
 import de.ollie.carp.cm.cp.red.persistence.jpa.mapper.FertigkeitPunkDboMapper;
 import de.ollie.carp.cm.cp.red.persistence.jpa.repository.FertigkeitPunkDboRepository;
+import de.ollie.carp.cm.cp.red.persistence.jpa.repository.PunkDboRepository;
 import jakarta.inject.Named;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.UUID;
 import lombok.Generated;
@@ -29,6 +31,7 @@ class FertigkeitPunkPersistenceJpaAdapter implements FertigkeitPunkPersistencePo
 	private final DboFactory dboFactory;
 	private final FertigkeitPunkDboMapper mapper;
 	private final FertigkeitPunkDboRepository repository;
+	private final PunkDboRepository punkRepository;
 
 	@Override
 	public FertigkeitPunk create(Fertigkeit fertigkeit, Punk punk, int wert) {
@@ -39,6 +42,14 @@ class FertigkeitPunkPersistenceJpaAdapter implements FertigkeitPunkPersistencePo
 	public void deleteById(UUID id) {
 		ensure(id != null, "id cannot be null!");
 		repository.deleteById(id);
+	}
+
+	@Override
+	public List<FertigkeitPunk> findAllByPunkId(UUID punkId) {
+		PunkDbo punk = punkRepository
+			.findById(punkId)
+			.orElseThrow(() -> new NoSuchElementException("punk not found id:" + punkId));
+		return repository.findAllByPunk(punk).stream().map(mapper::toModel).toList();
 	}
 
 	@Override

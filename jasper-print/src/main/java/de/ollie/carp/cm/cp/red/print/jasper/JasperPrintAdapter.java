@@ -3,6 +3,7 @@ package de.ollie.carp.cm.cp.red.print.jasper;
 import de.ollie.carp.cm.cp.red.core.service.AusruestungsgegenstandPunkService;
 import de.ollie.carp.cm.cp.red.core.service.CyberwarePunkService;
 import de.ollie.carp.cm.cp.red.core.service.EigenschaftPunkService;
+import de.ollie.carp.cm.cp.red.core.service.FertigkeitPunkService;
 import de.ollie.carp.cm.cp.red.core.service.TpService;
 import de.ollie.carp.cm.cp.red.core.service.WaffePunkService;
 import de.ollie.carp.cm.cp.red.core.service.exception.PrintReportException;
@@ -16,6 +17,7 @@ import de.ollie.carp.cm.cp.red.core.service.model.Punk;
 import de.ollie.carp.cm.cp.red.core.service.model.Waffe;
 import de.ollie.carp.cm.cp.red.core.service.model.WaffePunk;
 import de.ollie.carp.cm.cp.red.core.service.port.print.PrintPort;
+import de.ollie.carp.cm.cp.red.print.jasper.po.FertigkeitPO;
 import de.ollie.carp.cm.cp.red.print.jasper.po.PunkPO;
 import jakarta.inject.Named;
 import java.io.ByteArrayOutputStream;
@@ -25,6 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Vector;
 import lombok.RequiredArgsConstructor;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperExportManager;
@@ -40,6 +43,7 @@ class JasperPrintAdapter implements PrintPort {
 	private final CyberwarePunkService cyberwarePunkService;
 	private final JasperConfiguration jasperConfiguration;
 	private final EigenschaftPunkService eigenschaftPunkService;
+	private final FertigkeitPunkService fertigkeitPunkService;
 	private final TpService tpService;
 	private final WaffePunkService waffePunkService;
 
@@ -89,6 +93,7 @@ class JasperPrintAdapter implements PrintPort {
 			.setCyberware3Beschreibung(cyberware.get(3).getCyberware().getBeschreibung())
 			.setCyberware3Name(cyberware.get(3).getCyberware().getName())
 			.setEmpathie("" + eigenschaften.get("EMP"))
+			.setFertigkeiten(getFertigkeiten(punk))
 			.setGeschicklichkeit("" + eigenschaften.get("GES"))
 			.setGlueck("" + eigenschaften.get("GLK"))
 			.setIntelligenz("" + eigenschaften.get("INT"))
@@ -151,6 +156,21 @@ class JasperPrintAdapter implements PrintPort {
 			m.put(e.getKey().getName(), e.getValue().getWert());
 		}
 		return m;
+	}
+
+	private Vector<FertigkeitPO> getFertigkeiten(Punk punk) {
+		Vector<FertigkeitPO> v = new Vector<>();
+		fertigkeitPunkService
+			.findAllByPunkId(punk.getId())
+			.forEach(fp ->
+				v.add(
+					new FertigkeitPO()
+						.setEigenschaft(fp.getFertigkeit().getEigenschaft().getName())
+						.setName(fp.getFertigkeit().getName())
+						.setWert("" + fp.getWert())
+				)
+			);
+		return v;
 	}
 
 	private String getPanzerung(Punk punk) {
