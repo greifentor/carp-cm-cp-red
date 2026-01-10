@@ -22,6 +22,13 @@ public class PunkEditJPanel extends AbstractEditPanel<Punk> {
 	private JTextField textFieldName;
 	private JComboBox<Panzerung> comboBoxPanzerungKopf;
 	private JComboBox<Panzerung> comboBoxPanzerungKoerper;
+	private JTextField textFieldHintergrund;
+	private JTextField textFieldMotivation;
+	private JTextField textFieldZiele;
+	private JTextField textFieldFreunde;
+	private JTextField textFieldFeinde;
+	private JTextField textFieldLiebschaften;
+	private JTextField textFieldPersoenlichkeit;
 
 	public PunkEditJPanel(Punk toEdit, Map<String, ItemProvider<?>> itemProviders) {
 		super(toEdit, itemProviders);
@@ -29,12 +36,23 @@ public class PunkEditJPanel extends AbstractEditPanel<Punk> {
 
 	@Override
 	protected JPanel createLabelPanel() {
-		return createLabelSubPanel("Name:", "Panzerung Kopf:", "Panzerung Koerper:");
+		return createLabelSubPanel(
+			"Name:",
+			"Panzerung Kopf:",
+			"Panzerung Koerper:",
+			"Hintergrund:",
+			"Motivation:",
+			"Ziele:",
+			"Freunde:",
+			"Feinde:",
+			"Liebschaften:",
+			"Persoenlichkeit:"
+		);
 	}
 
 	@Override
 	protected JPanel createComponentPanel(Punk toEdit, Map<String, ItemProvider<?>> itemProviders) {
-		JPanel p = new JPanel(new GridLayout(3, 1, HGAP, VGAP));
+		JPanel p = new JPanel(new GridLayout(10, 1, HGAP, VGAP));
 		textFieldName = new JTextField(toEdit.getName(), 40);
 		p.add(textFieldName);
 		List<Panzerung> listPanzerungKopf =
@@ -60,6 +78,20 @@ public class PunkEditJPanel extends AbstractEditPanel<Punk> {
 			return new JLabel("-");
 		});
 		p.add(comboBoxPanzerungKoerper);
+		textFieldHintergrund = new JTextField(toEdit.getHintergrund(), 40);
+		p.add(textFieldHintergrund);
+		textFieldMotivation = new JTextField(toEdit.getMotivation(), 40);
+		p.add(textFieldMotivation);
+		textFieldZiele = new JTextField(toEdit.getZiele(), 40);
+		p.add(textFieldZiele);
+		textFieldFreunde = new JTextField(toEdit.getFreunde(), 40);
+		p.add(textFieldFreunde);
+		textFieldFeinde = new JTextField(toEdit.getFeinde(), 40);
+		p.add(textFieldFeinde);
+		textFieldLiebschaften = new JTextField(toEdit.getLiebschaften(), 40);
+		p.add(textFieldLiebschaften);
+		textFieldPersoenlichkeit = new JTextField(toEdit.getPersoenlichkeit(), 40);
+		p.add(textFieldPersoenlichkeit);
 		return p;
 	}
 
@@ -69,6 +101,13 @@ public class PunkEditJPanel extends AbstractEditPanel<Punk> {
 			.setId(toEdit.getId())
 			.setName(textFieldName.getText())
 			.setPanzerungKopf(((Panzerung) comboBoxPanzerungKopf.getSelectedItem()))
-			.setPanzerungKoerper(((Panzerung) comboBoxPanzerungKoerper.getSelectedItem()));
+			.setPanzerungKoerper(((Panzerung) comboBoxPanzerungKoerper.getSelectedItem()))
+			.setHintergrund(textFieldHintergrund.getText())
+			.setMotivation(textFieldMotivation.getText())
+			.setZiele(textFieldZiele.getText())
+			.setFreunde(textFieldFreunde.getText())
+			.setFeinde(textFieldFeinde.getText())
+			.setLiebschaften(textFieldLiebschaften.getText())
+			.setPersoenlichkeit(textFieldPersoenlichkeit.getText());
 	}
 }

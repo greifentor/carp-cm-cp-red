@@ -35,7 +35,7 @@ public class RollePunkSelectJInternalFrame
 		JDesktopPane desktopPane,
 		EditDialogComponentFactory editDialogComponentFactory
 	) {
-		super(desktopPane, CLASS_NAME + "s", editDialogComponentFactory);
+		super(desktopPane, CLASS_NAME, editDialogComponentFactory);
 		this.rollePunkService = rollePunkService;
 		this.punkService = punkService;
 		this.rolleService = rolleService;

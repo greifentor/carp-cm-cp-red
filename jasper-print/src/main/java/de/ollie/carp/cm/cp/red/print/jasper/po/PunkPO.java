@@ -1,6 +1,6 @@
 package de.ollie.carp.cm.cp.red.print.jasper.po;
 
-import java.util.Vector;
+import java.util.List;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
@@ -32,7 +32,7 @@ public class PunkPO {
 	private String empathie;
 	private String geschicklichkeit;
 	private String feinde;
-	private Vector<FertigkeitPO> fertigkeiten;
+	private List<FertigkeitPO> fertigkeiten;
 	private String freunde;
 	private String glueck;
 	private String hintergrund;

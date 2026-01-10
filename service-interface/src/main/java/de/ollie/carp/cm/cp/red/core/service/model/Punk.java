@@ -16,7 +16,14 @@ import lombok.experimental.Accessors;
 public class Punk {
 
 	private UUID id;
+	private String feinde;
+	private String freunde;
+	private String hintergrund;
+	private String liebschaften;
+	private String motivation;
 	private String name;
 	private Panzerung panzerungKoerper;
 	private Panzerung panzerungKopf;
+	private String persoenlichkeit;
+	private String ziele;
 }

@@ -15,7 +15,18 @@ import lombok.Generated;
  */
 @Generated
 public interface PunkService {
-	Punk createPunk(String name, Panzerung panzerungKoerper, Panzerung panzerungKopf);
+	Punk createPunk(
+		String feinde,
+		String freunde,
+		String hintergrund,
+		String liebschaften,
+		String motivation,
+		String name,
+		Panzerung panzerungKoerper,
+		Panzerung panzerungKopf,
+		String persoenlichkeit,
+		String ziele
+	);
 
 	void deletePunk(UUID id);
 

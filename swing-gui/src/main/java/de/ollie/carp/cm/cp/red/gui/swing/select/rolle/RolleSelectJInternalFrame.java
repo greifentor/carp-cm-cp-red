@@ -30,7 +30,7 @@ public class RolleSelectJInternalFrame extends AbstractSelectJInternalFrame<Roll
 		JDesktopPane desktopPane,
 		EditDialogComponentFactory editDialogComponentFactory
 	) {
-		super(desktopPane, CLASS_NAME + "s", editDialogComponentFactory);
+		super(desktopPane, CLASS_NAME, editDialogComponentFactory);
 		this.rolleService = rolleService;
 		this.fertigkeitService = fertigkeitService;
 		finishConstruct();

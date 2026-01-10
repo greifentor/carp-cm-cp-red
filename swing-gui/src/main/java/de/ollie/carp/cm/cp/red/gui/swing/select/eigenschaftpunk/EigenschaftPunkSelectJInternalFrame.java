@@ -35,7 +35,7 @@ public class EigenschaftPunkSelectJInternalFrame
 		JDesktopPane desktopPane,
 		EditDialogComponentFactory editDialogComponentFactory
 	) {
-		super(desktopPane, CLASS_NAME + "s", editDialogComponentFactory);
+		super(desktopPane, CLASS_NAME, editDialogComponentFactory);
 		this.eigenschaftPunkService = eigenschaftPunkService;
 		this.punkService = punkService;
 		this.eigenschaftService = eigenschaftService;

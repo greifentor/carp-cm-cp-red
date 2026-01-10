@@ -27,7 +27,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Vector;
 import lombok.RequiredArgsConstructor;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperExportManager;
@@ -94,12 +93,18 @@ class JasperPrintAdapter implements PrintPort {
 			.setCyberware3Name(cyberware.get(3).getCyberware().getName())
 			.setEmpathie("" + eigenschaften.get("EMP"))
 			.setFertigkeiten(getFertigkeiten(punk))
+			.setFreunde(punk.getFreunde())
+			.setFeinde(punk.getFeinde())
 			.setGeschicklichkeit("" + eigenschaften.get("GES"))
 			.setGlueck("" + eigenschaften.get("GLK"))
+			.setHintergrund(punk.getHintergrund())
 			.setIntelligenz("" + eigenschaften.get("INT"))
 			.setKraft("" + eigenschaften.get("KRA"))
+			.setLiebschaften(punk.getLiebschaften())
+			.setMotivation(punk.getMotivation())
 			.setName(punk.getName())
 			.setPanzerung(getPanzerung(punk))
+			.setPersoenlichkeit(punk.getPersoenlichkeit())
 			.setReflexe("" + eigenschaften.get("REF"))
 			.setSchwerVerwundet("" + tpService.getSchwertVerwundet(kraft))
 			.setSwKoerper(punk.getPanzerungKoerper() != null ? "" + punk.getPanzerungKoerper().getSw() : null)
@@ -114,7 +119,8 @@ class JasperPrintAdapter implements PrintPort {
 			.setWaffe2Schaden(waffen.get(2).getWaffe().getSchaden())
 			.setWaffe3Name(waffen.get(3).getWaffe().getName())
 			.setWaffe3Schaden(waffen.get(3).getWaffe().getSchaden())
-			.setWille("" + eigenschaften.get("WIL"));
+			.setWille("" + eigenschaften.get("WIL"))
+			.setZiele(punk.getZiele());
 	}
 
 	private List<AusruestungsgegenstandPunk> getAusruestungsgegenstaende(Punk punk) {
@@ -158,8 +164,8 @@ class JasperPrintAdapter implements PrintPort {
 		return m;
 	}
 
-	private Vector<FertigkeitPO> getFertigkeiten(Punk punk) {
-		Vector<FertigkeitPO> v = new Vector<>();
+	private List<FertigkeitPO> getFertigkeiten(Punk punk) {
+		List<FertigkeitPO> v = new ArrayList<>();
 		fertigkeitPunkService
 			.findAllByPunk(punk)
 			.forEach(fp ->

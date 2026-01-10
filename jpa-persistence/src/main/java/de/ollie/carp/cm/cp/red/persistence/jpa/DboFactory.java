@@ -55,8 +55,8 @@ public class DboFactory {
 	private final EigenschaftPunkDboRepository eigenschaftPunkDboRepository;
 	private final FertigkeitDboRepository fertigkeitDboRepository;
 	private final FertigkeitPunkDboRepository fertigkeitPunkDboRepository;
-	private final PunkDboRepository punkDboRepository;
 	private final PanzerungDboRepository panzerungDboRepository;
+	private final PunkDboRepository punkDboRepository;
 	private final RolleDboRepository rolleDboRepository;
 	private final RollePunkDboRepository rollePunkDboRepository;
 	private final WaffeDboRepository waffeDboRepository;
@@ -156,22 +156,54 @@ public class DboFactory {
 			.setId(uuidFactory.create());
 	}
 
-	public PunkDbo createPunk(String name, UUID panzerungKoerperId, UUID panzerungKopfId) {
-		ensure(name != null, "name cannot be null!");
-		ensure(!name.isBlank(), "name cannot be blank!");
-		PanzerungDbo panzerungKoerperDbo = panzerungDboRepository.findById(panzerungKoerperId).orElse(null);
-		PanzerungDbo panzerungKopfDbo = panzerungDboRepository.findById(panzerungKopfId).orElse(null);
-		return new PunkDbo()
-			.setName(name)
-			.setPanzerungKoerper(panzerungKoerperDbo)
-			.setPanzerungKopf(panzerungKopfDbo)
-			.setId(uuidFactory.create());
-	}
-
 	public PanzerungDbo createPanzerung(boolean koerperpanzerung, String name, int sw) {
 		ensure(name != null, "name cannot be null!");
 		ensure(!name.isBlank(), "name cannot be blank!");
 		return new PanzerungDbo().setKoerperpanzerung(koerperpanzerung).setName(name).setSw(sw).setId(uuidFactory.create());
+	}
+
+	public PunkDbo createPunk(
+		String feinde,
+		String freunde,
+		String hintergrund,
+		String liebschaften,
+		String motivation,
+		String name,
+		UUID panzerungKoerperId,
+		UUID panzerungKopfId,
+		String persoenlichkeit,
+		String ziele
+	) {
+		ensure(feinde != null, "feinde cannot be null!");
+		ensure(!feinde.isBlank(), "feinde cannot be blank!");
+		ensure(freunde != null, "freunde cannot be null!");
+		ensure(!freunde.isBlank(), "freunde cannot be blank!");
+		ensure(hintergrund != null, "hintergrund cannot be null!");
+		ensure(!hintergrund.isBlank(), "hintergrund cannot be blank!");
+		ensure(liebschaften != null, "liebschaften cannot be null!");
+		ensure(!liebschaften.isBlank(), "liebschaften cannot be blank!");
+		ensure(motivation != null, "motivation cannot be null!");
+		ensure(!motivation.isBlank(), "motivation cannot be blank!");
+		ensure(name != null, "name cannot be null!");
+		ensure(!name.isBlank(), "name cannot be blank!");
+		ensure(persoenlichkeit != null, "persoenlichkeit cannot be null!");
+		ensure(!persoenlichkeit.isBlank(), "persoenlichkeit cannot be blank!");
+		ensure(ziele != null, "ziele cannot be null!");
+		ensure(!ziele.isBlank(), "ziele cannot be blank!");
+		PanzerungDbo panzerungKoerperDbo = panzerungDboRepository.findById(panzerungKoerperId).orElse(null);
+		PanzerungDbo panzerungKopfDbo = panzerungDboRepository.findById(panzerungKopfId).orElse(null);
+		return new PunkDbo()
+			.setFeinde(feinde)
+			.setFreunde(freunde)
+			.setHintergrund(hintergrund)
+			.setLiebschaften(liebschaften)
+			.setMotivation(motivation)
+			.setName(name)
+			.setPanzerungKoerper(panzerungKoerperDbo)
+			.setPanzerungKopf(panzerungKopfDbo)
+			.setPersoenlichkeit(persoenlichkeit)
+			.setZiele(ziele)
+			.setId(uuidFactory.create());
 	}
 
 	public RolleDbo createRolle(String name, UUID rollenfertigkeitId) {

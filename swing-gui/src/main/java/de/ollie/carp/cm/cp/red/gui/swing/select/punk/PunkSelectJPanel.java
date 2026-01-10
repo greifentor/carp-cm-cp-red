@@ -38,13 +38,11 @@ public class PunkSelectJPanel extends AbstractSelectJPanel<Punk> implements Sele
 
 	@Override
 	protected AbstractSelectionTableModel<Punk> createSelectionModel() {
-		return new AbstractSelectionTableModel<Punk>(getObjectsToSelect(), "Name", "Panzerung Kopf", "Panzerung Koerper") {
+		return new AbstractSelectionTableModel<Punk>(getObjectsToSelect(), "Name") {
 			@Override
 			protected Object getColumnValueFor(Punk t, int columnIndex) {
 				return switch (columnIndex) {
 					case 0 -> t.getName();
-					case 1 -> (t.getPanzerungKopf() != null ? t.getPanzerungKopf().getName() : "-");
-					case 2 -> (t.getPanzerungKoerper() != null ? t.getPanzerungKoerper().getName() : "-");
 					default -> null;
 				};
 			}

@@ -30,7 +30,7 @@ public class WaffeSelectJInternalFrame extends AbstractSelectJInternalFrame<Waff
 		JDesktopPane desktopPane,
 		EditDialogComponentFactory editDialogComponentFactory
 	) {
-		super(desktopPane, CLASS_NAME + "s", editDialogComponentFactory);
+		super(desktopPane, CLASS_NAME, editDialogComponentFactory);
 		this.waffeService = waffeService;
 		this.fertigkeitService = fertigkeitService;
 		finishConstruct();

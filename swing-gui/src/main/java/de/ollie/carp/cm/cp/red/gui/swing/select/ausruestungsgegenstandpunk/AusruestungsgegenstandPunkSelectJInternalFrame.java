@@ -35,7 +35,7 @@ public class AusruestungsgegenstandPunkSelectJInternalFrame
 		JDesktopPane desktopPane,
 		EditDialogComponentFactory editDialogComponentFactory
 	) {
-		super(desktopPane, CLASS_NAME + "s", editDialogComponentFactory);
+		super(desktopPane, CLASS_NAME, editDialogComponentFactory);
 		this.ausruestungsgegenstandPunkService = ausruestungsgegenstandPunkService;
 		this.punkService = punkService;
 		this.ausruestungsgegenstandService = ausruestungsgegenstandService;

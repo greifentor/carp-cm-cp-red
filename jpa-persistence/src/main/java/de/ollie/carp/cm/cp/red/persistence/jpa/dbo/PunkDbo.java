@@ -28,6 +28,21 @@ public class PunkDbo {
 	@Column(name = "ID", nullable = false)
 	private UUID id;
 
+	@Column(name = "FEINDE", nullable = false)
+	private String feinde;
+
+	@Column(name = "FREUNDE", nullable = false)
+	private String freunde;
+
+	@Column(name = "HINTERGRUND", nullable = false)
+	private String hintergrund;
+
+	@Column(name = "LIEBSCHAFTEN", nullable = false)
+	private String liebschaften;
+
+	@Column(name = "MOTIVATION", nullable = false)
+	private String motivation;
+
 	@Column(name = "NAME", nullable = false)
 	private String name;
 
@@ -38,4 +53,10 @@ public class PunkDbo {
 	@JoinColumn(name = "PANZERUNG_KOPF", referencedColumnName = "ID", nullable = true)
 	@ManyToOne(fetch = FetchType.EAGER)
 	private PanzerungDbo panzerungKopf;
+
+	@Column(name = "PERSOENLICHKEIT", nullable = false)
+	private String persoenlichkeit;
+
+	@Column(name = "ZIELE", nullable = false)
+	private String ziele;
 }

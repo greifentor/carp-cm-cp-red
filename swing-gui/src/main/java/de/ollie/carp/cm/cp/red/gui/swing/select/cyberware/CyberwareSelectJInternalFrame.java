@@ -29,7 +29,7 @@ public class CyberwareSelectJInternalFrame
 		JDesktopPane desktopPane,
 		EditDialogComponentFactory editDialogComponentFactory
 	) {
-		super(desktopPane, CLASS_NAME + "s", editDialogComponentFactory);
+		super(desktopPane, CLASS_NAME, editDialogComponentFactory);
 		this.cyberwareService = cyberwareService;
 		finishConstruct();
 	}

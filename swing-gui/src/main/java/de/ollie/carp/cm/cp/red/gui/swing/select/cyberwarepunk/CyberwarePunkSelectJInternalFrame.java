@@ -35,7 +35,7 @@ public class CyberwarePunkSelectJInternalFrame
 		JDesktopPane desktopPane,
 		EditDialogComponentFactory editDialogComponentFactory
 	) {
-		super(desktopPane, CLASS_NAME + "s", editDialogComponentFactory);
+		super(desktopPane, CLASS_NAME, editDialogComponentFactory);
 		this.cyberwarePunkService = cyberwarePunkService;
 		this.punkService = punkService;
 		this.cyberwareService = cyberwareService;

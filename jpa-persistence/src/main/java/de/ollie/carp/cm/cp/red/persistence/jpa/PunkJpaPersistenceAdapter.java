@@ -31,9 +31,33 @@ class PunkPersistenceJpaAdapter implements PunkPersistencePort {
 	private final PunkDboRepository repository;
 
 	@Override
-	public Punk create(String name, Panzerung panzerungKoerper, Panzerung panzerungKopf) {
+	public Punk create(
+		String feinde,
+		String freunde,
+		String hintergrund,
+		String liebschaften,
+		String motivation,
+		String name,
+		Panzerung panzerungKoerper,
+		Panzerung panzerungKopf,
+		String persoenlichkeit,
+		String ziele
+	) {
 		return mapper.toModel(
-			repository.save(dboFactory.createPunk(name, panzerungKoerper.getId(), panzerungKopf.getId()))
+			repository.save(
+				dboFactory.createPunk(
+					feinde,
+					freunde,
+					hintergrund,
+					liebschaften,
+					motivation,
+					name,
+					panzerungKoerper.getId(),
+					panzerungKopf.getId(),
+					persoenlichkeit,
+					ziele
+				)
+			)
 		);
 	}
 

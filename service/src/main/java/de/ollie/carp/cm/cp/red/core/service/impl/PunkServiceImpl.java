@@ -25,8 +25,30 @@ class PunkServiceImpl implements PunkService {
 	private final PunkPersistencePort punkPersistencePort;
 
 	@Override
-	public Punk createPunk(String name, Panzerung panzerungKoerper, Panzerung panzerungKopf) {
-		return punkPersistencePort.create(name, panzerungKoerper, panzerungKopf);
+	public Punk createPunk(
+		String feinde,
+		String freunde,
+		String hintergrund,
+		String liebschaften,
+		String motivation,
+		String name,
+		Panzerung panzerungKoerper,
+		Panzerung panzerungKopf,
+		String persoenlichkeit,
+		String ziele
+	) {
+		return punkPersistencePort.create(
+			feinde,
+			freunde,
+			hintergrund,
+			liebschaften,
+			motivation,
+			name,
+			panzerungKoerper,
+			panzerungKopf,
+			persoenlichkeit,
+			ziele
+		);
 	}
 
 	@Override

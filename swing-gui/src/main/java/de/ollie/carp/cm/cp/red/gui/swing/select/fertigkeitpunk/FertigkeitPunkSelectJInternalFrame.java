@@ -35,7 +35,7 @@ public class FertigkeitPunkSelectJInternalFrame
 		JDesktopPane desktopPane,
 		EditDialogComponentFactory editDialogComponentFactory
 	) {
-		super(desktopPane, CLASS_NAME + "s", editDialogComponentFactory);
+		super(desktopPane, CLASS_NAME, editDialogComponentFactory);
 		this.fertigkeitPunkService = fertigkeitPunkService;
 		this.punkService = punkService;
 		this.fertigkeitService = fertigkeitService;

@@ -35,7 +35,7 @@ public class WaffePunkSelectJInternalFrame
 		JDesktopPane desktopPane,
 		EditDialogComponentFactory editDialogComponentFactory
 	) {
-		super(desktopPane, CLASS_NAME + "s", editDialogComponentFactory);
+		super(desktopPane, CLASS_NAME, editDialogComponentFactory);
 		this.waffePunkService = waffePunkService;
 		this.punkService = punkService;
 		this.waffeService = waffeService;

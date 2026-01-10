@@ -200,6 +200,29 @@
         <addForeignKeyConstraint baseColumnNames="CYBERWARE" baseTableName="CYBERWARE_PUNK" constraintName="FK_CYBERWARE_PUNK_CYBERWARE_TO_CYBERWARE" referencedColumnNames="ID" referencedTableName="CYBERWARE"/>
         <addForeignKeyConstraint baseColumnNames="PUNK" baseTableName="CYBERWARE_PUNK" constraintName="FK_CYBERWARE_PUNK_PUNK_TO_PUNK" referencedColumnNames="ID" referencedTableName="PUNK"/>
     </changeSet>
+    <changeSet author="dm-comp" id="Add-Background-Fields-to-PUNK-Table" failOnError="true" runInTransaction="true">
+        <addColumn tableName="PUNK">
+            <column name="LIEBSCHAFTEN" type="LONGVARCHAR" defaultValue=""/>
+        </addColumn>
+        <addColumn tableName="PUNK">
+            <column name="FEINDE" type="LONGVARCHAR" defaultValue=""/>
+        </addColumn>
+        <addColumn tableName="PUNK">
+            <column name="FREUNDE" type="LONGVARCHAR" defaultValue=""/>
+        </addColumn>
+        <addColumn tableName="PUNK">
+            <column name="HINTERGRUND" type="LONGVARCHAR" defaultValue=""/>
+        </addColumn>
+        <addColumn tableName="PUNK">
+            <column name="PERSOENLICHKEIT" type="LONGVARCHAR" defaultValue=""/>
+        </addColumn>
+        <addColumn tableName="PUNK">
+            <column name="ZIELE" type="LONGVARCHAR" defaultValue=""/>
+        </addColumn>
+        <addColumn tableName="PUNK">
+            <column name="MOTIVATION" type="LONGVARCHAR" defaultValue=""/>
+        </addColumn>
+    </changeSet>
 
 </databaseChangeLog>
 

@@ -22,7 +22,7 @@ public class PunkSelectJInternalFrame extends AbstractSelectJInternalFrame<Punk>
 		JDesktopPane desktopPane,
 		EditDialogComponentFactory editDialogComponentFactory
 	) {
-		super(desktopPane, CLASS_NAME + "s", editDialogComponentFactory);
+		super(desktopPane, CLASS_NAME, editDialogComponentFactory);
 		this.punkService = punkService;
 		this.panzerungService = panzerungService;
 		finishConstruct();
