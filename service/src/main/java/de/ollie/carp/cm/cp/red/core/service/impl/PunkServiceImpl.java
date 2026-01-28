@@ -35,6 +35,9 @@ class PunkServiceImpl implements PunkService {
 		Panzerung panzerungKoerper,
 		Panzerung panzerungKopf,
 		String persoenlichkeit,
+		int euroBar,
+		int euroKonto,
+		int lpOffen,
 		String ziele
 	) {
 		return punkPersistencePort.create(
@@ -47,6 +50,9 @@ class PunkServiceImpl implements PunkService {
 			panzerungKoerper,
 			panzerungKopf,
 			persoenlichkeit,
+			euroBar,
+			euroKonto,
+			lpOffen,
 			ziele
 		);
 	}

@@ -172,6 +172,9 @@ public class DboFactory {
 		UUID panzerungKoerperId,
 		UUID panzerungKopfId,
 		String persoenlichkeit,
+		int euroBar,
+		int euroKonto,
+		int lpOffen,
 		String ziele
 	) {
 		ensure(feinde != null, "feinde cannot be null!");
@@ -202,6 +205,9 @@ public class DboFactory {
 			.setPanzerungKoerper(panzerungKoerperDbo)
 			.setPanzerungKopf(panzerungKopfDbo)
 			.setPersoenlichkeit(persoenlichkeit)
+			.setEuroBar(euroBar)
+			.setEuroKonto(euroKonto)
+			.setLpOffen(lpOffen)
 			.setZiele(ziele)
 			.setId(uuidFactory.create());
 	}

@@ -27,6 +27,9 @@ public interface PunkPersistencePort {
 		Panzerung panzerungKoerper,
 		Panzerung panzerungKopf,
 		String persoenlichkeit,
+		int euroBar,
+		int euroKonto,
+		int lpOffen,
 		String ziele
 	);
 

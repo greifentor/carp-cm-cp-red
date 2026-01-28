@@ -223,6 +223,23 @@
             <column name="MOTIVATION" type="LONGVARCHAR" defaultValue=""/>
         </addColumn>
     </changeSet>
+    <changeSet author="dm-comp" id="Add-Euro-and-LP-Fields-to-PUNK-Table" failOnError="true" runInTransaction="true">
+        <addColumn tableName="PUNK">
+            <column name="EURO_KONTO" type="BIGINT" defaultValue="0">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+        <addColumn tableName="PUNK">
+            <column name="EURO_BAR" type="BIGINT" defaultValue="0">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+        <addColumn tableName="PUNK">
+            <column name="LP_OFFEN" type="INTEGER" defaultValue="0">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
 
 </databaseChangeLog>
 

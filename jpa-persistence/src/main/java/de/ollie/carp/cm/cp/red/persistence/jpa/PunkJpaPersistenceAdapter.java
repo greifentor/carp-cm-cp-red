@@ -41,6 +41,9 @@ class PunkPersistenceJpaAdapter implements PunkPersistencePort {
 		Panzerung panzerungKoerper,
 		Panzerung panzerungKopf,
 		String persoenlichkeit,
+		int euroBar,
+		int euroKonto,
+		int lpOffen,
 		String ziele
 	) {
 		return mapper.toModel(
@@ -55,6 +58,9 @@ class PunkPersistenceJpaAdapter implements PunkPersistencePort {
 					panzerungKoerper.getId(),
 					panzerungKopf.getId(),
 					persoenlichkeit,
+					euroBar,
+					euroKonto,
+					lpOffen,
 					ziele
 				)
 			)

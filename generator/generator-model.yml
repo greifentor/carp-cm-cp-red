@@ -422,6 +422,30 @@ classes:
             value: 9
         type:
           name: String
+      - name: euroBar
+        properties:
+          - name: nullable
+            value: false
+          - name: editor-position
+            value: 10
+        type:
+          name: int
+      - name: euroKonto
+        properties:
+          - name: nullable
+            value: false
+          - name: editor-position
+            value: 11
+        type:
+          name: int
+      - name: lpOffen
+        properties:
+          - name: nullable
+            value: false
+          - name: editor-position
+            value: 12
+        type:
+          name: int
       - name: ziele
         properties:
           - name: nullable

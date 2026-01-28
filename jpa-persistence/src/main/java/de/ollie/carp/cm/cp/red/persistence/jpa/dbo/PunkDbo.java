@@ -57,6 +57,15 @@ public class PunkDbo {
 	@Column(name = "PERSOENLICHKEIT", nullable = false)
 	private String persoenlichkeit;
 
+	@Column(name = "EURO_BAR", nullable = false)
+	private int euroBar;
+
+	@Column(name = "EURO_KONTO", nullable = false)
+	private int euroKonto;
+
+	@Column(name = "LP_OFFEN", nullable = false)
+	private int lpOffen;
+
 	@Column(name = "ZIELE", nullable = false)
 	private String ziele;
 }

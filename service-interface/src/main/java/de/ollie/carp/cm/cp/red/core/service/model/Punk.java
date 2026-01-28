@@ -25,5 +25,8 @@ public class Punk {
 	private Panzerung panzerungKoerper;
 	private Panzerung panzerungKopf;
 	private String persoenlichkeit;
+	private int euroBar;
+	private int euroKonto;
+	private int lpOffen;
 	private String ziele;
 }
