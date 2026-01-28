@@ -13,7 +13,9 @@ import java.util.Map;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSpinner;
 import javax.swing.JTextField;
+import javax.swing.SpinnerNumberModel;
 
 public class PunkEditJPanel extends AbstractEditPanel<Punk> {
 
@@ -29,6 +31,9 @@ public class PunkEditJPanel extends AbstractEditPanel<Punk> {
 	private JTextField textFieldFeinde;
 	private JTextField textFieldLiebschaften;
 	private JTextField textFieldPersoenlichkeit;
+	private JSpinner spinnerEuroBar;
+	private JSpinner spinnerEuroKonto;
+	private JSpinner spinnerLpOffen;
 
 	public PunkEditJPanel(Punk toEdit, Map<String, ItemProvider<?>> itemProviders) {
 		super(toEdit, itemProviders);
@@ -46,13 +51,16 @@ public class PunkEditJPanel extends AbstractEditPanel<Punk> {
 			"Freunde:",
 			"Feinde:",
 			"Liebschaften:",
-			"Persoenlichkeit:"
+			"Persoenlichkeit:",
+			"Euro (bar):",
+			"Euro (Konto):",
+			"LP (offen):"
 		);
 	}
 
 	@Override
 	protected JPanel createComponentPanel(Punk toEdit, Map<String, ItemProvider<?>> itemProviders) {
-		JPanel p = new JPanel(new GridLayout(10, 1, HGAP, VGAP));
+		JPanel p = new JPanel(new GridLayout(13, 1, HGAP, VGAP));
 		textFieldName = new JTextField(toEdit.getName(), 40);
 		p.add(textFieldName);
 		List<Panzerung> listPanzerungKopf =
@@ -92,6 +100,13 @@ public class PunkEditJPanel extends AbstractEditPanel<Punk> {
 		p.add(textFieldLiebschaften);
 		textFieldPersoenlichkeit = new JTextField(toEdit.getPersoenlichkeit(), 40);
 		p.add(textFieldPersoenlichkeit);
+		spinnerEuroBar = new JSpinner(new SpinnerNumberModel(toEdit.getEuroBar(), 0, Integer.MAX_VALUE, 1));
+		p.add(spinnerEuroBar);
+		spinnerEuroKonto =
+			new JSpinner(new SpinnerNumberModel(toEdit.getEuroKonto(), Integer.MIN_VALUE, Integer.MAX_VALUE, 1));
+		p.add(spinnerEuroKonto);
+		spinnerLpOffen = new JSpinner(new SpinnerNumberModel(toEdit.getLpOffen(), 0, Integer.MAX_VALUE, 1));
+		p.add(spinnerLpOffen);
 		return p;
 	}
 
@@ -108,6 +123,9 @@ public class PunkEditJPanel extends AbstractEditPanel<Punk> {
 			.setFreunde(textFieldFreunde.getText())
 			.setFeinde(textFieldFeinde.getText())
 			.setLiebschaften(textFieldLiebschaften.getText())
-			.setPersoenlichkeit(textFieldPersoenlichkeit.getText());
+			.setPersoenlichkeit(textFieldPersoenlichkeit.getText())
+			.setEuroBar(((Number) spinnerEuroBar.getValue()).intValue())
+			.setEuroKonto(((Number) spinnerEuroKonto.getValue()).intValue())
+			.setLpOffen(((Number) spinnerLpOffen.getValue()).intValue());
 	}
 }
