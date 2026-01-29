@@ -30,6 +30,8 @@ public class PunkPO {
 	private String cyberware3Beschreibung;
 	private String cyberware3Name;
 	private String empathie;
+	private String euroBar;
+	private String euroKonto;
 	private String geschicklichkeit;
 	private String feinde;
 	private List<FertigkeitPO> fertigkeiten;
@@ -39,6 +41,7 @@ public class PunkPO {
 	private String intelligenz;
 	private String kraft;
 	private String liebschaften;
+	private String lpOffen;
 	private String motivation;
 	private String name;
 	private String panzerung;

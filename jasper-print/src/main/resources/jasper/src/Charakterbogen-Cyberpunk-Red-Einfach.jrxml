@@ -25,6 +25,8 @@
 	<field name="cyberware3Name" class="java.lang.String"/>
 	<field name="cyberware3Beschreibung" class="java.lang.String"/>
 	<field name="empathie" class="java.lang.String"/>
+	<field name="euroBar" class="java.lang.String"/>
+	<field name="euroKonto" class="java.lang.String"/>
 	<field name="geschicklichkeit" class="java.lang.String"/>
 	<field name="feinde" class="java.lang.String"/>
 	<field name="fertigkeiten" class="java.util.List"/>
@@ -34,6 +36,7 @@
 	<field name="intelligenz" class="java.lang.String"/>
 	<field name="kraft" class="java.lang.String"/>
 	<field name="liebschaften" class="java.lang.String"/>
+	<field name="lpOffen" class="java.lang.String"/>
 	<field name="motivation" class="java.lang.String"/>
 	<field name="name" class="java.lang.String"/>
 	<field name="panzerung" class="java.lang.String"/>
@@ -185,20 +188,31 @@
 				<textFieldExpression><![CDATA[$F{anfaenglicheTP} + " - "]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="138" y="174" width="157" height="13" uuid="ced0180e-fba6-4e53-9cf9-908dad4def95">
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				<reportElement x="138" y="174" width="88" height="14" uuid="ced0180e-fba6-4e53-9cf9-908dad4def95">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="9" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{schwerVerwundet}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="301" y="174" width="157" height="13" uuid="f668bf5a-d4a2-47f8-b69c-2b9e9014c682">
+				<reportElement x="229" y="174" width="88" height="14" uuid="f668bf5a-d4a2-47f8-b69c-2b9e9014c682">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="9" isBold="true"/>
 				</textElement>
@@ -480,6 +494,57 @@
 				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{fertigkeiten})]]></dataSourceExpression>
 				<subreportExpression><![CDATA["./jasper-print/src/main/resources/jasper/src/Fertigkeiten.jasper"]]></subreportExpression>
 			</subreport>
+			<textField>
+				<reportElement x="326" y="174" width="44" height="14" uuid="7a33e8a7-85ea-4707-abcd-e1c2fabbe822">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lpOffen}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="468" y="145" width="50" height="14" uuid="c76a3810-783c-472a-a1af-c0886e5366b8">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{euroBar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="468" y="161" width="50" height="14" uuid="869fb668-ec17-42a6-a6d6-97d9a3eb7f52">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{euroKonto}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 </jasperReport>
